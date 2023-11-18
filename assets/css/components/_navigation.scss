@@ -1,0 +1,30 @@
+// @import "../common/_fonts";
+
+.navigation {
+   display: flex;
+   justify-content: space-between;
+
+   padding-top: 20px;
+   padding-bottom: 20px;
+   @media (max-width: 899.98px) {
+      display: none;
+   }
+}
+
+.navigation__link {
+   color: #1d1d1d;
+   text-align: center;
+   font-family: $TTNormsMedium;
+   font-size: 14px;
+   //    font-style: normal;
+   //    font-weight: 500;
+   line-height: 20px; /* 142.857% */
+   letter-spacing: 0.056px;
+
+   cursor: pointer;
+
+   transition: 0.25s ease-in-out;
+   &:hover {
+      color: $red;
+   }
+}

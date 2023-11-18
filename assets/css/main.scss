@@ -1,0 +1,15 @@
+@import "common/_reset";
+
+//!================ Общие стили =================
+.container {
+   width: 100%;
+   max-width: 1265px;
+   margin: 0 auto;
+
+   @media (max-width: 1300px) {
+      padding: 0 25px;
+   }
+}
+//!=================================
+
+@import "_components";

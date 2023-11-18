@@ -1,0 +1,58 @@
+// @import "../common/_fonts";
+.contacts {
+   background: #333;
+
+   padding-top: 12px;
+   padding-bottom: 12px;
+   * {
+      transition: 0.25s ease-in-out;
+   }
+}
+
+.contacts__wrapper,
+.contacts__wrapper-links {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.contacts__wrapper-link {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+
+   color: #fff;
+   font-family: $TTNorms;
+   font-size: 14px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 20px; /* 142.857% */
+
+   cursor: pointer;
+   &:hover {
+      opacity: 0.7;
+   }
+   //    &:hover {
+   //       color: rgba(255, 255, 255, 0.7);
+   //    }
+}
+
+.contacts__wrapper-link-icon {
+   max-width: 24px;
+   height: auto;
+}
+
+.contacts__wrapper-link_spacing {
+   margin: 0 10px;
+}
+
+@media (max-width: 899.98px) {
+   //    .contacts__wrapper {
+   //       flex-wrap: wrap;
+
+   //       gap: 20px 20px;
+   //    }
+
+   .contacts {
+      display: none;
+   }
+}
