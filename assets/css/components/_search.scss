@@ -44,10 +44,12 @@
    }
 }
 .search__item-logo {
-   max-width: 145px;
-   height: auto;
+   width: fit-content;
+   height: 100%;
    img {
-      width: 100%;
+      width: 144px;
+      height: 72px;
+      //   width: 100%;
    }
 }
 

@@ -20,19 +20,19 @@ button {
 
    padding: 12px 24px;
 
-   min-width: fit-content;
-
+   
    text-align: center;
-
+   
    border-radius: 4px;
    border: 1.5px solid $red;
-
+   
    color: #fff;
    //    background: $red;
    background: transparent;
-
-   min-height: 48px;
-   height: fit-content;
+   
+   min-width: fit-content;
+   //    min-height: 40px;
+   //    height: fit-content;
    color: $red;
 
    &:hover {

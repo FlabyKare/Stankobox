@@ -396,11 +396,14 @@ input[type=number] {
 }
 
 .search__item-logo {
-  max-width: 145px;
-  height: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 100%;
 }
 .search__item-logo img {
-  width: 100%;
+  width: 144px;
+  height: 72px;
 }
 
 .serach__item-flex {

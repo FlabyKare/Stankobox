@@ -57,10 +57,30 @@ const isActive = ref(false);
 </script>
 
 <style lang="scss" scoped>
+.serach__item-flex {
+   height: 48px;
+
+   .serach__item-catalog,
+   .serach__item-input-wrapper,
+   .serach__item-input {
+      height: 100%;
+   }
+
+   @media (max-width: 575.98px) {
+      height: 40px;
+
+      .serach__item-input-lable {
+         svg {
+            width: 18px !important;
+            height: 18px !important;
+         }
+      }
+   }
+}
 .search__button {
    font-size: 14px;
 
-   width: 184px;
+   max-width: 184px;
    height: 48px;
 }
 </style>
