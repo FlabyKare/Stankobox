@@ -59,5 +59,8 @@ const isActive = ref(false);
 <style lang="scss" scoped>
 .search__button {
    font-size: 14px;
+
+   width: 184px;
+   height: 48px;
 }
 </style>

@@ -28,9 +28,9 @@
    line-height: 20px; /* 142.857% */
 
    cursor: pointer;
-   &:hover {
-      opacity: 0.7;
-   }
+   //    &:hover {
+   //   opacity: 0.7;
+   //    }
    //    &:hover {
    //       color: rgba(255, 255, 255, 0.7);
    //    }
@@ -54,5 +54,28 @@
 
    .contacts {
       display: none;
+   }
+}
+.mobile-contacts {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   padding-top: 20px;
+   padding-bottom: 20px;
+   &__link-logo {
+      max-width: 90px;
+      .mobile-contacts__link-logo-img {
+         width: 100%;
+      }
+   }
+}
+
+.mobile-contacts__link {
+   &:active,
+   &:hover {
+      path {
+         stroke: $red;
+      }
    }
 }

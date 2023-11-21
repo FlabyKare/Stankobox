@@ -25,18 +25,23 @@ button {
    text-align: center;
 
    border-radius: 4px;
-   border: 1.5px solid #e31335;
+   border: 1.5px solid $red;
 
    color: #fff;
-   background: #e31335;
+   //    background: $red;
+   background: transparent;
 
    min-height: 48px;
    height: fit-content;
+   color: $red;
 
    &:hover {
-      background: transparent;
-      opacity: 1;
-      color: #e31335;
+      color: $red;
+      border: 1.5px solid $red;
+
+      * {
+         color: $red;
+      }
    }
 }
 </style>

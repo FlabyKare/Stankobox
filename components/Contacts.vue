@@ -101,21 +101,30 @@
 <style lang="scss" scoped>
 .contacts__wrapper-button {
    border: 1.5px solid #fff;
-   background: transparent;
+   //    background: transparent;
+
+   color: #fff;
 
    &:hover {
-      background: #fff;
-      opacity: 1;
-      color: #333;
+      //   background: #fff;
+      //   opacity: 1;
+      //   color: #333;
    }
 }
-
+.contacts__wrapper-button {
+   height: 40px;
+   width: 138px;
+}
 .mobile-contacts {
    * {
       transition: 0.25s ease-in-out;
    }
    @media (min-width: 900px) {
       display: none;
+   }
+
+   @media (max-width: 575.98px) {
+      padding-bottom: 0;
    }
 }
 </style>
