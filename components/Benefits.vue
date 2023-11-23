@@ -4,7 +4,7 @@
          <li class="benefits__list-item">
             <img
                class="benefits__list-item-icon"
-               src="~/assets/img/icons/Benefits/quality.png"
+               src="~/assets/img/icons/Benefits/quality.svg"
                alt="Гарантия"
             />
 
@@ -16,7 +16,7 @@
          <li class="benefits__list-item">
             <img
                class="benefits__list-item-icon"
-               src="~/assets/img/icons/Benefits/transportation.png"
+               src="~/assets/img/icons/Benefits/transportation.svg"
                alt="Грузоперевозки"
             />
 
@@ -28,7 +28,7 @@
          <li class="benefits__list-item">
             <img
                class="benefits__list-item-icon"
-               src="~/assets/img/icons/Benefits/equipment.png"
+               src="~/assets/img/icons/Benefits/equipment.svg"
                alt="Все оборудование"
             />
 
@@ -40,7 +40,7 @@
          <li class="benefits__list-item">
             <img
                class="benefits__list-item-icon"
-               src="~/assets/img/icons/Benefits/professional-support.png"
+               src="~/assets/img/icons/Benefits/professional-support.svg"
                alt="Профессиональная помощь"
             />
 
@@ -71,7 +71,7 @@ const scrollX = (e) => {
       overflow-x: auto;
 
       scroll-behavior: smooth;
-    //   white-space: nowrap;
+      //   white-space: nowrap;
       overflow-x: auto;
       overflow-y: hidden;
       width: 100%;

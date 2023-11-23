@@ -2,9 +2,9 @@
    padding-top: 12px;
    padding-bottom: 12px;
 
-//    @media (max-width: 575.98px) {
-//       padding-top: 0;
-//    }
+   //    @media (max-width: 575.98px) {
+   //       padding-top: 0;
+   //    }
 }
 
 .filters__list {
@@ -28,7 +28,11 @@
 
       //   white-space: nowrap;
 
-      width: 184px;
+      @media (min-width: 1335px) {
+         min-width: 184px;
+         max-width: 184px;
+      }
+
       height: 72px;
 
       padding: 24px 8px;
@@ -46,7 +50,7 @@
          width: 100%;
       }
    }
-   @media (max-width: 1219.98px) {
+   @media (max-width: 1334.98px) {
       overflow-x: auto;
 
       gap: 16px;
@@ -87,5 +91,9 @@
             margin-top: -5px;
          }
       }
+   }
+
+   @media (min-width: 1335px) {
+      justify-content: center;
    }
 }

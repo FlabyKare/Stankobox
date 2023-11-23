@@ -51,7 +51,7 @@ const scrollX = (e) => {
 </script>
 
 <style lang="scss" scoped>
-@media (min-width: 1220px) {
+@media (min-width: 1335px) {
    .filters__list-item {
       position: relative;
 

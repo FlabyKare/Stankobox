@@ -64,9 +64,11 @@
    padding-top: 20px;
    padding-bottom: 20px;
    &__link-logo {
-      max-width: 90px;
+      width: 96px;
+      height: 48px;
       .mobile-contacts__link-logo-img {
          width: 100%;
+         height: 100%;
       }
    }
 }

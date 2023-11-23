@@ -303,10 +303,12 @@ input[type=number] {
   padding-bottom: 20px;
 }
 .mobile-contacts__link-logo {
-  max-width: 90px;
+  width: 96px;
+  height: 48px;
 }
 .mobile-contacts__link-logo .mobile-contacts__link-logo-img {
   width: 100%;
+  height: 100%;
 }
 
 .mobile-contacts__link:active path, .mobile-contacts__link:hover path {
@@ -354,7 +356,6 @@ input[type=number] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 40px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -369,6 +370,14 @@ input[type=number] {
   }
   .search .search__item-logo {
     display: none;
+  }
+}
+@media (min-width: 900px) {
+  .search .search__item-logo {
+    margin-right: 40px;
+  }
+  .search .search__button {
+    margin-left: 32px;
   }
 }
 @media (max-width: 767.98px) {
@@ -599,11 +608,16 @@ input[type=number] {
   -webkit-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.15);
           box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.15);
   cursor: pointer;
-  width: 184px;
   height: 72px;
   padding: 24px 8px;
   -webkit-transition: 0.25s ease-in-out;
   transition: 0.25s ease-in-out;
+}
+@media (min-width: 1335px) {
+  .filters__list-item {
+    min-width: 184px;
+    max-width: 184px;
+  }
 }
 .filters__list-item:hover {
   color: #e31335;
@@ -614,7 +628,7 @@ input[type=number] {
 .filters__list-item p {
   width: 100%;
 }
-@media (max-width: 1219.98px) {
+@media (max-width: 1334.98px) {
   .filters__list {
     overflow-x: auto;
     gap: 16px;
@@ -647,6 +661,13 @@ input[type=number] {
   .filters__list-item p {
     position: relative;
     margin-top: -5px;
+  }
+}
+@media (min-width: 1335px) {
+  .filters__list {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 
@@ -713,7 +734,7 @@ input[type=number] {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    margin-top: 30px;
+    margin-top: 24px;
   }
   .intro__info-title {
     font-size: 40px;
@@ -727,7 +748,7 @@ input[type=number] {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    margin-top: 30px;
+    margin-top: 24px;
     gap: 15px;
   }
   .intro__img {
@@ -762,7 +783,7 @@ input[type=number] {
     font-size: 12px;
     line-height: 16px;
     letter-spacing: 0.048px;
-    margin-top: 10px;
+    margin-top: 8px;
   }
 }
 .benefits {
@@ -782,7 +803,7 @@ input[type=number] {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  gap: 40px;
+  gap: 32px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -800,11 +821,9 @@ input[type=number] {
     max-width: 190px;
     height: 32px;
   }
-  .benefits__list .benefits__list-item {
-    gap: 8px;
-  }
   .benefits__list .benefits__list-item-icon {
-    width: 30px !important;
+    width: 32px !important;
+    height: 32px !important;
   }
 }
 
@@ -815,7 +834,7 @@ input[type=number] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 10px;
+  gap: 8px;
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
