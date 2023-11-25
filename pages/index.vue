@@ -6,6 +6,9 @@
    <Filters />
    <Intro />
    <Benefits />
+
+   <BasicEquipment />
+   <Partners />
 </template>
 
 <script>

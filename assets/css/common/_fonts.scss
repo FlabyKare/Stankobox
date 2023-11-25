@@ -29,3 +29,23 @@ $TTNormsMedium: "TTNormsMedium", sans-serif;
 $Montserrat: "Montserrat", sans-serif;
 
 $red: #c80122;
+@mixin scrollbar-styles {
+   overflow-y: hidden;
+   overflow-x: auto;
+   scroll-behavior: smooth;
+   &::-webkit-scrollbar {
+      border-radius: 10px;
+      background: #f3f2f4;
+      height: 4px;
+   }
+
+   &::-webkit-scrollbar-thumb {
+      border-radius: 8px;
+      background: #e31335;
+      cursor: pointer !important;
+   }
+
+   &::-webkit-scrollbar-button {
+      display: none;
+   }
+}
