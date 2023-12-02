@@ -9,6 +9,7 @@
 
    <BasicEquipment />
    <Partners />
+   <About />
 </template>
 
 <script>

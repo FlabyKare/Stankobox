@@ -6,13 +6,16 @@
    max-width: 1264px;
    margin: 0 auto;
 
+   padding-left: 12px;
+   padding-right: 12px;
+
    @media (max-width: 1300px) {
       padding: 0 24px;
    }
 }
 
 body {
-//    padding-bottom: 100px !important;
+   //    padding-bottom: 100px !important;
 }
 //!=================================
 

@@ -2,8 +2,12 @@
    width: 100%;
    border-radius: 20px 20px 0 0;
    background: #333;
-   padding: 40px 88px 60px;
-   margin-top: 100px;
+   //    padding: 40px 88px 60px;
+   padding: 40px 0 60px;
+
+   //    padding-left: 12px;
+   //    padding-right: 12px;
+   //    margin-top: 100px;
 
    * {
       transition: 0.25s ease-in-out;
@@ -16,7 +20,7 @@
    }
 
    .footer__list-container {
-      padding: 0;
+      //   padding: 0;
    }
 
    .footer__list {
@@ -100,6 +104,8 @@
       cursor: pointer;
       display: inline-block;
 
+      width: fit-content;
+
       &:hover {
          color: #7b7b7b;
       }
@@ -123,7 +129,7 @@
 //! Адаптация под мобильные устройства ( Создание аккордионов )
 @media (max-width: 834.98px) {
    .footer {
-      padding: 24px 24px 40px 24px;
+      padding: 24px 0 40px 0;
    }
    .footer__list_mobile-hidden {
       display: none !important;
@@ -224,6 +230,12 @@
          &:hover {
             color: #ff0a99 !important;
          }
+      }
+
+      .footer__list-column_payment-link {
+         color: #fff;
+         font-size: 12px;
+         line-height: 16px; /* 133.333% */
       }
    }
 }

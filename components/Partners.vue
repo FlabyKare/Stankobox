@@ -1,6 +1,6 @@
 <template>
    <section class="partners container">
-      <h2 class="partners__title defolt-title">Наши партнеры</h2>
+      <h2 class="partners__title little-defolt-title">Наши партнеры</h2>
 
       <ul class="partners__list" @wheel.prevent="scrollX" ref="scrollContainer">
          <!-- <li class="partners__list-item">
