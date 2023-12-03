@@ -3,13 +3,16 @@
    <Navigation />
    <hr />
    <Search />
-   <Filters />
-   <Intro />
-   <Benefits />
 
-   <BasicEquipment />
-   <Partners />
-   <About />
+   <main>
+      <Filters />
+      <Intro />
+      <Benefits />
+
+      <BasicEquipment />
+      <Partners />
+      <About />
+   </main>
 </template>
 
 <script>

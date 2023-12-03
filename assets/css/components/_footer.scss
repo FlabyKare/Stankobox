@@ -31,7 +31,8 @@
       margin-top: 32px;
       gap: 60px;
 
-      @media (min-width: 1060px) {
+      //   @media (min-width: 1060px) {
+      @media (min-width: 930px) {
          justify-content: space-between;
       }
    }
@@ -56,7 +57,7 @@
       .footer__list-column-item {
          * {
             color: rgba(255, 255, 255, 0.9);
-            text-align: center;
+            // text-align: center;
             font-family: $TTNorms;
             font-size: 14px;
             line-height: 20px;

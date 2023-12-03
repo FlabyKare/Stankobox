@@ -1213,7 +1213,7 @@ input[type=number] {
   margin-top: 32px;
   gap: 60px;
 }
-@media (min-width: 1060px) {
+@media (min-width: 930px) {
   .footer .footer__list {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
@@ -1238,7 +1238,6 @@ input[type=number] {
 }
 .footer .footer__list-column .footer__list-column-item * {
   color: rgba(255, 255, 255, 0.9);
-  text-align: center;
   font-family: "TTNorms", sans-serif;
   font-size: 14px;
   line-height: 20px;
