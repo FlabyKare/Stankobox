@@ -228,10 +228,14 @@ input[type=number] {
   width: 100%;
   max-width: 1264px;
   margin: 0 auto;
-  padding-left: 12px;
-  padding-right: 12px;
 }
-@media (max-width: 1300px) {
+@media (min-width: 1300px) and (max-width: 1375px) {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+@media (max-width: 1299.98px) {
   .container {
     padding: 0 24px;
   }
@@ -587,6 +591,12 @@ input[type=number] {
 .filters {
   padding-top: 12px;
   padding-bottom: 12px;
+  max-width: 1272px;
+}
+@media (min-width: 1335px) {
+  .filters {
+    margin-top: -17px;
+  }
 }
 
 .filters__list {
@@ -619,6 +629,13 @@ input[type=number] {
   .filters__list-item {
     min-width: 184px;
     max-width: 184px;
+  }
+  .filters__list-item p {
+    position: relative !important;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
   }
 }
 .filters__list-item:hover {
@@ -659,8 +676,8 @@ input[type=number] {
             box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.15);
   }
   .filters__list-item p {
-    position: relative;
-    margin-top: -5px;
+    position: relative !important;
+    margin-top: -5px !important;
   }
 }
 @media (min-width: 1335px) {
@@ -668,6 +685,10 @@ input[type=number] {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    padding-bottom: 12px !important;
+    padding-top: 12px !important;
+    -webkit-clip-path: unset !important;
+            clip-path: unset !important;
   }
 }
 
@@ -852,6 +873,13 @@ input[type=number] {
   max-width: 232px;
 }
 
+.benefits__list {
+  overflow-x: auto !important;
+}
+.benefits__list::-webkit-scrollbar, .benefits__list::-webkit-scrollbar-thumb, .benefits__list::-webkit-scrollbar-button {
+  display: none !important;
+}
+
 .equipments {
   margin-top: 80px;
 }
@@ -866,9 +894,9 @@ input[type=number] {
 }
 
 .equipments__categories {
-  margin-top: 20px;
+  margin-top: 20px !important;
   padding-bottom: 24px;
-  padding-top: 12px;
+  padding-top: 12px !important;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -882,6 +910,8 @@ input[type=number] {
   overflow-y: hidden;
   overflow-x: auto;
   scroll-behavior: smooth;
+  padding-bottom: 24px !important;
+  margin-bottom: -24px !important;
 }
 .equipments__categories * {
   cursor: pointer;
@@ -900,9 +930,55 @@ input[type=number] {
   display: none;
 }
 
+.v-hl-container {
+  scroll-behavior: inherit !important;
+}
+.v-hl-container * {
+  -webkit-user-select: none !important;
+     -moz-user-select: none !important;
+      -ms-user-select: none !important;
+          user-select: none !important;
+  pointer-events: none !important;
+}
+.v-hl-container.equipments__categories {
+  margin-top: 20px !important;
+  padding-bottom: 24px;
+  padding-top: 12px !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 32px;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-clip-path: unset !important;
+          clip-path: unset !important;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+.v-hl-container.equipments__categories::-webkit-scrollbar {
+  border-radius: 10px;
+  background: #f3f2f4;
+  height: 4px;
+}
+.v-hl-container.equipments__categories::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: #e31335;
+  cursor: pointer !important;
+}
+.v-hl-container.equipments__categories::-webkit-scrollbar-button {
+  display: none;
+}
+.v-hl-container.equipments__categories * {
+  cursor: pointer;
+}
+
 .equipments__categories-item:hover .equipments__categories-item-img-wrapper {
   -webkit-box-shadow: 0px 0px 11px 6px rgba(14, 31, 53, 0.16);
           box-shadow: 0px 0px 11px 6px rgba(14, 31, 53, 0.16);
+}
+.equipments__categories-item:hover .equipments__categories-item-img-wrapper * {
+  pointer-events: pointer;
 }
 
 .equipments__categories-item-img-wrapper {
@@ -938,9 +1014,9 @@ input[type=number] {
 
 @media (max-width: 575.98px) {
   .equipments__categories {
-    gap: 16px;
-    margin-top: 12px;
-    padding-bottom: 16px;
+    gap: 16px !important;
+    margin-top: 12px !important;
+    padding-bottom: 16px !important;
   }
   .defolt-title {
     font-size: 16px;
@@ -967,6 +1043,14 @@ input[type=number] {
     text-align: left;
   }
 }
+.filters__list {
+  overflow-x: hidden !important;
+}
+.filters__list * {
+  list-style: none;
+  pointer-events: all !important;
+}
+
 .partners {
   margin-top: 80px;
 }
@@ -1050,8 +1134,7 @@ input[type=number] {
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
   .partners__list {
-    margin-top: 24px !important;
-    padding-top: 0 !important;
+    padding-top: 4px !important;
     gap: 16px !important;
   }
   .partners__list-item {
@@ -1110,6 +1193,56 @@ input[type=number] {
   .partners__list .partners__list-item-img_4 {
     width: 88px;
     height: 28px;
+  }
+}
+
+.partners .vue-horizontal {
+  margin-top: 20px;
+}
+@media (max-width: 576px) and (max-width: 767.98px) {
+  .partners .vue-horizontal {
+    margin-top: 12px !important;
+  }
+}
+@media (max-width: 575.98px) {
+  .partners .vue-horizontal {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+.partners .partners__list {
+  margin-bottom: -24px !important;
+  padding-bottom: 24px !important;
+  padding-top: 12px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+  -webkit-clip-path: unset !important;
+          clip-path: unset !important;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  overflow-x: auto !important;
+}
+.partners .partners__list li {
+  list-style: none;
+}
+.partners .partners__list::-webkit-scrollbar {
+  border-radius: 10px;
+  background: #f3f2f4;
+  height: 4px;
+}
+.partners .partners__list::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: #e31335;
+  cursor: pointer !important;
+}
+.partners .partners__list::-webkit-scrollbar-button {
+  display: none;
+}
+@media (max-width: 575.98px) {
+  .partners .partners__list {
+    margin-top: 0 !important;
+    padding-top: 24px !important;
   }
 }
 

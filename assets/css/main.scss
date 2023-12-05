@@ -6,10 +6,12 @@
    max-width: 1264px;
    margin: 0 auto;
 
-   padding-left: 12px;
-   padding-right: 12px;
+   @media (min-width: 1300px) and (max-width: 1375px) {
+      padding-left: 12px;
+      padding-right: 12px;
+   }
 
-   @media (max-width: 1300px) {
+   @media (max-width: 1299.98px) {
       padding: 0 24px;
    }
 }

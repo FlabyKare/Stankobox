@@ -60,3 +60,13 @@
       max-width: 232px;
    }
 }
+
+.benefits__list {
+   overflow-x: auto !important;
+
+   &::-webkit-scrollbar,
+   &::-webkit-scrollbar-thumb,
+   &::-webkit-scrollbar-button {
+      display: none !important;
+   }
+}

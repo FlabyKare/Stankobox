@@ -72,8 +72,9 @@
 
    @media (min-width: 576px) and (max-width: 767.98px) {
       //   flex-wrap: wrap;
-      margin-top: 24px !important;
-      padding-top: 0 !important;
+      //   margin-top: 24px !important;
+      //   padding-top: 0 !important;
+      padding-top: 4px !important;
       gap: 16px !important;
 
       &-item {
@@ -141,6 +142,39 @@
       .partners__list-item-img_4 {
          width: 88px;
          height: 28px;
+      }
+   }
+}
+.partners {
+   .vue-horizontal {
+      margin-top: 20px;
+      @media (max-width: 576px) and (max-width: 767.98px) {
+         margin-top: 12px !important;
+      }
+
+      @media (max-width: 575.98px) {
+         margin-top: 0 !important;
+         padding-top: 0 !important;
+      }
+   }
+   .partners__list {
+      margin-bottom: -24px !important;
+      padding-bottom: 24px !important;
+      padding-top: 12px !important;
+
+    //   @media (min-width: 1100px) {
+         padding-left: 4px !important;
+         padding-right: 4px !important;
+    //   }
+      li {
+         list-style: none;
+      }
+      clip-path: unset !important;
+      @include scrollbar-styles;
+      overflow-x: auto !important;
+      @media (max-width: 575.98px) {
+         margin-top: 0 !important;
+         padding-top: 24px !important;
       }
    }
 }
