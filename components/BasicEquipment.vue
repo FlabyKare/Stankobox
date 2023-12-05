@@ -1,17 +1,14 @@
 <template>
    <section class="equipments container">
       <h2 class="equipments__title defolt-title">Основное оборудование</h2>
-
       <ul
          class="equipments__categories"
-         @wheel.prevent="scrollX"
+         @mousedown.prevent="onMouseDown"
+         @mousemove.prevent="onMouseMove"
+         @mouseup.prevent="onMouseUp"
+         @mouseleave.prevent="onMouseUp"
          ref="scrollContainer"
       >
-         <!-- <li class="equipments__categories-item">
-            <img class="equipments__categories-item-img" src="~/assets/img/Equipments/" alt="" />
-
-            <p class="equipments__categories-item-text"></p>
-         </li> -->
          <li class="equipments__categories-item">
             <div class="equipments__categories-item-img-wrapper">
                <img
@@ -115,12 +112,30 @@
 import { ref } from "vue";
 
 const scrollContainer = ref(null);
+let isDragging = false;
+let startX = 0;
+let scrollLeft = 0;
 
-const scrollX = (e) => {
-   e.preventDefault();
-   const delta = e.deltaY || -e.wheelDelta || e.detail;
-   const speed = 4;
-   scrollContainer.value.scrollLeft += delta * speed;
+const onMouseMove = (e) => {
+   if (isDragging) {
+      const x = e.clientX;
+      const walk = (x - startX) * 2;
+      scrollContainer.value.scrollLeft = scrollLeft - walk;
+   }
+};
+
+const onMouseDown = (e) => {
+   isDragging = true;
+   startX = e.clientX;
+   scrollLeft = scrollContainer.value.scrollLeft;
+   scrollContainer.value.addEventListener("mouseup", onMouseUp);
+   scrollContainer.value.addEventListener("mousemove", onMouseMove);
+};
+
+const onMouseUp = () => {
+   isDragging = false;
+   scrollContainer.value.removeEventListener("mouseup", onMouseUp);
+   scrollContainer.value.removeEventListener("mousemove", onMouseMove);
 };
 </script>
 

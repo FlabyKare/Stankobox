@@ -15,7 +15,13 @@
     "sass": "^1.69.5",
     "scss": "^0.2.4",
     "scss-reset": "^1.4.2",
+    "stylus": "^0.62.0",
     "vue": "^3.3.8",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "@vueuse/core": "^10.6.1",
+    "swiper": "^11.0.5",
+    "vue-horizontal": "^1.0.2"
   }
 }

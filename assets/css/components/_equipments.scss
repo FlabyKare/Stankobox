@@ -18,12 +18,13 @@
 
    display: flex;
    gap: 32px;
+
+   user-select: none;
    * {
       cursor: pointer;
    }
 
    flex-wrap: nowrap;
-
 
    @include scrollbar-styles;
 }
