@@ -14,8 +14,9 @@
       <TestScrollingBenefits />
 
       <!-- <BasicEquipment /> -->
-
       <TestScrollingBasicEquipment />
+
+      <PromotionalOffers />
 
       <!-- <Partners /> -->
       <TestScrollingPartners />
@@ -43,6 +44,9 @@ export default {
                element.classList.add("equipments__categories");
                break;
             case 3:
+               element.classList.add("offers__list");
+               break;
+            case 4:
                element.classList.add("partners__list");
                break;
             // Добавить другие случаи, если необходимо

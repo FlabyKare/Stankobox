@@ -1,0 +1,165 @@
+.offers {
+   margin-top: 104px;
+
+   //    overflow: hidden;
+}
+
+.offers__list {
+   display: flex;
+
+   gap: 32px;
+
+   margin-top: 32px;
+
+   flex-wrap: nowrap;
+   overflow: hidden;
+
+   user-select: none;
+
+   flex-wrap: nowrap;
+
+   @include scrollbar-styles;
+
+   clip-path: unset !important;
+}
+
+.v-hl-container {
+   scroll-behavior: inherit !important;
+   * {
+      user-select: none !important;
+      pointer-events: none !important;
+   }
+   &.offers__list {
+      margin-top: 20px !important;
+      padding-bottom: 24px;
+      padding-top: 12px !important;
+
+      display: flex;
+      gap: 32px;
+      flex-wrap: nowrap;
+      clip-path: unset !important;
+
+      @include scrollbar-styles;
+      * {
+         cursor: pointer;
+      }
+   }
+}
+
+.offers__list-item {
+   // Стили для карточки товара
+   //    margin-bottom: 20px;
+   //    border: 1px solid #ddd;
+   padding-bottom: 12px;
+
+   display: block;
+   width: 184px;
+   height: 340px;
+
+   position: relative;
+   &-slider {
+      // Стили для слайдера изображений
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      //   margin-bottom: 10px;
+
+      height: 224px;
+      img {
+         width: 100%;
+         height: 100%;
+
+         max-width: 184px;
+         max-height: 184px;
+
+         //  max-width: 100%;
+         //  max-height: 100%;
+         //  object-fit: contain;
+         //  margin-right: 10px;
+      }
+   }
+   &-title,
+   &-old-price,
+   &-current-price {
+      display: block;
+   }
+   &-discount {
+      color: #fff;
+      text-align: center;
+      font-family: $TTNormsMedium;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px; /* 142.857% */
+      letter-spacing: 0.056px;
+
+      border-radius: 8px 0px;
+      background: #e31335;
+
+      padding: 4px 8px;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+
+      //   width: 100%;
+      //   height: 100%;
+      width: 48px;
+      height: 28px;
+   }
+   &-title {
+      // Стили для названия товара
+      margin-top: 8px;
+      color: #101010;
+
+      font-family: $TTNormsMedium;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px; /* 142.857% */
+      letter-spacing: 0.056px;
+
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      hyphens: auto;
+
+      height: 40px;
+
+      pointer-events: all !important;
+   }
+
+   &-old-price {
+      // Стили для старой цены
+      margin-top: 8px;
+
+      color: #828282;
+
+      font-family: $TTNormsMedium;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 24px; /* 150% */
+      letter-spacing: 0.064px;
+      text-decoration: line-through;
+   }
+
+   &-current-price {
+      // Стили для актуальной цены
+      margin-top: 8px;
+
+      color: #e31335;
+
+      font-family: $Montserrat;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 28px; /* 140% */
+   }
+
+   .swiper-pagination-bullet-active {
+      background: $red !important;
+   }
+}
