@@ -27,7 +27,7 @@
    scroll-behavior: inherit !important;
    * {
       user-select: none !important;
-      pointer-events: none !important;
+      //   pointer-events: none !important;
    }
    &.offers__list {
       margin-top: 20px !important;
@@ -36,12 +36,15 @@
 
       display: flex;
       gap: 32px;
-      flex-wrap: nowrap;
       clip-path: unset !important;
 
-      @include scrollbar-styles;
-      * {
-         cursor: pointer;
+      @media (min-width: 768px) {
+         flex-wrap: nowrap;
+         padding-bottom: 20px !important;
+         @include scrollbar-styles;
+         * {
+            cursor: pointer;
+         }
       }
    }
 }
@@ -148,7 +151,7 @@
 
    &-current-price {
       // Стили для актуальной цены
-      margin-top: 8px;
+      //   margin-top: 8px;
 
       color: #e31335;
 
@@ -161,5 +164,21 @@
 
    .swiper-pagination-bullet-active {
       background: $red !important;
+   }
+}
+
+.swiper-pagination-bullet {
+   margin-right: 2px !important;
+   margin-left: 2px !important;
+}
+.swiper-pagination-bullets-dynamic {
+   overflow-y: visible;
+}
+@media (max-width: 767.98px) {
+   .mobile-hidden {
+      display: none !important;
+   }
+   .offers {
+      margin-top: 64px;
    }
 }

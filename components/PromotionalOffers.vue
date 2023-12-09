@@ -8,7 +8,7 @@
 
       <VueHorizontal
          ref="horizontal"
-         class="horizontal"
+         class="horizontal mobile-hidden"
          snap="none"
          :button="false"
          @scroll="onScroll"
@@ -36,7 +36,7 @@
                >
                   <swiper-slide v-for="image in card.images">
                      <img
-                        src="~/assets/img/Offers/test.png"
+                        src="~/assets/img/Offers/test2.png"
                         :key="image"
                         alt="Product Image"
                      />
@@ -87,8 +87,8 @@ export default {
                discount: "13",
                name: "Ленточнопильный станок CORMAK G5013W",
                images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
+               oldPrice: "1 223 681 ₽",
+               currentPrice: "1 092 573 ₽ ",
             },
 
             {
@@ -96,120 +96,120 @@ export default {
                discount: "13",
                name: "Ленточнопильный станок CORMAK G5013W",
                images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
+               oldPrice: "1 223 681 ₽",
+               currentPrice: "1 092 573 ₽ ",
             },
             {
                id: 1,
                discount: "13",
                name: "Ленточнопильный станок CORMAK G5013W",
                images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
+               oldPrice: "1 223 681 ₽",
+               currentPrice: "1 092 573 ₽ ",
             },
             {
                id: 1,
                discount: "13",
                name: "Ленточнопильный станок CORMAK G5013W",
                images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
+               oldPrice: "1 223 681 ₽",
+               currentPrice: "1 092 573 ₽ ",
             },
             {
                id: 1,
                discount: "13",
                name: "Ленточнопильный станок CORMAK G5013W",
                images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
+               oldPrice: "1 223 681 ₽",
+               currentPrice: "1 092 573 ₽ ",
             },
             {
                id: 1,
                discount: "13",
                name: "Ленточнопильный станок CORMAK G5013W",
                images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
+               oldPrice: "1 223 681 ₽",
+               currentPrice: "1 092 573 ₽ ",
             },
             {
                id: 1,
                discount: "13",
                name: "Ленточнопильный станок CORMAK G5013W",
                images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
+               oldPrice: "1 223 681 ₽",
+               currentPrice: "1 092 573 ₽ ",
             },
             {
                id: 1,
                discount: "13",
                name: "Ленточнопильный станок CORMAK G5013W",
                images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
+               oldPrice: "1 223 681 ₽",
+               currentPrice: "1 092 573 ₽ ",
             },
             {
                id: 1,
                discount: "13",
                name: "Ленточнопильный станок CORMAK G5013W",
                images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
+               oldPrice: "1 223 681 ₽",
+               currentPrice: "1 092 573 ₽ ",
             },
             {
                id: 1,
                discount: "13",
                name: "Ленточнопильный станок CORMAK G5013W",
                images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
+               oldPrice: "1 223 681 ₽",
+               currentPrice: "1 092 573 ₽ ",
             },
             {
                id: 1,
                discount: "13",
                name: "Ленточнопильный станок CORMAK G5013W",
                images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
+               oldPrice: "1 223 681 ₽",
+               currentPrice: "1 092 573 ₽ ",
             },
             {
                id: 1,
                discount: "13",
                name: "Ленточнопильный станок CORMAK G5013W",
                images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
+               oldPrice: "1 223 681 ₽",
+               currentPrice: "1 092 573 ₽ ",
             },
             {
                id: 1,
                discount: "13",
                name: "Ленточнопильный станок CORMAK G5013W",
                images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
+               oldPrice: "1 223 681 ₽",
+               currentPrice: "1 092 573 ₽ ",
             },
             {
                id: 1,
                discount: "13",
                name: "Ленточнопильный станок CORMAK G5013W",
                images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
+               oldPrice: "1 223 681 ₽",
+               currentPrice: "1 092 573 ₽ ",
             },
             {
                id: 1,
                discount: "13",
                name: "Ленточнопильный станок CORMAK G5013W",
                images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
+               oldPrice: "1 223 681 ₽",
+               currentPrice: "1 092 573 ₽ ",
             },
             {
                id: 1,
                discount: "13",
                name: "Ленточнопильный станок CORMAK G5013W",
                images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
+               oldPrice: "1 223 681 ₽",
+               currentPrice: "1 092 573 ₽ ",
             },
             // Add other cards with unique IDs
          ],
@@ -254,224 +254,6 @@ export default {
 };
 </script>
 
-<!-- <script>
-import VueHorizontal from "vue-horizontal";
-
-// Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from "swiper/vue";
-// Import Swiper styles
-import "swiper/css";
-
-import "swiper/css/pagination";
-
-// import required modules
-import { Pagination } from "swiper/modules";
-
-export default {
-   data() {
-      return {
-         left: 0,
-         originX: 0,
-         originLeft: 0,
-         shouldAddClass: true,
-         cards: [
-            {
-               id: 1,
-               discount: "13",
-               name: "Ленточнопильный станок CORMAK G5013W ",
-               images: [
-                  //   "../assets/img/Offers/test.png",
-                  //   "../assets/img/Offers/test2.png",
-                  //   "../assets/img/Offers/test3.png",
-                  "test",
-                  "test2",
-                  "test3",
-                  "test3",
-                  "test3",
-                  "test3",
-               ],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
-            },
-
-            {
-               id: 1,
-               discount: "13",
-               name: "Ленточнопильный станок CORMAK G5013W ",
-               images: [
-                  //   "../assets/img/Offers/test.png",
-                  //   "../assets/img/Offers/test2.png",
-                  //   "../assets/img/Offers/test3.png",
-                  "test",
-                  "test2",
-                  "test3",
-                  "test3",
-                  "test3",
-                  "test3",
-               ],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
-            },
-            {
-               id: 1,
-               discount: "13",
-               name: "Ленточнопильный станок CORMAK G5013W ",
-               images: [
-                  //   "../assets/img/Offers/test.png",
-                  //   "../assets/img/Offers/test2.png",
-                  //   "../assets/img/Offers/test3.png",
-                  "test",
-                  "test2",
-                  "test3",
-                  "test3",
-                  "test3",
-                  "test3",
-               ],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
-            },
-            {
-               id: 1,
-               discount: "13",
-               name: "Ленточнопильный станок CORMAK G5013W ",
-               images: [
-                  //   "../assets/img/Offers/test.png",
-                  //   "../assets/img/Offers/test2.png",
-                  //   "../assets/img/Offers/test3.png",
-                  "test",
-                  "test2",
-                  "test3",
-                  "test3",
-                  "test3",
-                  "test3",
-               ],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
-            },
-            {
-               id: 1,
-               discount: "13",
-               name: "Ленточнопильный станок CORMAK G5013W ",
-               images: [
-                  //   "../assets/img/Offers/test.png",
-                  //   "../assets/img/Offers/test2.png",
-                  //   "../assets/img/Offers/test3.png",
-                  "test",
-                  "test2",
-                  "test3",
-                  "test3",
-                  "test3",
-                  "test3",
-               ],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
-            },
-            {
-               id: 1,
-               discount: "13",
-               name: "Ленточнопильный станок CORMAK G5013W ",
-               images: [
-                  //   "../assets/img/Offers/test.png",
-                  //   "../assets/img/Offers/test2.png",
-                  //   "../assets/img/Offers/test3.png",
-                  "test",
-                  "test2",
-                  "test3",
-                  "test3",
-                  "test3",
-                  "test3",
-               ],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
-            },
-            {
-               id: 1,
-               discount: "13",
-               name: "Ленточнопильный станок CORMAK G5013W ",
-               images: [
-                  //   "../assets/img/Offers/test.png",
-                  //   "../assets/img/Offers/test2.png",
-                  //   "../assets/img/Offers/test3.png",
-                  "test",
-                  "test2",
-                  "test3",
-                  "test3",
-                  "test3",
-                  "test3",
-               ],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
-            },
-            {
-               id: 1,
-               discount: "13",
-               name: "Ленточнопильный станок CORMAK G5013W ",
-               images: [
-                  //   "../assets/img/Offers/test.png",
-                  //   "../assets/img/Offers/test2.png",
-                  //   "../assets/img/Offers/test3.png",
-                  "test",
-                  "test2",
-                  "test3",
-                  "test3",
-                  "test3",
-                  "test3",
-               ],
-               oldPrice: "39 369 ₽",
-               currentPrice: "35 790 ₽",
-            },
-            {
-               id: 2,
-               discount: "3",
-
-               name: "Product 2",
-               images: ["image4.png", "image5.png", "image6.png"],
-               oldPrice: "$60",
-               currentPrice: "$45",
-            },
-            // Добавьте другие карточки по аналогии
-         ],
-      };
-   },
-   beforeUnmount() {
-      this.onMouseUp();
-   },
-
-   methods: {
-      onScroll({ left }) {
-         this.left = left;
-      },
-      onMouseDown(e) {
-         this.originX = e.pageX;
-         this.originLeft = this.left;
-
-         window.addEventListener("mouseup", this.onMouseUp);
-         window.addEventListener("mousemove", this.onMouseMove);
-      },
-      onMouseUp() {
-         window.removeEventListener("mouseup", this.onMouseUp);
-         window.removeEventListener("mousemove", this.onMouseMove);
-      },
-      onMouseMove(e) {
-         const offset = e.pageX - this.originX;
-         const left = this.originLeft - offset;
-         this.$refs.horizontal.scrollToLeft(left, "auto");
-      },
-   },
-   setup() {
-      return {
-         modules: [Pagination],
-         spaceBetween: 50,
-      };
-   },
-   components: {
-      VueHorizontal,
-      Swiper,
-      SwiperSlide,
-   },
-};
-</script> -->
-
 <style lang="scss" scoped>
 .swiper {
    width: 100%;
@@ -492,14 +274,10 @@ export default {
    display: flex;
    justify-content: center;
    align-items: center;
-}
-// .swiper-slide-active {
-//    margin-left: 10px;
-//    margin-right: 10px;
 
-//    padding-left: 0px;
-//    padding-right: 0px;
-// }
+   padding-top: 20px;
+}
+
 .swiper-slide img {
    display: block;
    width: 100%;

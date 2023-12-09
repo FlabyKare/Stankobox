@@ -17,6 +17,8 @@
 
    * {
       cursor: pointer;
+
+      pointer-events: none !important;
    }
 
    @media (max-width: 575.98px) {
