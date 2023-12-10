@@ -107,7 +107,7 @@
             :class="{ 'offers__list-show-btn_active': showAll }"
             @click="toggleShowAll"
          >
-            Показать все
+            {{ showAll ? "Скрыть" : "Показать все" }}
          </Button>
       </div>
    </section>
