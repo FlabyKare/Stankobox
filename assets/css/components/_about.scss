@@ -43,6 +43,11 @@
    font-style: normal;
    font-weight: 700;
    line-height: 32px; /* 133.333% */
+
+   @media (max-width: 767.98px) {
+      font-size: 16px;
+      line-height: 20px; /* 125% */
+   }
 }
 .about__info {
    //    width: 100%;

@@ -4,11 +4,13 @@
       v-if="cards.length"
       class="offers container"
    >
-      <h2 class="equipments__title defolt-title">Акционные предложения</h2>
+      <h2 class="equipments__title little-defolt-title">
+         Акционные предложения
+      </h2>
 
       <VueHorizontal
          ref="horizontal"
-         class="horizontal mobile-hidden"
+         class="horizontal offers__list_desktop"
          snap="none"
          :button="false"
          @scroll="onScroll"
@@ -21,11 +23,11 @@
             <!-- Слайдер с изображениями товара -->
             <div class="offers__list-item-slider">
                <!-- <img
-                  v-for="image in card.images"
-                  :src="image"
-                  :key="image"
-                  alt="Product Image"
-               /> -->
+                   v-for="image in card.images"
+                   :src="image"
+                   :key="image"
+                   alt="Product Image"
+                /> -->
 
                <swiper
                   :pagination="{
@@ -47,7 +49,7 @@
             <!-- Название товара -->
             <NuxtLink
                to="https://google.com"
-               class="offers__list-item-title"
+               class="offers__list-item-title little-defolt-title"
                ondragstart="return false;"
                >{{ card.name }}</NuxtLink
             >
@@ -61,6 +63,53 @@
             }}</span>
          </div>
       </VueHorizontal>
+
+      <div class="offers__list_mobile">
+         <ul class="offers__list">
+            <li
+               v-for="(card, index) in visibleCards"
+               :key="card.id"
+               class="offers__list-item"
+            >
+               <span class="offers__list-item-discount"
+                  >-{{ card.discount }}%</span
+               >
+               <div class="offers__list-item-slider">
+                  <swiper
+                     :pagination="{ dynamicBullets: true }"
+                     :modules="modules"
+                     class="mySwiper"
+                  >
+                     <swiper-slide v-for="image in card.images" :key="image">
+                        <img
+                           src="~/assets/img/Offers/test2.png"
+                           :alt="`Product Image ${index}`"
+                        />
+                     </swiper-slide>
+                  </swiper>
+               </div>
+               <NuxtLink
+                  :to="`https://google.com/${card.id}`"
+                  class="offers__list-item-title little-defolt-title"
+               >
+                  {{ card.name }}
+               </NuxtLink>
+               <span class="offers__list-item-old-price">{{
+                  card.oldPrice
+               }}</span>
+               <span class="offers__list-item-current-price">{{
+                  card.currentPrice
+               }}</span>
+            </li>
+         </ul>
+         <Button
+            class="offers__list-show-btn"
+            :class="{ 'offers__list-show-btn_active': showAll }"
+            @click="toggleShowAll"
+         >
+            Показать все
+         </Button>
+      </div>
    </section>
    <div v-else>
       <p>No cards available</p>
@@ -81,6 +130,7 @@ export default {
          originX: 0,
          originLeft: 0,
          shouldAddClass: true,
+         showAll: false,
          cards: [
             {
                id: 1,
@@ -139,86 +189,24 @@ export default {
                oldPrice: "1 223 681 ₽",
                currentPrice: "1 092 573 ₽ ",
             },
-            {
-               id: 1,
-               discount: "13",
-               name: "Ленточнопильный станок CORMAK G5013W",
-               images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "1 223 681 ₽",
-               currentPrice: "1 092 573 ₽ ",
-            },
-            {
-               id: 1,
-               discount: "13",
-               name: "Ленточнопильный станок CORMAK G5013W",
-               images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "1 223 681 ₽",
-               currentPrice: "1 092 573 ₽ ",
-            },
-            {
-               id: 1,
-               discount: "13",
-               name: "Ленточнопильный станок CORMAK G5013W",
-               images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "1 223 681 ₽",
-               currentPrice: "1 092 573 ₽ ",
-            },
-            {
-               id: 1,
-               discount: "13",
-               name: "Ленточнопильный станок CORMAK G5013W",
-               images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "1 223 681 ₽",
-               currentPrice: "1 092 573 ₽ ",
-            },
-            {
-               id: 1,
-               discount: "13",
-               name: "Ленточнопильный станок CORMAK G5013W",
-               images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "1 223 681 ₽",
-               currentPrice: "1 092 573 ₽ ",
-            },
-            {
-               id: 1,
-               discount: "13",
-               name: "Ленточнопильный станок CORMAK G5013W",
-               images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "1 223 681 ₽",
-               currentPrice: "1 092 573 ₽ ",
-            },
-            {
-               id: 1,
-               discount: "13",
-               name: "Ленточнопильный станок CORMAK G5013W",
-               images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "1 223 681 ₽",
-               currentPrice: "1 092 573 ₽ ",
-            },
-            {
-               id: 1,
-               discount: "13",
-               name: "Ленточнопильный станок CORMAK G5013W",
-               images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "1 223 681 ₽",
-               currentPrice: "1 092 573 ₽ ",
-            },
-            {
-               id: 1,
-               discount: "13",
-               name: "Ленточнопильный станок CORMAK G5013W",
-               images: ["test", "test2", "test3", "test3", "test3", "test3"],
-               oldPrice: "1 223 681 ₽",
-               currentPrice: "1 092 573 ₽ ",
-            },
             // Add other cards with unique IDs
          ],
       };
+   },
+
+   computed: {
+      visibleCards() {
+         return this.showAll ? this.cards : this.cards.slice(0, 4);
+      },
    },
    beforeUnmount() {
       this.onMouseUp();
    },
    methods: {
+      toggleShowAll() {
+         this.showAll = !this.showAll;
+      },
+
       onScroll({ left }) {
          this.left = left;
       },
@@ -257,7 +245,7 @@ export default {
 <style lang="scss" scoped>
 .swiper {
    width: 100%;
-   height: 100%;
+   height: 112%;
 
    * {
       user-select: none !important;

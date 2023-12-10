@@ -1,10 +1,14 @@
 .benefits {
    margin-top: 64px;
 
-   margin-bottom: 84px;
+   margin-bottom: 80px;
 
    @media (max-width: 575.98px) {
       margin-top: 24px;
+   }
+
+   @media (max-width: 767.98px) {
+      margin-bottom: 0px;
    }
 }
 
@@ -15,6 +19,12 @@
    gap: 32px;
    align-items: center;
 
+   //    padding-bottom: 28px !important;
+   //    margin-bottom: -28px !important;
+   padding-bottom: 0 !important;
+
+   margin-bottom: 0 !important;
+   clip-path: unset !important;
    * {
       cursor: pointer;
 

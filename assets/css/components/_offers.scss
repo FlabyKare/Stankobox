@@ -40,7 +40,10 @@
 
       @media (min-width: 768px) {
          flex-wrap: nowrap;
-         padding-bottom: 20px !important;
+         padding-bottom: 16px !important;
+         margin-bottom: -28px !important;
+         //  padding-bottom: 20px !important;
+
          @include scrollbar-styles;
          * {
             cursor: pointer;
@@ -113,7 +116,9 @@
    }
    &-title {
       // Стили для названия товара
-      margin-top: 8px;
+      margin-top: 12px;
+      //   margin-top: 13px;
+
       color: #101010;
 
       font-family: $TTNormsMedium;
@@ -174,11 +179,118 @@
 .swiper-pagination-bullets-dynamic {
    overflow-y: visible;
 }
-@media (max-width: 767.98px) {
-   .mobile-hidden {
+@media (min-width: 576px) {
+   .offers__list_mobile {
+      display: none;
+   }
+}
+
+//! Стили для мобильных устройств
+@media (max-width: 575.98px) {
+   .offers__list_desktop {
       display: none !important;
    }
    .offers {
       margin-top: 64px;
+
+      .offers__list {
+         flex-wrap: wrap;
+
+         gap: 16px;
+
+         justify-content: space-between;
+
+         .offers__list-item {
+            display: block;
+
+            height: 290px;
+            width: 148px;
+
+            &-slider {
+               // Стили для слайдера изображений
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               //   margin-bottom: 10px;
+
+               height: 184px;
+               img {
+                  width: 100%;
+                  height: 100%;
+
+                  max-width: 148px;
+                  max-height: 148px;
+
+                  //  max-width: 100%;
+                  //  max-height: 100%;
+                  //  object-fit: contain;
+                  //  margin-right: 10px;
+               }
+            }
+            &-title,
+            &-old-price,
+            &-current-price {
+               display: block;
+            }
+
+            &-title {
+               // Стили для названия товара
+               margin-top: 12px;
+               //   margin-top: 13px;
+
+               color: #101010;
+
+               font-size: 12px;
+               line-height: 16px; /* 133.333% */
+               letter-spacing: 0.048px;
+            }
+
+            &-old-price {
+               // Стили для старой цены
+               margin-top: 8px;
+
+               color: #828282;
+
+               font-family: $Montserrat;
+               font-size: 12px;
+               font-style: normal;
+               font-weight: 600;
+               line-height: 16px; /* 133.333% */
+            }
+
+            &-current-price {
+               // Стили для актуальной цены
+               //   margin-top: 8px;
+
+               font-size: 16px;
+               line-height: 20px;
+            }
+         }
+      }
+
+      .offers__list-show-btn {
+         margin: 16px auto 0;
+         display: block;
+      }
+   }
+}
+.offers__list-show-btn {
+   transition: 0.25s ease-in-out;
+}
+.offers__list-show-btn_active {
+   //    display: none !important;
+
+   position: fixed;
+   bottom: 20px;
+   right: 20px;
+
+   z-index: 100;
+
+   background: #c80122 !important;
+   color: #fff !important;
+}
+@media (max-width: 767.98px) {
+   .offers__list {
+      margin-top: 24px !important;
    }
 }
