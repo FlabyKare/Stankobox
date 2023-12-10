@@ -64,7 +64,7 @@ export default {
          const left = this.originLeft - offset;
          this.$refs.horizontal.scrollToLeft(left, "auto");
       },
-   },
+   }, 
    components: {
       VueHorizontal,
    },

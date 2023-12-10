@@ -28,30 +28,23 @@
 <script>
 export default {
    mounted() {
-      // Найти все элементы с классом "v-hl-container"
-      const elements = document.querySelectorAll(".v-hl-container");
-
-      // Добавить классы к каждому элементу
-      elements.forEach((element, index) => {
-         switch (index) {
-            case 0:
-               element.classList.add("filters__list");
-               break;
-            case 1:
-               element.classList.add("benefits__list");
-               break;
-            case 2:
-               element.classList.add("equipments__categories");
-               break;
-            case 3:
-               element.classList.add("offers__list");
-               break;
-            case 4:
-               element.classList.add("partners__list");
-               break;
-            // Добавить другие случаи, если необходимо
+      // Функция для добавления класса к блоку, если он найден
+      const addClassIfPresent = (containerClass, targetClass) => {
+         const container = document.querySelector(`.${containerClass}`);
+         if (container) {
+            const element = container.querySelector(".v-hl-container");
+            if (element) {
+               element.classList.add(targetClass);
+            }
          }
-      });
+      };
+
+      // Применить функцию для каждого случая
+      addClassIfPresent("filters", "filters__list");
+      addClassIfPresent("benefits", "benefits__list");
+      addClassIfPresent("equipments", "equipments__categories");
+      addClassIfPresent("offers", "offers__list");
+      addClassIfPresent("partners", "partners__list");
    },
 };
 </script>
