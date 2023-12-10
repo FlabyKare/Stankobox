@@ -1091,6 +1091,11 @@ input[type=number] {
     text-align: left;
   }
 }
+@media (min-width: 1115px) {
+  .filters__list {
+    overflow-x: hidden !important;
+  }
+}
 .filters__list * {
   list-style: none;
   pointer-events: all !important;
