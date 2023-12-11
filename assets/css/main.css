@@ -600,7 +600,7 @@ input[type=number] {
 }
 @media (min-width: 1335px) {
   .filters {
-    margin-top: -17px;
+    margin-top: -16px;
   }
 }
 @media (max-width: 899.98px) {
@@ -668,7 +668,7 @@ input[type=number] {
     width: 100%;
     scrollbar-width: thin; /* для Firefox */
     -ms-overflow-style: none; /* для Internet Explorer и Edge */
-    height: 52px;
+    height: 48px;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
