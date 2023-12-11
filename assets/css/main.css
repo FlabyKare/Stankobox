@@ -691,6 +691,15 @@ input[type=number] {
     margin-top: -5px !important;
   }
 }
+@media (min-width: 900px) and (max-width: 1334.98px) {
+  .filters__list {
+    height: 52px !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    -webkit-clip-path: unset !important;
+            clip-path: unset !important;
+  }
+}
 @media (min-width: 1335px) {
   .filters__list {
     margin-bottom: -28px !important;

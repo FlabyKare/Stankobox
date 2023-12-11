@@ -114,7 +114,12 @@
          }
       }
    }
-
+   @media (min-width: 900px) and (max-width: 1334.98px) {
+      height: 52px !important;
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+      clip-path: unset !important;
+   }
    @media (min-width: 1335px) {
       margin-bottom: -28px !important;
 
