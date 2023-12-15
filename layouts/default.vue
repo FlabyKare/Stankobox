@@ -1,4 +1,8 @@
 <template>
+   <!-- <Contacts />
+   <Navigation />
+   <hr />
+   <Search /> -->
    <slot />
    <footer class="footer">
       <section class="footer__list-container container">

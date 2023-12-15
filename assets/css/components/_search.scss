@@ -10,6 +10,11 @@
 
    padding-top: 20px;
    padding-bottom: 20px;
+
+   &.search_active {
+      padding-bottom: 20px !important;
+   }
+
    * {
       transition: 0.25s ease-in-out;
       cursor: pointer;
@@ -86,13 +91,29 @@
    padding: 12px 28px;
    cursor: pointer;
    transition: background 0.3s, transform 0.3s;
+
    &:hover {
       background: $red;
       border: 1.5px solid $red;
    }
-   //    &:active {
-   //       transform: scale(0.95);
-   //    }
+
+   ul * {
+      transition: 0.25s ease-in-out;
+   }
+   &.serach__item-catalog_active {
+      ul {
+         transform: translateY(0.9px);
+         li:nth-child(1) {
+            transform: rotate(48deg) translate(4px, 4px);
+         }
+         li:nth-child(2) {
+            opacity: 0;
+         }
+         li:nth-child(3) {
+            transform: rotate(-48deg) translate(6px, -6px);
+         }
+      }
+   }
 }
 
 .serach__item-catalog-burger {

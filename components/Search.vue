@@ -28,11 +28,13 @@
       </a>
 
       <div class="serach__item serach__item-flex">
-         <button class="serach__item-catalog" @click="isActive = !isActive">
-            <ul
-               class="serach__item-catalog-burger"
-               :class="{ 'serach__item-catalog-burger_active': isActive }"
-            >
+         <!-- <button
+            class="serach__item-catalog"
+            :class="{ 'serach__item-catalog_active': isActive }"
+            @click="toggleActive"
+         > -->
+         <button class="serach__item-catalog">
+            <ul class="serach__item-catalog-burger">
                <li></li>
                <li></li>
                <li></li>
@@ -77,6 +79,10 @@
 import { ref } from "vue";
 
 const isActive = ref(false);
+
+const toggleActive = () => {
+   isActive.value = !isActive.value;
+};
 </script>
 
 <style lang="scss" scoped>
