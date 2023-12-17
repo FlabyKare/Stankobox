@@ -745,7 +745,6 @@ input[type=number] {
   }
 }
 .menu-mobile {
-  background: rgba(16, 16, 16, 0.6);
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%);
   -webkit-transition: 0.25s ease-in;
@@ -754,7 +753,6 @@ input[type=number] {
   height: 0;
   overflow: hidden;
   z-index: 1000;
-  margin-top: 8px;
 }
 .menu-mobile .menu-mobile__container-title {
   background: #e31335;
@@ -783,13 +781,6 @@ input[type=number] {
   letter-spacing: 0.064px;
 }
 
-.menu-mobile__container-title-items-arrow-left {
-  display: none;
-}
-.menu-mobile__container-title-items-arrow-left.menu-mobile__container-title-items-arrow-left_active {
-  display: block;
-}
-
 .menu-mobile__list {
   padding: 16px 0;
   background: #fff;
@@ -816,6 +807,7 @@ input[type=number] {
 .main-content_active .menu-mobile {
   -webkit-transform: translateX(0);
           transform: translateX(0);
+  margin-top: 8px;
 }
 
 .menu-mobile__container {
@@ -840,9 +832,125 @@ input[type=number] {
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    overflow: visible;
+    overflow: hidden;
   }
 }
+.menu-mobile {
+  position: relative;
+}
+
+.menu-mobile__container_goods {
+  position: absolute;
+  top: 0;
+  right: -100%;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  width: 100% !important;
+}
+
+.menu-mobile__container_pages::before {
+  content: "";
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.menu-mobile__container-title_active .menu-mobile__container_pages {
+  position: absolute;
+  width: 100% !important;
+}
+.menu-mobile__container-title_active .menu-mobile__container_pages::before {
+  display: block;
+}
+.menu-mobile__container-title_active .menu-mobile__container_goods {
+  position: relative;
+  right: 0;
+  background: #fff;
+}
+
+.menu-mobile__container-goods * {
+  -webkit-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+.menu-mobile__container-goods .menu-mobile__container-goods-list-item {
+  padding: 16px 24px;
+  height: 100px;
+  overflow: hidden;
+  position: relative;
+  -webkit-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+.menu-mobile__container-goods .menu-mobile__container-goods-list-item .menu-mobile__container-goods-links {
+  position: relative;
+  height: 0px;
+  overflow: hidden;
+  top: -10%;
+}
+.menu-mobile__container-goods .menu-mobile__container-goods-list-item.menu-mobile__container-goods-list-item_active {
+  overflow: visible;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.menu-mobile__container-goods .menu-mobile__container-goods-list-item.menu-mobile__container-goods-list-item_active .menu-mobile__container-goods-links {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow: visible;
+  top: 0;
+  margin-top: 16px;
+}
+.menu-mobile__container-goods .menu-mobile__container-goods-list-item.menu-mobile__container-goods-list-item_active .menu-mobile__container-goods-list-item-title-name-arrow {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.menu-mobile__container-goods .menu-mobile__container-goods-list-item .menu-mobile__container-goods-list-item-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.menu-mobile__container-goods .menu-mobile__container-goods-list-item .menu-mobile__container-goods-list-item-title .menu-mobile__container-goods-list-item-title-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 16px;
+}
+.menu-mobile__container-goods .menu-mobile__container-goods-list-item .menu-mobile__container-goods-list-item-title .menu-mobile__container-goods-list-item-title-name .menu-mobile__container-goods-list-item-title-name-img {
+  width: 64px;
+  height: 64px;
+}
+.menu-mobile__container-goods .menu-mobile__container-goods-list-item .menu-mobile__container-goods-links-text {
+  color: #525252;
+  font-family: "TTNormsMedium", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: 0.056px;
+  max-width: 268px;
+  margin-left: 48px;
+}
+@media (max-width: 389.98px) {
+  .menu-mobile__container-goods .menu-mobile__container-goods-list-item .menu-mobile__container-goods-links-text {
+    margin-right: 0;
+    margin-left: auto;
+  }
+}
+
 .filters {
   padding-top: 12px;
   padding-bottom: 12px;
