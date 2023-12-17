@@ -92,6 +92,8 @@ onMounted(() => {
 onUnmounted(() => {
    document.removeEventListener("click", handleDocumentClick);
 });
+
+
 </script>
 
 <style lang="scss" scoped></style>

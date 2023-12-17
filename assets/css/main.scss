@@ -31,11 +31,32 @@ body {
       .offers,
       .partners,
       .about,
+      .catalog,
       .footer {
          display: none !important;
       }
    }
 }
+
+.page-title {
+   color: #101010;
+   font-family: $Montserrat;
+   font-size: 36px;
+   font-style: normal;
+   font-weight: 700;
+   line-height: 62px; /* 172.222% */
+   //    line-height: 28px;
+}
 //!=================================
 
 @import "_components";
+@media (max-width: 899.98px) {
+   .menu {
+      display: none !important;
+   }
+}
+@media (max-width: 575.98px) {
+   hr {
+      display: none;
+   }
+}

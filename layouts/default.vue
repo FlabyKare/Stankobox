@@ -1,12 +1,18 @@
 <template>
-   <!-- <Contacts />
+   <Contacts />
    <Navigation />
    <hr />
-   <Search /> -->
-   <slot />
+   <Search />
+
+   <main class="main-content">
+      <Menu />
+      <MobileMenu />
+
+      <slot />
+   </main>
    <footer class="footer">
       <section class="footer__list-container container">
-         <NuxtLink to="#" class="footer__logo">
+         <NuxtLink to="/" class="footer__logo">
             <svg
                width="144"
                height="72"
@@ -355,6 +361,36 @@ export default {
          element.addEventListener("click", () => {
             element.classList.toggle("active");
          });
+      });
+
+      // Функция для добавления класса к блоку, если он найден
+      const addClassIfPresent = (containerClass, targetClass) => {
+         const container = document.querySelector(`.${containerClass}`);
+         if (container) {
+            const element = container.querySelector(".v-hl-container");
+            if (element) {
+               element.classList.add(targetClass);
+            }
+         }
+      };
+
+      // Применить функцию для каждого случая
+      addClassIfPresent("filters", "filters__list");
+      addClassIfPresent("benefits", "benefits__list");
+      addClassIfPresent("equipments", "equipments__categories");
+      addClassIfPresent("offers", "offers__list");
+      addClassIfPresent("partners", "partners__list");
+
+      const body = document.getElementsByTagName("body")[0];
+      const mainContent = document.querySelector(".main-content");
+      const btnCatalog = document.querySelector(".serach__item-catalog");
+      const search = document.querySelector(".search");
+
+      btnCatalog.addEventListener("click", () => {
+         btnCatalog.classList.toggle("serach__item-catalog_active");
+         mainContent.classList.toggle("main-content_active");
+         search.classList.toggle("search_active");
+         body.classList.toggle("body_hidden");
       });
    },
    methods: {

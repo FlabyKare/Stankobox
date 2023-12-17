@@ -138,7 +138,7 @@
             />
          </svg>
       </NuxtLink>
-      <NuxtLink class="mobile-contacts__link-logo">
+      <NuxtLink to="/" class="mobile-contacts__link-logo">
          <!-- <img
             class="mobile-contacts__link-logo-img"
             src="~/assets/img/logo.png"

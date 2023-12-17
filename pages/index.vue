@@ -1,80 +1,28 @@
 <template>
-   <Contacts />
-   <Navigation />
-   <hr />
-   <Search />
+   <!-- <Contacts /> -->
+   <!-- <Navigation /> -->
+   <!-- <hr /> -->
+   <!-- <Search /> -->
 
-   <main class="main-content">
-      <Menu />
+   <!-- <Filters /> -->
+   <TestScrollingFilters />
 
-      <MobileMenu />
+   <Intro />
 
-      <!-- <Filters /> -->
-      <TestScrollingFilters />
+   <!-- <Benefits /> -->
+   <TestScrollingBenefits />
 
-      <Intro />
+   <!-- <BasicEquipment /> -->
+   <TestScrollingBasicEquipment />
 
-      <!-- <Benefits /> -->
-      <TestScrollingBenefits />
+   <PromotionalOffers />
 
-      <!-- <BasicEquipment /> -->
-      <TestScrollingBasicEquipment />
+   <!-- <Partners /> -->
+   <TestScrollingPartners />
 
-      <PromotionalOffers />
-
-      <!-- <Partners /> -->
-      <TestScrollingPartners />
-
-      <About />
-   </main>
+   <About />
 </template>
 
-<script>
-export default {
-   mounted() {
-      // Функция для добавления класса к блоку, если он найден
-      const addClassIfPresent = (containerClass, targetClass) => {
-         const container = document.querySelector(`.${containerClass}`);
-         if (container) {
-            const element = container.querySelector(".v-hl-container");
-            if (element) {
-               element.classList.add(targetClass);
-            }
-         }
-      };
+<script></script>
 
-      // Применить функцию для каждого случая
-      addClassIfPresent("filters", "filters__list");
-      addClassIfPresent("benefits", "benefits__list");
-      addClassIfPresent("equipments", "equipments__categories");
-      addClassIfPresent("offers", "offers__list");
-      addClassIfPresent("partners", "partners__list");
-
-      const body = document.getElementsByTagName("body")[0];
-      const mainContent = document.querySelector(".main-content");
-      const btnCatalog = document.querySelector(".serach__item-catalog");
-      const search = document.querySelector(".search");
-
-      btnCatalog.addEventListener("click", () => {
-         btnCatalog.classList.toggle("serach__item-catalog_active");
-         mainContent.classList.toggle("main-content_active");
-         search.classList.toggle("search_active");
-         body.classList.toggle("body_hidden");
-      });
-   },
-};
-</script>
-
-<style lang="scss">
-// @import "~/assets/css/main.scss";
-@media (max-width: 899.98px) {
-   .menu {
-      display: none !important;
-   }
-}
-@media (max-width: 575.98px) {
-   hr {
-      display: none;
-   }
-}
-</style>
+<style lang="scss"></style>

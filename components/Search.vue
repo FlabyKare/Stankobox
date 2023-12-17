@@ -1,6 +1,6 @@
 <template>
    <section class="search container">
-      <a class="search__item search__item-logo">
+      <NuxtLink to="/" class="search__item search__item-logo">
          <!-- <img class="search__item-logo-img" src="~/assets/img/logo.png" /> -->
 
          <svg
@@ -25,7 +25,7 @@
                fill="#1D1D1D"
             />
          </svg>
-      </a>
+      </NuxtLink>
 
       <div class="serach__item serach__item-flex">
          <!-- <button
@@ -71,7 +71,9 @@
          </div>
       </div>
 
-      <Button class="search__button">Подобрать станок</Button>
+      <Button class="search__button">
+         <NuxtLink to="/catalog">Подобрать станок</NuxtLink>
+      </Button>
    </section>
 </template>
 
@@ -122,5 +124,14 @@ const toggleActive = () => {
 
    max-width: 184px;
    height: 48px;
+
+   padding: 0;
+   * {
+      color: #e31335;
+   }
+
+   a {
+      padding: 12px 24px;
+   }
 }
 </style>
