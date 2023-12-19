@@ -36,8 +36,20 @@
       cursor: pointer;
 
       list-style: none;
-      //   white-space: nowrap;
+      height: 72px;
 
+      padding: 24px 8px;
+
+      transition: 0.25s ease-in-out;
+      &:hover {
+         color: #e31335;
+
+         background: transparent;
+         box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.15);
+      }
+      p {
+         width: 100%;
+      }
       @media (min-width: 1335px) {
          min-width: 184px;
          max-width: 184px;
@@ -49,25 +61,6 @@
             left: 50%;
             transform: translate(-50%, -50%);
          }
-      }
-
-      height: 72px;
-
-      padding: 24px 8px;
-
-      transition: 0.25s ease-in-out;
-
-      &:hover {
-         color: #e31335;
-
-         background: transparent;
-         box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.15);
-      }
-
-      p {
-         width: 100%;
-
-         //  margin-top: -5px !important;
       }
    }
    @media (max-width: 1334.98px) {
@@ -130,10 +123,32 @@
 
       clip-path: unset !important;
    }
+
+   @media (min-width: 1115px) {
+      overflow-x: hidden !important;
+   }
+   * {
+      list-style: none;
+      pointer-events: all !important;
+   }
 }
 @media (max-width: 767.98px) {
    .filters__list {
       padding-bottom: 28px !important;
       margin-bottom: -28px !important;
+   }
+}
+
+//! Перенесенные из компонента стили
+@media (min-width: 1335px) {
+   .filters__list-item {
+      position: relative;
+
+      p {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+      }
    }
 }

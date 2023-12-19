@@ -16,13 +16,7 @@
    }
 }
 
-body {
-   //    padding-bottom: 100px !important;
-}
 .body_hidden {
-   //    max-height: 900px;
-   //    overflow-y: hidden;
-
    @media (max-width: 899.98px) {
       .filters,
       .intro,
@@ -32,6 +26,7 @@ body {
       .partners,
       .about,
       .catalog,
+      .good-page,
       .footer {
          display: none !important;
       }
@@ -49,10 +44,18 @@ body {
 }
 //!=================================
 
-@import "_components";
-@media (max-width: 899.98px) {
-   .menu {
-      display: none !important;
+.little-defolt-title {
+   color: var(--black-100, #101010);
+
+   font-family: $Montserrat;
+   font-size: 24px;
+   font-style: normal;
+   font-weight: 700;
+   line-height: 32px; /* 133.333% */
+
+   @media (max-width: 767.98px) {
+      font-size: 16px;
+      line-height: 20px; /* 125% */
    }
 }
 @media (max-width: 575.98px) {
@@ -60,3 +63,4 @@ body {
       display: none;
    }
 }
+@import "_components";

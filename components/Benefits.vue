@@ -66,21 +66,5 @@ const scrollX = (e) => {
 </script>
 
 <style lang="scss" scoped>
-@media (max-width: 1299.98px) {
-   .benefits__list {
-      overflow-x: auto;
 
-      scroll-behavior: smooth;
-      //   white-space: nowrap;
-      overflow-x: auto;
-      overflow-y: hidden;
-      width: 100%;
-      scrollbar-width: thin; /* для Firefox */
-      -ms-overflow-style: none; /* для Internet Explorer и Edge */
-
-      &::-webkit-scrollbar {
-         display: none; /* для WebKit (Chrome, Safari) */
-      }
-   }
-}
 </style>

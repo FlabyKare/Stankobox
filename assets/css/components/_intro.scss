@@ -8,8 +8,7 @@
 
    gap: 70px;
 }
-.intro__info {
-}
+
 .intro__info-title {
    color: #1d1d1d;
 
@@ -98,15 +97,12 @@
    }
 }
 @media (max-width: 768px) {
-    .intro {
-       margin-top: 24px;
-    }
- }
+   .intro {
+      margin-top: 24px;
+   }
+}
 @media (min-width: 768px) and (max-width: 1334.98px) {
    .intro {
       margin-top: 48px;
    }
-}
-
-@media (min-width: 1335px) {
 }

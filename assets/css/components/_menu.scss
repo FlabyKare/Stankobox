@@ -16,6 +16,10 @@
 
       z-index: 1000;
       transition: 0.25s ease-in-out;
+
+      @media (max-width: 899.98px) {
+         display: none !important;
+      }
    }
 
    &.main-content_active {
@@ -202,9 +206,9 @@
       margin-top: 8px;
    }
 }
-.menu-mobile__container {
-   overflow-y: auto;
-}
+// .menu-mobile__container {
+//    overflow-y: auto;
+// }
 .menu-mobile__container-pages {
    padding-bottom: 24px;
 
@@ -243,6 +247,8 @@
    transition: 0.5s ease-in-out;
 
    width: 100% !important;
+
+   height: 100vh;
 }
 .menu-mobile__container_pages {
    &::before {

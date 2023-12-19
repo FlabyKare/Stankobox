@@ -96,6 +96,15 @@
 .catalog-breadcrumbs {
    margin-top: 28px;
 }
+
+
+
+
+
+
+
+
+
 .breadcrumbs {
    display: inline-flex;
    gap: 8px;
@@ -103,8 +112,10 @@
    align-items: center;
    * {
       color: #a8a8a8 !important;
+
+      cursor: pointer;
    }
-   .catalog-breadcrumbs__link {
+   .breadcrumbs__link {
       font-family: $TTNormsMedium;
       font-size: 14px;
       font-style: normal;

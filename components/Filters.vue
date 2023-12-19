@@ -50,17 +50,4 @@ const scrollX = (e) => {
 };
 </script>
 
-<style lang="scss" scoped>
-@media (min-width: 1335px) {
-   .filters__list-item {
-      position: relative;
-
-      p {
-         position: absolute;
-         top: 50%;
-         left: 50%;
-         transform: translate(-50%, -50%);
-      }
-   }
-}
-</style>
+<style lang="scss" scoped></style>

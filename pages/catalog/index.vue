@@ -19,87 +19,39 @@
       </ul>
 
       <h3 class="catalog__title page-title">Каталог</h3>
-
       <div class="catalog__categories equipments__categories">
-         <NuxtLink class="equipments__categories-item">
+         <NuxtLink
+            v-for="(category, index) in categories"
+            :key="index"
+            :to="`/products/${category.slug}`"
+            class="equipments__categories-item"
+         >
             <div class="equipments__categories-item-img-wrapper">
                <img
                   class="equipments__categories-item-img"
-                  src="~/assets/img/Menu/1.png"
+                  :src="`/img/Menu/${category.img}.png`"
                   alt=""
                />
             </div>
-
-            <p class="equipments__categories-item-text">Станки по металлу</p>
-         </NuxtLink>
-
-         <NuxtLink class="equipments__categories-item">
-            <div class="equipments__categories-item-img-wrapper">
-               <img
-                  class="equipments__categories-item-img"
-                  src="~/assets/img/Menu/2.png"
-                  alt=""
-               />
-            </div>
-
-            <p class="equipments__categories-item-text">Станки по дереву</p>
-         </NuxtLink>
-
-         <NuxtLink class="equipments__categories-item">
-            <div class="equipments__categories-item-img-wrapper">
-               <img
-                  class="equipments__categories-item-img"
-                  src="~/assets/img/Menu/3.png"
-                  alt=""
-               />
-            </div>
-
-            <p class="equipments__categories-item-text">Станки с ЧПУ</p>
-         </NuxtLink>
-
-         <NuxtLink class="equipments__categories-item">
-            <div class="equipments__categories-item-img-wrapper">
-               <img
-                  class="equipments__categories-item-img"
-                  src="~/assets/img/Menu/4.png"
-                  alt=""
-               />
-            </div>
-
-            <p class="equipments__categories-item-text">
-               Ленточнопильные станки
-            </p>
-         </NuxtLink>
-
-         <NuxtLink class="equipments__categories-item">
-            <div class="equipments__categories-item-img-wrapper">
-               <img
-                  class="equipments__categories-item-img"
-                  src="~/assets/img/Menu/5.png"
-                  alt=""
-               />
-            </div>
-
-            <p class="equipments__categories-item-text">Вытяжки</p>
-         </NuxtLink>
-
-         <NuxtLink class="equipments__categories-item">
-            <div class="equipments__categories-item-img-wrapper">
-               <img
-                  class="equipments__categories-item-img"
-                  src="~/assets/img/Menu/6.png"
-                  alt=""
-               />
-            </div>
-
-            <p class="equipments__categories-item-text">
-               Электроэрозионные станки
-            </p>
+            <p class="equipments__categories-item-text">{{ category.name }}</p>
          </NuxtLink>
       </div>
    </section>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRoute } from "vue-router";
+
+const { params } = useRoute();
+const categories = [
+   { slug: "metal", img: 1, name: "Станки по металлу" },
+   { slug: "wood", img: 2, name: "Станки по дереву" },
+   { slug: "cnc", img: 3, name: "Станки с ЧПУ" },
+   { slug: "bandsaw", img: 4, name: "Ленточнопильные станки" },
+   { slug: "extractors", img: 5, name: "Вытяжки" },
+   { slug: "edm", img: 6, name: "Электроэрозионные станки" },
+];
+const id = params.slug;
+</script>
 
 <style lang="scss" scoped></style>

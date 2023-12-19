@@ -9,7 +9,22 @@
          :button="false"
          @scroll="onScroll"
       >
-         <div class="equipments__categories-item">
+         <div
+            v-for="(item, index) in equipmentCategories"
+            :key="index"
+            class="equipments__categories-item"
+         >
+            <div class="equipments__categories-item-img-wrapper">
+               <img
+                  class="equipments__categories-item-img"
+                  :src="`/img/Equipments/${item.image}.png`"
+                  alt=""
+               />
+            </div>
+            <p class="equipments__categories-item-text">{{ item.text }}</p>
+         </div>
+
+         <!-- <div class="equipments__categories-item">
             <div class="equipments__categories-item-img-wrapper">
                <img
                   class="equipments__categories-item-img"
@@ -103,7 +118,7 @@
             <p class="equipments__categories-item-text">
                Электроэрозионные станки
             </p>
-         </div>
+         </div> -->
       </VueHorizontal>
    </section>
 </template>
@@ -117,6 +132,18 @@ export default {
          originX: 0,
          originLeft: 0,
          shouldAddClass: true,
+
+         equipmentCategories: [
+            { image: 1, text: "Станки по металлу" },
+            { image: 2, text: "Станки по металлу с ЧПУ" },
+            { image: 3, text: "Ленточнопильные станки" },
+            { image: 4, text: "Электроэрозионные станки" },
+            { image: 1, text: "Электроэрозионные станки" },
+            { image: 2, text: "Электроэрозионные станки" },
+            { image: 3, text: "Электроэрозионные станки" },
+
+            // Добавьте необходимое количество объектов для каждой категории
+         ],
       };
    },
    beforeUnmount() {

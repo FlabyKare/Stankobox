@@ -32,25 +32,9 @@
    gap: 32px;
 
    margin-top: 40px;
-   //    padding-left: 88px;
-   //    padding-right: 0 !important;
 }
-.little-defolt-title {
-   color: var(--black-100, #101010);
 
-   font-family: $Montserrat;
-   font-size: 24px;
-   font-style: normal;
-   font-weight: 700;
-   line-height: 32px; /* 133.333% */
-
-   @media (max-width: 767.98px) {
-      font-size: 16px;
-      line-height: 20px; /* 125% */
-   }
-}
 .about__info {
-   //    width: 100%;
    min-width: 452px;
 
    max-width: 616px;
