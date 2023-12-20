@@ -1,24 +1,5 @@
 <template>
    <section class="good-page container">
-      <!-- <ul class="good-page breadcrumbs">
-         <li class="good-page__link breadcrumbs__link">
-            <NuxtLink to="/">Главная</NuxtLink>
-         </li>
-         <span class="good-page__link-divider breadcrumbs__link-divider"
-            >•</span
-         >
-         <li class="good-page__link breadcrumbs__link">
-            <NuxtLink to="/catalog">Каталог</NuxtLink>
-         </li>
-
-         <span class="good-page__link-divider breadcrumbs__link-divider"
-            >•</span
-         >
-         <li class="good-page__link breadcrumbs__link">
-            <NuxtLink>{{ id }}</NuxtLink>
-         </li>
-      </ul> -->
-
       <ul class="good-page breadcrumbs">
          <li class="good-page__link breadcrumbs__link">
             <NuxtLink to="/">Главная</NuxtLink>
@@ -27,46 +8,63 @@
             >•</span
          >
          <li class="good-page__link breadcrumbs__link">
-            <NuxtLink to="/catalog">Каталог</NuxtLink>
+            <NuxtLink>Каталог</NuxtLink>
          </li>
+
          <span class="good-page__link-divider breadcrumbs__link-divider"
             >•</span
          >
-
-         <template v-if="categories && id">
-            <li
-               v-for="(category, index) in categories"
-               :key="index"
-               class="good-page__link breadcrumbs__link"
-            >
-               <NuxtLink :to="`/catalog/${category.slug}`">{{
-                  category.name
-               }}</NuxtLink>
-               <span
-                  v-if="index < categories.length - 1"
-                  class="good-page__link-divider breadcrumbs__link-divider"
-                  >•</span
-               >
-            </li>
-            <span class="good-page__link-divider breadcrumbs__link-divider"
-               >•</span
-            >
-            <li class="good-page__link breadcrumbs__link">
-               <NuxtLink>{{ id }}</NuxtLink>
-            </li>
-         </template>
+         <li class="good-page__link breadcrumbs__link">
+            <NuxtLink>{{ id }}</NuxtLink>
+         </li>
       </ul>
+
       <h3 class="good-page__title page-title">{{ id }}</h3>
+
+      <section class="good-page__intro">
+         <h6 class="good-page__intro-articul">Код товара: {{ id }}</h6>
+
+         <div class="good-page__intro-preview"></div>
+      </section>
 
       <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
    </section>
 </template>
 
-<script setup>
-import { inject } from "vue";
+<script>
+import VueHorizontal from "vue-horizontal";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
 
-const categories = inject("categories", []);
-const { id } = useRoute().params;
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
+
+export default {
+   data() {
+      return {
+         left: 0,
+         originX: 0,
+         originLeft: 0,
+      };
+   },
+
+   setup() {
+      const { id } = useRoute().params;
+
+      return {
+         modules: [Pagination],
+         spaceBetween: 50,
+         id,
+      };
+   },
+   components: {
+      VueHorizontal,
+      Swiper,
+      SwiperSlide,
+   },
+};
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+
+</style>

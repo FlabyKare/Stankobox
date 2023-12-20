@@ -97,14 +97,6 @@
    margin-top: 28px;
 }
 
-
-
-
-
-
-
-
-
 .breadcrumbs {
    display: inline-flex;
    gap: 8px;
@@ -123,6 +115,10 @@
       line-height: 20px; /* 142.857% */
       letter-spacing: 0.056px;
       color: #a8a8a8 !important;
+
+      &:first-letter {
+         text-transform: uppercase;
+      }
    }
 
    .breadcrumbs__link-divider {

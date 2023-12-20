@@ -40,9 +40,6 @@
 </template>
 
 <script setup>
-import { useRoute } from "vue-router";
-
-const { params } = useRoute();
 const categories = [
    { slug: "metal", img: 1, name: "Станки по металлу" },
    { slug: "wood", img: 2, name: "Станки по дереву" },
@@ -51,7 +48,8 @@ const categories = [
    { slug: "extractors", img: 5, name: "Вытяжки" },
    { slug: "edm", img: 6, name: "Электроэрозионные станки" },
 ];
-const id = params.slug;
+
+
 </script>
 
 <style lang="scss" scoped></style>
