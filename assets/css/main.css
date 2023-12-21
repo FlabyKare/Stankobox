@@ -988,7 +988,7 @@ input[type=number] {
   }
 }
 
-.menu__list_products-metal {
+.menu__list_metals {
   -webkit-transform: translateX(-140%);
           transform: translateX(-140%);
   opacity: 0;
@@ -996,7 +996,7 @@ input[type=number] {
   position: absolute;
   z-index: -100;
 }
-.menu__list_products-metal.active {
+.menu__list_metals.active {
   -webkit-transform: translateX(0);
           transform: translateX(0);
   opacity: 1;

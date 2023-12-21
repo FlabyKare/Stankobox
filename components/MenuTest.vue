@@ -150,24 +150,20 @@ const menuListMetalProducts1ItemsSix = [
 ];
 
 const menuListMetalProducts1ItemsSeven = [
-   { text: "Ручные ленточнопильные станки", hasArrow: false },
-   { text: "Полуавтоматические ленточнопильные станки", hasArrow: false },
-   { text: "Автоматические ленточнопильные станки", hasArrow: false },
-   { text: "Вертикальные ленточнопильные станки", hasArrow: false },
+   { text: "Вальцовочные станки", hasArrow: false },
+   { text: "Листогибочные станки", hasArrow: false },
+   { text: "Отбортовочный станок", hasArrow: false },
 ];
 
 const menuListMetalProducts1ItemsEight = [
-   { text: "Ручные ленточнопильные станки", hasArrow: false },
-   { text: "Полуавтоматические ленточнопильные станки", hasArrow: false },
-   { text: "Автоматические ленточнопильные станки", hasArrow: false },
-   { text: "Вертикальные ленточнопильные станки", hasArrow: false },
+   { text: "Фрезерные станки", hasArrow: false },
+   { text: "Токарно-фрезерные станки", hasArrow: false },
 ];
 
 const menuListMetalProducts1ItemsNine = [
-   { text: "Ручные ленточнопильные станки", hasArrow: false },
-   { text: "Полуавтоматические ленточнопильные станки", hasArrow: false },
-   { text: "Автоматические ленточнопильные станки", hasArrow: false },
-   { text: "Вертикальные ленточнопильные станки", hasArrow: false },
+   { text: "Трёхроликовые гибочные станки", hasArrow: false },
+   { text: "Станки для бездорновой гибки", hasArrow: false },
+   { text: "Ручные гибочные станки", hasArrow: false },
 ];
 
 const menuActiveItems3 = ref([]);
@@ -187,30 +183,44 @@ const activateProductMenu = (index) => {
       case 0:
          _menuActiveItems.value = menuListMetalProducts1Items;
          menuListProductsMetal.value = true;
+         activeIndex.value = 1;
+
          break;
       case 1:
          _menuActiveItems.value = menuActiveItemsTwo;
-         menuListMetalProducts1Ref.value = null;
+         menuListMetalProducts1Ref.value = false;
+         activeIndex.value = index;
+
          break;
       case 2:
          _menuActiveItems.value = menuActiveItemsThree;
-         menuListMetalProducts1Ref.value = null;
+         menuListMetalProducts1Ref.value = false;
+         activeIndex.value = index;
+
          break;
       case 3:
          _menuActiveItems.value = menuActiveItemsFour;
-         menuListMetalProducts1Ref.value = null;
+         menuListMetalProducts1Ref.value = false;
+         activeIndex.value = index;
+
          break;
       case 4:
          _menuActiveItems.value = menuActiveItemsFive;
-         menuListMetalProducts1Ref.value = null;
+         menuListMetalProducts1Ref.value = false;
+         activeIndex.value = index;
+
          break;
       case 5:
          _menuActiveItems.value = menuActiveItemsSix;
-         menuListMetalProducts1Ref.value = null;
+         menuListMetalProducts1Ref.value = false;
+         activeIndex.value = index;
+
          break;
       default:
          _menuActiveItems.value = menuItems[index].submenu || [];
          menuListProductsMetal.value = false;
+         activeIndex.value = 0;
+
          break;
    }
 };
@@ -221,36 +231,49 @@ const activateMenu3 = (index) => {
    switch (index) {
       case 0:
          menuActiveItems3.value = menuListMetalProducts1ItemsOne;
-         break;
+         //  menuListProductsMetal.value = true;
+         activeIndex.value = 0;
 
+         break;
+      case 1:
+         activeIndex.value = 2;
+         break;
+      case 2:
+         activeIndex.value = 2;
+         break;
       case 3:
          menuActiveItems3.value = menuListMetalProducts1ItemsFour;
-         menuListProductsMetal.value = true;
-         activeIndex.value = index;
+         //  menuListProductsMetal.value = true;
+         activeIndex.value = 0;
+         break;
+      case 4:
+         activeIndex.value = 2;
          break;
       case 5:
          menuActiveItems3.value = menuListMetalProducts1ItemsSix;
-         menuListProductsMetal.value = true;
-         activeIndex.value = index;
+         //  menuListProductsMetal.value = true;
+         activeIndex.value = 0;
          break;
       case 6:
          menuActiveItems3.value = menuListMetalProducts1ItemsSeven;
-         menuListProductsMetal.value = true;
-         activeIndex.value = index;
+         //  menuListProductsMetal.value = true;
+         activeIndex.value = 0;
          break;
       case 7:
          menuActiveItems3.value = menuListMetalProducts1ItemsEight;
-         menuListProductsMetal.value = true;
-         activeIndex.value = index;
+         //  menuListProductsMetal.value = true;
+         activeIndex.value = 0;
          break;
       case 8:
          menuActiveItems3.value = menuListMetalProducts1ItemsNine;
-         menuListProductsMetal.value = false;
-         activeIndex.value = index;
+         //  menuListProductsMetal.value = true;
+         activeIndex.value = 0;
          break;
+      case 9:
+         activeIndex.value = 2;
 
-      default:
-         break;
+      //   default:
+      //      break;
    }
 };
 

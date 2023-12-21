@@ -1,5 +1,6 @@
 <template>
    <svg
+      class="menu-arrow"
       xmlns="http://www.w3.org/2000/svg"
       width="20"
       height="20"
@@ -18,4 +19,8 @@
 
 <script setup></script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.menu-arrow {
+   min-width: 20px;
+}
+</style>
