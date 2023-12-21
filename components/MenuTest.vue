@@ -15,18 +15,17 @@
          </ul>
 
          <ul
+            v-if="isProductMenuActive"
             class="menu__list menu__list_products"
-            :class="{ menu__list_active: isProductMenuActive }"
+            :class="{ menu__list_active: menuListProductsMetal }"
          >
             <li
                v-for="(item, index) in _menuActiveItems"
                :key="index"
                class="menu__list-item menu__list_products-item"
                @mouseover="
-                  () => {
-                     activateProductItem(index);
-                     activateMenu3(index);
-                  }
+                  activateProductItem(index);
+                  activateMenu3(index);
                "
                :class="{ active: productsActiveIndex === index }"
             >
@@ -36,9 +35,9 @@
          </ul>
 
          <ul
+            v-if="menuListProductsMetal"
             class="menu__list menu__list_metals"
-            :class="{ active: menuListProductsMetal }"
-            ref="menuListProductsMetal"
+            :class="{ active: activeIndex === 0 }"
          >
             <li
                v-for="(item, index) in menuActiveItems3"
@@ -54,7 +53,6 @@
       </div>
    </aside>
 </template>
-
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 
@@ -173,12 +171,12 @@ const menuListMetalProducts1ItemsNine = [
 ];
 
 const menuActiveItems3 = ref([]);
-
-const isProductMenuActive = ref(false);
-const activeIndex = ref(null);
-const productsActiveIndex = ref(null);
 const _menuActiveItems = ref([]);
 
+const activeIndex = ref(null);
+const productsActiveIndex = ref(null);
+
+const isProductMenuActive = ref(false);
 const menuListMetalProducts1Ref = ref(false);
 
 const activateProductMenu = (index) => {
@@ -188,7 +186,7 @@ const activateProductMenu = (index) => {
    switch (index) {
       case 0:
          _menuActiveItems.value = menuListMetalProducts1Items;
-         menuListMetalProducts1Ref.value = true;
+         menuListProductsMetal.value = true;
          break;
       case 1:
          _menuActiveItems.value = menuActiveItemsTwo;
@@ -212,8 +210,7 @@ const activateProductMenu = (index) => {
          break;
       default:
          _menuActiveItems.value = menuItems[index].submenu || [];
-         menuListMetalProducts1Ref.value = null;
-
+         menuListProductsMetal.value = false;
          break;
    }
 };
@@ -224,8 +221,6 @@ const activateMenu3 = (index) => {
    switch (index) {
       case 0:
          menuActiveItems3.value = menuListMetalProducts1ItemsOne;
-         menuListProductsMetal.value = true;
-         activeIndex.value = index;
          break;
 
       case 3:
@@ -270,6 +265,14 @@ const deactivateProductMenu = () => {
 const activateProductItem = (index) => {
    productsActiveIndex.value = index;
 };
+onMounted(() => {
+   document.addEventListener("click", handleDocumentClick);
+});
+
+onUnmounted(() => {
+   document.removeEventListener("click", handleDocumentClick);
+});
+
 const handleDocumentClick = (event) => {
    const target = event.target;
    const isInsideMenu = target.closest(
@@ -280,12 +283,4 @@ const handleDocumentClick = (event) => {
       deactivateProductMenu();
    }
 };
-
-onMounted(() => {
-   document.addEventListener("click", handleDocumentClick);
-});
-
-onUnmounted(() => {
-   document.removeEventListener("click", handleDocumentClick);
-});
 </script>

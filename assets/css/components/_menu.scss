@@ -386,13 +386,13 @@
 .menu__list_products-metal {
    transform: translateX(-140%);
    opacity: 0;
-   pointer-events: none;
+   pointer-events: none !important;
    position: absolute;
    z-index: -100;
    &.active {
       transform: translateX(0);
       opacity: 1;
-      pointer-events: all;
+      pointer-events: all !important;
       position: inherit;
 
       z-index: 100;
