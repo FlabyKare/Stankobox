@@ -241,7 +241,7 @@ input[type=number] {
   }
 }
 
-@media (max-width: 899.98px) {
+@media (max-width: 1374.98px) {
   .body_hidden .filters,
   .body_hidden .intro,
   .body_hidden .benefits,
@@ -698,7 +698,9 @@ input[type=number] {
 .menu__list {
   list-style: none;
   width: 292px;
-  height: 400px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   padding: 24px 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -722,12 +724,12 @@ input[type=number] {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 32px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
-.menu__list-item a {
+.menu__list-item a,
+.menu__list-item button {
   font-family: "TTNormsMedium", sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -759,6 +761,7 @@ input[type=number] {
   height: -webkit-fit-content !important;
   height: -moz-fit-content !important;
   height: fit-content !important;
+  gap: 32px;
   opacity: 0;
   -webkit-transition: 0.25s ease-in;
   transition: 0.25s ease-in;
@@ -772,7 +775,7 @@ input[type=number] {
   opacity: 1;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1375px) {
   .menu-mobile {
     display: none;
   }
@@ -856,7 +859,10 @@ input[type=number] {
   display: none;
 }
 
-@media (max-width: 899.98px) {
+@media (max-width: 1374.98px) {
+  .menu {
+    display: none !important;
+  }
   .body_hidden .menu-mobile {
     height: -webkit-fit-content;
     height: -moz-fit-content;
@@ -980,6 +986,23 @@ input[type=number] {
     margin-right: 0;
     margin-left: auto;
   }
+}
+
+.menu__list_products-metal {
+  -webkit-transform: translateX(-140%);
+          transform: translateX(-140%);
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: -100;
+}
+.menu__list_products-metal.active {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
+  pointer-events: all;
+  position: inherit;
+  z-index: 100;
 }
 
 .filters {

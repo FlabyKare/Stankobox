@@ -42,6 +42,8 @@
                <NuxtLink>{{ item.text }}</NuxtLink>
             </li>
          </ul>
+
+   
       </div>
    </aside>
 </template>
@@ -109,6 +111,11 @@ const menuActiveItemsSix = [
    { text: "Электроэрозионные координатно-прошивные станки" },
    { text: "Расходные материалы" },
 ];
+
+
+
+
+
 const isProductMenuActive = ref(false);
 const activeIndex = ref(null);
 
