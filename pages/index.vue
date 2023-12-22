@@ -3,22 +3,18 @@
    <!-- <Navigation /> -->
    <!-- <hr /> -->
    <!-- <Search /> -->
-
-   <!-- <Filters /> -->
-   <TestScrollingFilters />
+   <!-- <mainVue /> -->
+   <Filters />
 
    <Intro />
 
-   <!-- <Benefits /> -->
-   <TestScrollingBenefits />
+   <Benefits />
 
-   <!-- <BasicEquipment /> -->
-   <TestScrollingBasicEquipment />
+   <BasicEquipment />
 
    <PromotionalOffers />
 
-   <!-- <Partners /> -->
-   <TestScrollingPartners />
+   <Partners />
 
    <About />
 </template>

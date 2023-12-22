@@ -6,7 +6,7 @@
 
    <main class="main-content">
       <!-- <Menu /> -->
-      <MenuTest />
+      <Menu />
       <!-- <SidebarNav /> -->
 
       <!-- <handTestMenu /> -->
