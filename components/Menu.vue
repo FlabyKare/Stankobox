@@ -26,10 +26,7 @@
                v-for="(item, index) in _menuActiveItems"
                :key="index"
                class="menu__list-item menu__list_products-item"
-               @mouseover="
-                  activateProductItem2(index);
-                  activateMenu3(index);
-               "
+               @mouseover="activateProductItem2(index)"
                :class="{ active: activeIndex2 === index }"
             >
                <NuxtLink>{{ item.text }}</NuxtLink>
@@ -41,11 +38,6 @@
             class="menu__list menu__list_metals"
             :class="{ active: metalProductsActiveIndex }"
          >
-            <!-- <ul
-            v-if="menuListProductsMetal"
-            class="menu__list menu__list_metals"
-            :class="{ active: metalProductsActiveIndex }"
-         > -->
             <li
                v-for="(item, index) in menuActiveItems3"
                :key="index"
@@ -172,17 +164,35 @@ const menuListMetalProducts1ItemsNine = [
    { text: "Станки для бездорновой гибки", hasArrow: false },
    { text: "Ручные гибочные станки", hasArrow: false },
 ];
-
-const menuActiveItems3 = ref([]);
-const _menuActiveItems = ref([]);
+// Функции для смены цвета ссылок при наведении
 
 const activeIndex = ref(null);
 const activeIndex2 = ref(null);
 const activeIndex3 = ref(null);
 
-const metalProductsActiveIndex = ref(null);
+const activateProductItem1 = (index) => {
+   activeIndex.value = index;
+};
+const activateProductItem2 = (index) => {
+   activeIndex2.value = index;
+
+   if (metalProductsActiveIndex.value && isProductMetalsActivated.value) {
+      activateMenu3(index);
+   }
+};
+const activateProductItem3 = (index) => {
+   activeIndex3.value = index;
+};
+
+// ====================================================
+const menuActiveItems3 = ref([]);
+const _menuActiveItems = ref([]);
+
+var metalProductsActiveIndex = ref(false);
 
 const isProductMenuActive = ref(false);
+
+const isProductMetalsActivated = ref(false);
 
 const activateProductMenu = (index) => {
    isProductMenuActive.value = true;
@@ -193,12 +203,15 @@ const activateProductMenu = (index) => {
          menuListProductsMetal.value = true;
 
          metalProductsActiveIndex.value = true;
+         isProductMetalsActivated.value = true;
+
          break;
       case 1:
          _menuActiveItems.value = menuActiveItemsTwo;
          menuListProductsMetal.value = true;
 
          metalProductsActiveIndex.value = false;
+         isProductMetalsActivated.value = false;
 
          break;
       case 2:
@@ -206,6 +219,7 @@ const activateProductMenu = (index) => {
          menuListProductsMetal.value = true;
 
          metalProductsActiveIndex.value = false;
+         isProductMetalsActivated.value = false;
 
          break;
       case 3:
@@ -213,6 +227,7 @@ const activateProductMenu = (index) => {
          menuListProductsMetal.value = true;
 
          metalProductsActiveIndex.value = false;
+         isProductMetalsActivated.value = false;
 
          break;
       case 4:
@@ -220,6 +235,7 @@ const activateProductMenu = (index) => {
          menuListProductsMetal.value = true;
 
          metalProductsActiveIndex.value = false;
+         isProductMetalsActivated.value = false;
 
          break;
       case 5:
@@ -227,6 +243,7 @@ const activateProductMenu = (index) => {
          menuListProductsMetal.value = true;
 
          metalProductsActiveIndex.value = false;
+         isProductMetalsActivated.value = false;
 
          break;
       default:
@@ -243,12 +260,12 @@ const activateMenu3 = (index) => {
       case 0:
          metalProductsActiveIndex.value = true;
 
-         
          menuActiveItems3.value = menuListMetalProducts1ItemsOne;
 
          break;
       case 1:
          metalProductsActiveIndex.value = false;
+         //  metalProductsActiveIndex.value = false;
 
          break;
       case 2:
@@ -258,7 +275,6 @@ const activateMenu3 = (index) => {
       case 3:
          metalProductsActiveIndex.value = true;
 
-         
          menuActiveItems3.value = menuListMetalProducts1ItemsFour;
          break;
       case 4:
@@ -268,25 +284,21 @@ const activateMenu3 = (index) => {
       case 5:
          metalProductsActiveIndex.value = true;
 
-         
          menuActiveItems3.value = menuListMetalProducts1ItemsSix;
          break;
       case 6:
          metalProductsActiveIndex.value = true;
 
-         
          menuActiveItems3.value = menuListMetalProducts1ItemsSeven;
          break;
       case 7:
          metalProductsActiveIndex.value = true;
 
-         
          menuActiveItems3.value = menuListMetalProducts1ItemsEight;
          break;
       case 8:
          metalProductsActiveIndex.value = true;
 
-         
          menuActiveItems3.value = menuListMetalProducts1ItemsNine;
          break;
       case 9:
@@ -305,16 +317,7 @@ const deactivateProductMenu = () => {
    menuListProductsMetal.value = false;
    // Сбросьте другие ref при необходимости
 };
-const activateProductItem1 = (index) => {
-   activeIndex.value = index;
-};
 
-const activateProductItem2 = (index) => {
-   activeIndex2.value = index;
-};
-const activateProductItem3 = (index) => {
-   activeIndex3.value = index;
-};
 onMounted(() => {
    document.addEventListener("click", handleDocumentClick);
 });
