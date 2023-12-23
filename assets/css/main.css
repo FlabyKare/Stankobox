@@ -241,7 +241,7 @@ input[type=number] {
   }
 }
 
-@media (max-width: 1374.98px) {
+@media (max-width: 1099.98px) {
   .body_hidden .filters,
   .body_hidden .intro,
   .body_hidden .benefits,
@@ -775,7 +775,7 @@ input[type=number] {
   opacity: 1;
 }
 
-@media (min-width: 1375px) {
+@media (min-width: 1100px) {
   .menu-mobile {
     display: none;
   }
@@ -859,7 +859,7 @@ input[type=number] {
   display: none;
 }
 
-@media (max-width: 1374.98px) {
+@media (max-width: 1099.98px) {
   .menu {
     display: none !important;
   }

@@ -39,7 +39,12 @@
 
          <ul
             class="menu__list menu__list_metals"
-            :class="{ active: metalProductsActiveIndex }"
+            :class="{
+               active:
+                  metalProductsActiveIndex &&
+                  isProductMetalsActivated &&
+                  twentyColumnIsActivated,
+            }"
          >
             <li
                v-for="(item, index) in menuActiveItems3"
@@ -196,6 +201,7 @@ var metalProductsActiveIndex = ref(false);
 const isProductMenuActive = ref(false);
 
 const isProductMetalsActivated = ref(null);
+const twentyColumnIsActivated = ref(null);
 
 const activateProductMenu = (index) => {
    isProductMenuActive.value = true;
@@ -214,6 +220,7 @@ const activateProductMenu = (index) => {
 
          metalProductsActiveIndex.value = false;
          isProductMetalsActivated.value = false;
+         twentyColumnIsActivated.value = false;
 
          break;
       case 2:
@@ -222,6 +229,7 @@ const activateProductMenu = (index) => {
 
          metalProductsActiveIndex.value = false;
          isProductMetalsActivated.value = false;
+         twentyColumnIsActivated.value = false;
 
          break;
       case 3:
@@ -230,6 +238,7 @@ const activateProductMenu = (index) => {
 
          metalProductsActiveIndex.value = false;
          isProductMetalsActivated.value = false;
+         twentyColumnIsActivated.value = false;
 
          break;
       case 4:
@@ -238,6 +247,7 @@ const activateProductMenu = (index) => {
 
          metalProductsActiveIndex.value = false;
          isProductMetalsActivated.value = false;
+         twentyColumnIsActivated.value = false;
 
          break;
       case 5:
@@ -246,11 +256,13 @@ const activateProductMenu = (index) => {
 
          metalProductsActiveIndex.value = false;
          isProductMetalsActivated.value = false;
+         twentyColumnIsActivated.value = false;
 
          break;
       default:
          _menuActiveItems.value = menuItems[index].submenu || [];
          isProductMetalsActivated.value = false;
+         twentyColumnIsActivated.value = false;
 
          break;
    }
@@ -265,17 +277,25 @@ const activateMenu3 = (index) => {
       switch (index) {
          case 0:
             metalProductsActiveIndex.value = true;
+            twentyColumnIsActivated.value = true;
+
             menuActiveItems3.value = menuListMetalProducts1ItemsOne;
             break;
          case 1:
             metalProductsActiveIndex.value = false;
+            twentyColumnIsActivated.value = false;
+
             //  metalProductsActiveIndex.value = false;
             break;
          case 2:
             metalProductsActiveIndex.value = false;
+            twentyColumnIsActivated.value = false;
+
             break;
          case 3:
             metalProductsActiveIndex.value = true;
+            twentyColumnIsActivated.value = true;
+
             menuActiveItems3.value = menuListMetalProducts1ItemsFour;
             break;
          case 4:
@@ -283,22 +303,32 @@ const activateMenu3 = (index) => {
             break;
          case 5:
             metalProductsActiveIndex.value = true;
+            twentyColumnIsActivated.value = true;
+
             menuActiveItems3.value = menuListMetalProducts1ItemsSix;
             break;
          case 6:
             metalProductsActiveIndex.value = true;
+            twentyColumnIsActivated.value = true;
+
             menuActiveItems3.value = menuListMetalProducts1ItemsSeven;
             break;
          case 7:
             metalProductsActiveIndex.value = true;
+            twentyColumnIsActivated.value = true;
+
             menuActiveItems3.value = menuListMetalProducts1ItemsEight;
             break;
          case 8:
             metalProductsActiveIndex.value = true;
+            twentyColumnIsActivated.value = true;
+
             menuActiveItems3.value = menuListMetalProducts1ItemsNine;
             break;
          case 9:
             metalProductsActiveIndex.value = false;
+            twentyColumnIsActivated.value = false;
+
          //   default:
          //      break;
       }
@@ -307,36 +337,47 @@ const activateMenu3 = (index) => {
       switch (index) {
          case 0:
             metalProductsActiveIndex.value = false;
+
             break;
          case 1:
             metalProductsActiveIndex.value = false;
+
             break;
          case 2:
             metalProductsActiveIndex.value = false;
+
             break;
          case 3:
             metalProductsActiveIndex.value = false;
+
             break;
          case 4:
             metalProductsActiveIndex.value = false;
+
             break;
          case 5:
             metalProductsActiveIndex.value = false;
+
             break;
          case 6:
             metalProductsActiveIndex.value = false;
+
             break;
          case 7:
             metalProductsActiveIndex.value = false;
+
             break;
          case 8:
             metalProductsActiveIndex.value = false;
+
             break;
          case 9:
             metalProductsActiveIndex.value = false;
+
             break;
          default:
             metalProductsActiveIndex.value = false;
+
             break;
       }
    }
