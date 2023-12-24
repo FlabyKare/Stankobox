@@ -357,8 +357,8 @@ export default {
       };
    },
    mounted() {
-      const html = document.querySelector(".dark");
-      html.classList.remove("dark");
+    //   const html = document.querySelector(".dark");
+    //   html.classList.remove("dark");
 
       let accordionItems = document.querySelectorAll(
          ".footer__list-column-item-link"
