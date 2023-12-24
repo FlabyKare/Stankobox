@@ -34,7 +34,7 @@
                   id="phone"
                   required
                   v-maska
-                  data-maska="+# (###) ## ##-##"
+                  data-maska="+# (###) ### ##-##"
                />
                <label for="phone">Номер телефона<span>*</span></label>
             </div>
