@@ -5,11 +5,9 @@
    <Search />
 
    <main class="main-content">
-      <!-- <Menu /> -->
       <Menu />
-      <!-- <SidebarNav /> -->
 
-      <!-- <handTestMenu /> -->
+      <!-- <Popup  /> -->
 
       <MobileMenu />
 

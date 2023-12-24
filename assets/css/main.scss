@@ -1,5 +1,7 @@
 @import "common/_reset";
 
+
+
 //!================ Общие стили =================
 .container {
    width: 100%;
@@ -62,5 +64,9 @@
    hr {
       display: none;
    }
+}
+
+.dark {
+   color-scheme: white !important;
 }
 @import "_components";

@@ -48,8 +48,6 @@ const categories = [
    { slug: "extractors", img: 5, name: "Вытяжки" },
    { slug: "edm", img: 6, name: "Электроэрозионные станки" },
 ];
-
-
 </script>
 
 <style lang="scss" scoped></style>

@@ -32,7 +32,6 @@
 </template>
 
 <script>
-import VueHorizontal from "vue-horizontal";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 
@@ -40,14 +39,6 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
 export default {
-   data() {
-      return {
-         left: 0,
-         originX: 0,
-         originLeft: 0,
-      };
-   },
-
    setup() {
       const { id } = useRoute().params;
 
@@ -58,13 +49,10 @@ export default {
       };
    },
    components: {
-      VueHorizontal,
       Swiper,
       SwiperSlide,
    },
 };
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

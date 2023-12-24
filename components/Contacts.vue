@@ -172,6 +172,7 @@
       </NuxtLink>
       <NuxtLink
          class="mobile-contacts__link mobile-contacts__link_phone"
+         @click="popupActivating"
          to="#"
       >
          <svg
@@ -193,6 +194,7 @@
    </section>
 </template>
 
+<script setup></script>
 <style lang="scss" scoped>
 .contacts__wrapper-button {
    border: 1.5px solid #fff;

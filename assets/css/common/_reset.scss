@@ -1,6 +1,11 @@
 html {
    //! Обнуление стилей
-
+   * {
+      &::selection {
+         background-color: #e31335;
+         color: #fff;
+      }
+   }
    html,
    body,
    div,

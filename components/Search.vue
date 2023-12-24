@@ -1,4 +1,48 @@
 <template>
+   <form action="#" class="popup" :class="{ active: popupActive }">
+      <div class="popup__wrapper">
+         <img
+            class="popup__wrapper-close"
+            src="/public/img/icons/close.png"
+            @click="popupActivating"
+            alt=""
+         />
+
+         <p class="popup__wrapper-pretitle">
+            Остались вопросы или заинтересовались товаром?
+         </p>
+         <h4 class="popup__wrapper-title">
+            Заполните форму и наш специалист свяжется с вами!
+         </h4>
+
+         <div class="popup__wrapper-inputs">
+            <div class="popup__wrapper-inputs-item">
+               <input
+                  v-model="name"
+                  type="text"
+                  id="name"
+                  required
+                  :minlength="3"
+                  :maxlength="20"
+               />
+               <label for="name">Имя<span>*</span></label>
+            </div>
+            <div class="popup__wrapper-inputs-item">
+               <input
+                  v-model="phone"
+                  type="tel"
+                  id="phone"
+                  required
+                  v-maska
+                  data-maska="+# (###) ## ##-##"
+               />
+               <label for="phone">Номер телефона<span>*</span></label>
+            </div>
+         </div>
+
+         <Button class="popup__wrapper-btn">Отправить</Button>
+      </div>
+   </form>
    <section class="search container">
       <NuxtLink to="/" class="search__item search__item-logo">
          <!-- <img class="search__item-logo-img" src="~/assets/img/logo.png" /> -->
@@ -28,11 +72,6 @@
       </NuxtLink>
 
       <div class="serach__item serach__item-flex">
-         <!-- <button
-            class="serach__item-catalog"
-            :class="{ 'serach__item-catalog_active': isActive }"
-            @click="toggleActive"
-         > -->
          <button class="serach__item-catalog">
             <ul class="serach__item-catalog-burger">
                <li></li>
@@ -71,8 +110,9 @@
          </div>
       </div>
 
-      <Button class="search__button">
-         <NuxtLink to="/catalog">Подобрать станок</NuxtLink>
+      <Button class="search__button" @click="popupActivating">
+         <!-- <NuxtLink to="/catalog">Подобрать станок</NuxtLink> -->
+         <NuxtLink to="#">Подобрать станок</NuxtLink>
       </Button>
    </section>
 </template>
@@ -85,6 +125,14 @@ const isActive = ref(false);
 const toggleActive = () => {
    isActive.value = !isActive.value;
 };
+
+const popupActive = ref(false);
+const name = ref("");
+const phone = ref("");
+
+function popupActivating() {
+   popupActive.value = !popupActive.value;
+}
 </script>
 
 <style lang="scss" scoped>
