@@ -40,6 +40,98 @@
             </div>
          </div>
 
+         <div class="popup__wrapper-radios">
+            <div
+               class="popup__wrapper-radios-item"
+               @click="timePickerActive = false"
+            >
+               <svg
+                  v-if="!timePickerActive"
+                  class="popup__wrapper-radios-item-red-btn"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+               >
+                  <circle
+                     cx="10"
+                     cy="10"
+                     r="9.25"
+                     stroke="#E31335"
+                     stroke-width="1.5"
+                  />
+                  <circle cx="10" cy="10" r="4" fill="#E31335" />
+               </svg>
+
+               <svg
+                  v-if="timePickerActive"
+                  class="popup__wrapper-radios-item-gray-btn"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+               >
+                  <circle
+                     cx="10"
+                     cy="10"
+                     r="9.25"
+                     stroke="#A8A8A8"
+                     stroke-width="1.5"
+                  />
+               </svg>
+
+               <p class="popup__wrapper-radios-item-text">В ближайшее время</p>
+            </div>
+
+            <div
+               class="popup__wrapper-radios-item popup__wrapper-radios-item_activator"
+               @click="timePickerActive = true"
+            >
+               <svg
+                  v-if="timePickerActive"
+                  class="popup__wrapper-radios-item-red-btn"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+               >
+                  <circle
+                     cx="10"
+                     cy="10"
+                     r="9.25"
+                     stroke="#E31335"
+                     stroke-width="1.5"
+                  />
+                  <circle cx="10" cy="10" r="4" fill="#E31335" />
+               </svg>
+
+               <svg
+                  v-if="!timePickerActive"
+                  class="popup__wrapper-radios-item-gray-btn"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+               >
+                  <circle
+                     cx="10"
+                     cy="10"
+                     r="9.25"
+                     stroke="#A8A8A8"
+                     stroke-width="1.5"
+                  />
+               </svg>
+
+               <p class="popup__wrapper-radios-item-text">Точное время</p>
+            </div>
+         </div>
+
+         <TimePicker v-if="timePickerActive" />
+
          <Button class="popup__wrapper-btn">Отправить</Button>
       </div>
    </form>
@@ -120,19 +212,14 @@
 <script setup>
 import { ref } from "vue";
 
-const isActive = ref(false);
-
-const toggleActive = () => {
-   isActive.value = !isActive.value;
-};
-
 const popupActive = ref(false);
-const name = ref("");
-const phone = ref("");
+
+const timePickerActive = ref(false);
 
 function popupActivating() {
    popupActive.value = !popupActive.value;
 }
+
 </script>
 
 <style lang="scss" scoped>

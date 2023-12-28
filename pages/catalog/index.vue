@@ -21,25 +21,43 @@
       <h3 class="catalog__title page-title">Каталог</h3>
       <div class="catalog__categories equipments__categories">
          <NuxtLink
-            v-for="(category, index) in categories"
+            v-for="(category, index) in categoriesInfo.categories"
             :key="index"
-            :to="`/products/${category.slug}`"
+            :to="`/catalog/${category.id}`"
             class="equipments__categories-item"
          >
             <div class="equipments__categories-item-img-wrapper">
                <img
                   class="equipments__categories-item-img"
-                  :src="`/img/Menu/${category.img}.png`"
+                  :src="`/img/Menu/${category.name}`"
                   alt=""
                />
             </div>
             <p class="equipments__categories-item-text">{{ category.name }}</p>
          </NuxtLink>
       </div>
+
+      <div v-for="img in categoriesImages">
+         <img :src="`${img.name}`" alt="" />
+      </div>
+      <!-- <div v-for="p in categoriesInfo">
+         <p>{{ p.title }}</p>
+      </div> -->
    </section>
 </template>
 
 <script setup>
+// const { data: categoriesInfo } = await useFetch(
+//    "https://fakestoreapi.com/products/"
+// );
+
+const { data: categoriesInfo } = await useFetch(
+   "http://176.123.168.13:8000/api/categories/"
+);
+const { dataImages: categoriesImages } = await useFetch(
+   "http://176.123.168.13:8000/api/categories/images/5"
+);
+
 const categories = [
    { slug: "metal", img: 1, name: "Станки по металлу" },
    { slug: "wood", img: 2, name: "Станки по дереву" },

@@ -32,11 +32,19 @@
    src: url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&display=swap")
       format("truetype");
 }
-
+@font-face {
+   font-family: "Inter";
+   font-weight: 400;
+   font-style: normal;
+   font-display: swap;
+   src: url("https://fonts.googleapis.com/css2?family=Inter&family=Nunito+Sans:opsz@6..12&display=swap")
+      format("truetype");
+}
 $TTNorms: "TTNorms", sans-serif;
 $TTNormsMedium: "TTNormsMedium", sans-serif;
 $Montserrat: "Montserrat", sans-serif;
 $NunitoSans: "Nunito Sans", sans-serif;
+$Inter: "Inter", sans-serif;
 
 $red: #c80122;
 @mixin scrollbar-styles {

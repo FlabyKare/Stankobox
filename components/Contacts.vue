@@ -172,8 +172,8 @@
       </NuxtLink>
       <NuxtLink
          class="mobile-contacts__link mobile-contacts__link_phone"
-         @click="popupActivating"
          to="#"
+         @click="popupActivating"
       >
          <svg
             width="25"
@@ -192,9 +192,157 @@
          </svg>
       </NuxtLink>
    </section>
+
+   <form action="#" class="popup" :class="{ active: popupActive }">
+      <div class="popup__wrapper">
+         <img
+            class="popup__wrapper-close"
+            src="/public/img/icons/close.png"
+            @click="popupActivating"
+            alt=""
+         />
+
+         <p class="popup__wrapper-pretitle">
+            Остались вопросы или заинтересовались товаром?
+         </p>
+         <h4 class="popup__wrapper-title">
+            Заполните форму и наш специалист свяжется с вами!
+         </h4>
+
+         <div class="popup__wrapper-inputs">
+            <div class="popup__wrapper-inputs-item">
+               <input
+                  v-model="name"
+                  type="text"
+                  id="name"
+                  required
+                  :minlength="3"
+                  :maxlength="20"
+               />
+               <label for="name">Имя<span>*</span></label>
+            </div>
+            <div class="popup__wrapper-inputs-item">
+               <input
+                  v-model="phone"
+                  type="tel"
+                  id="phone"
+                  required
+                  v-maska
+                  data-maska="+# (###) ### ##-##"
+               />
+               <label for="phone">Номер телефона<span>*</span></label>
+            </div>
+         </div>
+
+         <div class="popup__wrapper-radios">
+            <div
+               class="popup__wrapper-radios-item"
+               @click="timePickerActive = false"
+            >
+               <svg
+                  v-if="!timePickerActive"
+                  class="popup__wrapper-radios-item-red-btn"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+               >
+                  <circle
+                     cx="10"
+                     cy="10"
+                     r="9.25"
+                     stroke="#E31335"
+                     stroke-width="1.5"
+                  />
+                  <circle cx="10" cy="10" r="4" fill="#E31335" />
+               </svg>
+
+               <svg
+                  v-if="timePickerActive"
+                  class="popup__wrapper-radios-item-gray-btn"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+               >
+                  <circle
+                     cx="10"
+                     cy="10"
+                     r="9.25"
+                     stroke="#A8A8A8"
+                     stroke-width="1.5"
+                  />
+               </svg>
+
+               <p class="popup__wrapper-radios-item-text">В ближайшее время</p>
+            </div>
+
+            <div
+               class="popup__wrapper-radios-item popup__wrapper-radios-item_activator"
+               @click="timePickerActive = true"
+            >
+               <svg
+                  v-if="timePickerActive"
+                  class="popup__wrapper-radios-item-red-btn"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+               >
+                  <circle
+                     cx="10"
+                     cy="10"
+                     r="9.25"
+                     stroke="#E31335"
+                     stroke-width="1.5"
+                  />
+                  <circle cx="10" cy="10" r="4" fill="#E31335" />
+               </svg>
+
+               <svg
+                  v-if="!timePickerActive"
+                  class="popup__wrapper-radios-item-gray-btn"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+               >
+                  <circle
+                     cx="10"
+                     cy="10"
+                     r="9.25"
+                     stroke="#A8A8A8"
+                     stroke-width="1.5"
+                  />
+               </svg>
+
+               <p class="popup__wrapper-radios-item-text">Точное время</p>
+            </div>
+         </div>
+
+         <TimePicker v-if="timePickerActive" />
+
+         <Button class="popup__wrapper-btn">Отправить</Button>
+      </div>
+   </form>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+
+const popupActive = ref(false);
+
+const timePickerActive = ref(false);
+
+function popupActivating() {
+   popupActive.value = !popupActive.value;
+}
+</script>
+
 <style lang="scss" scoped>
 .contacts__wrapper-button {
    border: 1.5px solid #fff;
