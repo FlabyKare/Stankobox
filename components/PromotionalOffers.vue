@@ -242,34 +242,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.swiper {
-   width: 100%;
-   height: 112%;
 
-   * {
-      user-select: none !important;
-      pointer-events: all !important;
-   }
-}
-
-.swiper-slide {
-   text-align: center;
-   font-size: 18px;
-   background: #fff;
-
-   // Center slide text vertically
-   display: flex;
-   justify-content: center;
-   align-items: center;
-
-   padding-top: 20px;
-}
-
-.swiper-slide img {
-   display: block;
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-}
-</style>

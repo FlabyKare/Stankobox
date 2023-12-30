@@ -1,6 +1,8 @@
 <template>
    <nav class="navigation container">
-      <NuxtLink class="navigation__link">О компании</NuxtLink>
+      <!-- <NuxtLink class="navigation__link">О компании</NuxtLink> -->
+      <NuxtLink class="navigation__link" to="/catalog/">О компании</NuxtLink>
+
       <NuxtLink class="navigation__link">Оплата/Лизинг</NuxtLink>
       <NuxtLink class="navigation__link">Доставка</NuxtLink>
       <NuxtLink class="navigation__link">Контакты</NuxtLink>
