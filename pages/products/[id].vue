@@ -1007,51 +1007,6 @@ export default {
          productInfo: null, // Add productInfo to data
       };
    },
-   async created() {
-      try {
-         const response = await axios.get(
-            `http://176.123.168.13:8000/api/products/product/${this.id}`
-         );
-         this.productInfo = response.data;
-      } catch (error) {
-         console.error("Error fetching product info:", error);
-      }
-   },
-   computed: {
-      visibleCards() {
-         return this.showAll ? this.cards : this.cards.slice(0, 4);
-      },
-   },
-   beforeUnmount() {
-      this.onMouseUp();
-   },
-
-   methods: {
-      toggleShowAll() {
-         this.showAll = !this.showAll;
-      },
-
-      onScroll({ left }) {
-         this.left = left;
-      },
-      onMouseDown(e) {
-         this.originX = e.pageX;
-         this.originLeft = this.left;
-
-         window.addEventListener("mouseup", this.onMouseUp);
-         window.addEventListener("mousemove", this.onMouseMove);
-      },
-      onMouseUp() {
-         window.removeEventListener("mouseup", this.onMouseUp);
-         window.removeEventListener("mousemove", this.onMouseMove);
-      },
-      onMouseMove(e) {
-         this.$refs.horizontal.scrollToLeft(
-            this.originLeft - (e.pageX - this.originX),
-            "auto"
-         );
-      },
-   },
    setup() {
       const activeTab = ref("description");
       const setActiveTab = (tab) => {
@@ -1128,6 +1083,51 @@ export default {
       };
 
       //===================================
+   },
+   async created() {
+      try {
+         const response = await axios.get(
+            `http://176.123.168.13:8000/api/products/product/${this.id}`
+         );
+         this.productInfo = response.data;
+      } catch (error) {
+         console.error("Error fetching product info:", error);
+      }
+   },
+   computed: {
+      visibleCards() {
+         return this.showAll ? this.cards : this.cards.slice(0, 4);
+      },
+   },
+   beforeUnmount() {
+      this.onMouseUp();
+   },
+
+   methods: {
+      toggleShowAll() {
+         this.showAll = !this.showAll;
+      },
+
+      onScroll({ left }) {
+         this.left = left;
+      },
+      onMouseDown(e) {
+         this.originX = e.pageX;
+         this.originLeft = this.left;
+
+         window.addEventListener("mouseup", this.onMouseUp);
+         window.addEventListener("mousemove", this.onMouseMove);
+      },
+      onMouseUp() {
+         window.removeEventListener("mouseup", this.onMouseUp);
+         window.removeEventListener("mousemove", this.onMouseMove);
+      },
+      onMouseMove(e) {
+         this.$refs.horizontal.scrollToLeft(
+            this.originLeft - (e.pageX - this.originX),
+            "auto"
+         );
+      },
    },
 
    components: {
