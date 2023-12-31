@@ -1,5 +1,7 @@
 .good-page {
    margin-top: 16px;
+
+   padding-bottom: 140px;
 }
 
 .good-page__intro {
@@ -300,7 +302,9 @@
    transition: 0.3s, background-position 0s;
 
    padding-bottom: 4px;
-
+   &:hover {
+      color: #101010;
+   }
    &.active {
       --c: currentcolor;
       --d: 100%;
@@ -406,6 +410,7 @@
    }
 }
 
+//! Таб - "Доставка"
 .good-page__tabs-delivery-description {
    max-width: 616px;
 }
@@ -486,13 +491,18 @@
 .good-page__tabs-delivery-map-preview {
    width: 292px;
 
+   * {
+      cursor: pointer;
+   }
    img {
       width: 100%;
       height: auto;
    }
    a {
-      display: block;
       margin: auto;
+      margin-top: 8px;
+
+      display: block;
 
       color: #101010;
       text-align: center;
@@ -536,4 +546,58 @@
 
 .good-page__tabs-delivery-map-description-phone {
    margin-top: 12px;
+}
+
+//! Оплата/Лизинг
+
+.good-page__tabs-payment-wrapper {
+   margin-top: 40px;
+
+   display: flex;
+   gap: 32px;
+
+   align-items: center;
+}
+
+//! Гарантии
+
+.good-page__tabs-warranty-wrapper-benefits {
+   width: 100%;
+   max-width: 292px;
+   .good-page__tabs-delivery-benefits-card {
+      width: 100%;
+   }
+}
+
+//! Рекомендации
+
+.good-page {
+   .v-hl-container {
+      gap: 32px;
+      overflow-x: auto;
+   }
+}
+.v-hl-container {
+   // scroll-behavior: inherit !important;
+   // * {
+   //    user-select: none !important;
+   // }
+   &.equipments__categories {
+      //   margin-top: 20px !important;
+      padding-bottom: 24px;
+      padding-top: 12px !important;
+
+      display: flex;
+      gap: 32px;
+      flex-wrap: nowrap;
+      clip-path: unset !important;
+
+      @include scrollbar-styles;
+
+      overflow-y: hidden;
+      overflow-x: auto;
+      * {
+         cursor: pointer;
+      }
+   }
 }

@@ -1,6 +1,6 @@
 <template>
    <section class="good-page container">
-      <ul class="good-page breadcrumbs">
+      <ul class="good-page__breadcrumbs breadcrumbs">
          <li class="good-page__link breadcrumbs__link">
             <NuxtLink to="/">Главная</NuxtLink>
          </li>
@@ -256,7 +256,7 @@
                Гарантии
             </li>
          </ul>
-
+         <!-- ОПИСАНИЕ -->
          <div
             class="good-page__tabs-description good-page__tabs-content"
             :class="{ active: activeTab === 'description' }"
@@ -282,6 +282,7 @@
             </p>
          </div>
 
+         <!-- ХАРАКТЕРИСТИКИ -->
          <div
             class="good-page__tabs-characteristics good-page__tabs-content"
             :class="{ active: activeTab === 'characteristics' }"
@@ -383,6 +384,7 @@
             </ul>
          </div>
 
+         <!-- ДОСТАВКА -->
          <div
             class="good-page__tabs-delivery good-page__tabs-content"
             :class="{ active: activeTab === 'delivery' }"
@@ -625,19 +627,437 @@
             </div>
 
             <div class="good-page__tabs-delivery-map-preview">
-               <img
-                  src="/img/Product-page/map.png"
-                  alt="Расположение на карте"
-               />
+               <img src="/img/Good-page/map.png" alt="Расположение на карте" />
 
                <NuxtLink>Показать на карте</NuxtLink>
             </div>
+         </div>
+
+         <!-- ОПЛАТА/ЛИЗИНГ -->
+         <div
+            class="good-page__tabs-payment good-page__tabs-content"
+            :class="{ active: activeTab === 'payment' }"
+         >
+            <h6 class="good-page__tabs-description-title">Оплата</h6>
+
+            <p class="good-page__tabs-description-text">
+               Оплатить свой заказ Вы можете банковским переводом денег между
+               расчетными счетами организаций на основании выставленного счета
+               или по договору. <br />
+               Сроки, условия и детали оплаты оговариваются при оформлении
+               заказа с менеджерами отдела продаж.
+            </p>
+
+            <div class="good-page__tabs-payment-wrapper">
+               <div
+                  class="good-page__tabs-payment-wrapper-description good-page__tabs-delivery-description"
+               >
+                  <h6 class="good-page__tabs-description-title">Лизинг</h6>
+
+                  <p class="good-page__tabs-description-text">
+                     Наше оборудование можно приобрести в лизинг. Мы работаем с
+                     различными лизинговыми компаниями и зарекомендовали себя
+                     как надежного поставщика и партнера.
+                  </p>
+                  <p class="good-page__tabs-description-text">
+                     Мы сотрудничаем с такими лизинговыми компаниями:
+                  </p>
+                  <p class="good-page__tabs-description-text">
+                     "Интерлизинг" <br />
+                     "Балтийский лизинг" <br />
+                     "Роделен" <br />
+                     "Уралпромлизинг", <br />
+                     "Национальная Лизинговая Компания», <br />
+                     "УралБизнесЛизинг" и др.
+                  </p>
+                  <p class="good-page__tabs-description-text">
+                     Также Вы можете обратиться в свою лизинговую компанию. Для
+                     того чтобы оформить сделку, необходимо у нас запросить
+                     коммерческое предложение, прислав запрос с реквизитами.
+                  </p>
+               </div>
+
+               <div
+                  class="good-page__tabs-payment-wrapper-benefits good-page__tabs-delivery-benefits"
+               >
+                  <div class="good-page__tabs-delivery-benefits-card">
+                     <h4 class="good-page__tabs-delivery-benefits-card-title">
+                        Срок лизинга
+                     </h4>
+
+                     <p class="good-page__tabs-delivery-benefits-card-item">
+                        <svg
+                           xmlns="http://www.w3.org/2000/svg"
+                           width="24"
+                           height="24"
+                           viewBox="0 0 24 24"
+                           fill="none"
+                        >
+                           <path
+                              d="M12 6V12L16 14M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+                              stroke="#E31335"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                           />
+                        </svg>
+                        от 1 года до 3х лет
+                     </p>
+                  </div>
+
+                  <div class="good-page__tabs-delivery-benefits-card">
+                     <h4 class="good-page__tabs-delivery-benefits-card-title">
+                        Размер первого взноса
+                     </h4>
+
+                     <p class="good-page__tabs-delivery-benefits-card-item">
+                        <svg
+                           xmlns="http://www.w3.org/2000/svg"
+                           width="24"
+                           height="24"
+                           viewBox="0 0 24 24"
+                           fill="none"
+                        >
+                           <path
+                              d="M4 6V12C4 12 4 15 11 15C18 15 18 12 18 12V6"
+                              stroke="#E31335"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                           />
+                           <path
+                              d="M11 21C4 21 4 18 4 18V12M18 22H21M11 3C18 3 18 6 18 6C18 6 18 9 11 9C4 9 4 6 4 6C4 6 4 3 11 3ZM19.5 19.429H21.833V16H17.167V19.429H19.5Z"
+                              stroke="#E31335"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                           />
+                        </svg>
+                        от 5% стоимости оборудования
+                     </p>
+                  </div>
+
+                  <div class="good-page__tabs-delivery-benefits-card">
+                     <h4 class="good-page__tabs-delivery-benefits-card-title">
+                        Выкупной платеж
+                     </h4>
+
+                     <p class="good-page__tabs-delivery-benefits-card-item">
+                        <svg
+                           xmlns="http://www.w3.org/2000/svg"
+                           width="24"
+                           height="24"
+                           viewBox="0 0 24 24"
+                           fill="none"
+                        >
+                           <path
+                              d="M19 5L5 19M9 6.5C9 7.88071 7.88071 9 6.5 9C5.11929 9 4 7.88071 4 6.5C4 5.11929 5.11929 4 6.5 4C7.88071 4 9 5.11929 9 6.5ZM20 17.5C20 18.8807 18.8807 20 17.5 20C16.1193 20 15 18.8807 15 17.5C15 16.1193 16.1193 15 17.5 15C18.8807 15 20 16.1193 20 17.5Z"
+                              stroke="#E31335"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                           />
+                        </svg>
+                        от 3% до 20%
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- ГАРАНТИИ -->
+         <div
+            class="good-page__tabs-warranty good-page__tabs-delivery good-page__tabs-content"
+            :class="{ active: activeTab === 'warranty' }"
+         >
+            <div
+               class="good-page__tabs-warranty-wrapper-description good-page__tabs-delivery-description"
+            >
+               <h6 class="good-page__tabs-description-title">
+                  Гарантийное обслуживание
+               </h6>
+
+               <p class="good-page__tabs-description-text">
+                  На все оборудование компания "Станкобокс" дает гарантию 12
+                  месяцев с даты покупки.
+               </p>
+               <p class="good-page__tabs-description-text">
+                  По гарантийному и после гарантийному обслуживанию обращайтесь
+                  по телефону:
+               </p>
+               <p class="good-page__tabs-description-text">
+                  +7 921-795-75-70 <br />
+                  +7 909-545-88-81 <br />
+                  +7 912-568-55-12 <br />
+               </p>
+               <p class="good-page__tabs-description-text">
+                  Также вы можете отправить заполненный бланк рекламации нэ
+                  лектронную почту: service@stankobox.ru
+               </p>
+            </div>
+
+            <div
+               class="good-page__tabs-warranty-wrapper-benefits good-page__tabs-delivery-benefits"
+            >
+               <div class="good-page__tabs-delivery-benefits-card">
+                  <h4 class="good-page__tabs-delivery-benefits-card-title">
+                     Рекламация
+                  </h4>
+
+                  <p class="good-page__tabs-delivery-benefits-card-item">
+                     <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 22 22"
+                        fill="none"
+                     >
+                        <path
+                           d="M8 16H14M11 5V12M11 12L14.5 8.5M11 12L7.5 8.5M11 21C16.523 21 21 16.523 21 11C21 5.477 16.523 1 11 1C5.477 1 1 5.477 1 11C1 16.523 5.477 21 11 21Z"
+                           stroke="#E31335"
+                           stroke-width="1.5"
+                           stroke-linecap="round"
+                           stroke-linejoin="round"
+                        />
+                     </svg>
+                     Скачать бланк рекламации
+                  </p>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <section
+         @mousedown.left="onMouseDown"
+         v-if="cards.length"
+         class="offers container"
+      >
+         <h2 class="equipments__title little-defolt-title">
+            Вам может понадобиться
+         </h2>
+
+         <VueHorizontal
+            ref="horizontal"
+            class="horizontal offers__list_desktop"
+            snap="none"
+            :button="false"
+            @scroll="onScroll"
+         >
+            <div v-for="card in cards" :key="card.id" class="offers__list-item">
+               <!-- Слайдер с изображениями товара -->
+               <div class="offers__list-item-slider">
+                  <swiper
+                     :pagination="{
+                        dynamicBullets: true,
+                     }"
+                     :modules="modules"
+                     class="mySwiper"
+                  >
+                     <swiper-slide
+                        v-for="(image, index) in card.images"
+                        :key="index"
+                     >
+                        <img
+                           :src="`/img/Good-page/Recomendations/${
+                              index + 1
+                           }.png`"
+                           alt="Product Image"
+                        />
+                     </swiper-slide>
+                  </swiper>
+               </div>
+
+               <!-- Название товара -->
+               <NuxtLink
+                  to="https://google.com"
+                  class="offers__list-item-title little-defolt-title"
+                  ondragstart="return false;"
+                  >{{ card.name }}</NuxtLink
+               >
+
+               <!-- Актуальная цена -->
+               <span
+                  class="offers__list-item-current-price"
+                  style="margin-top: 8px"
+                  >{{ card.currentPrice }}</span
+               >
+            </div>
+         </VueHorizontal>
+
+         <div class="offers__list_mobile">
+            <ul class="offers__list">
+               <li
+                  v-for="(card, index) in visibleCards"
+                  :key="card.id"
+                  class="offers__list-item"
+               >
+                  <span class="offers__list-item-discount"
+                     >-{{ card.discount }}%</span
+                  >
+                  <div class="offers__list-item-slider">
+                     <swiper
+                        :pagination="{ dynamicBullets: true }"
+                        :modules="modules"
+                        class="mySwiper"
+                     >
+                        <swiper-slide
+                           v-for="(image, index) in card.images"
+                           :key="index"
+                        >
+                           <img
+                              :src="`/img/Good-page/Recomendations/${
+                                 index + 1
+                              }.png`"
+                              alt="Product Image"
+                           />
+                        </swiper-slide>
+                     </swiper>
+                  </div>
+                  <NuxtLink
+                     :to="`https://google.com/${card.id}`"
+                     class="offers__list-item-title little-defolt-title"
+                  >
+                     {{ card.name }}
+                  </NuxtLink>
+                  <span class="offers__list-item-old-price">{{
+                     card.oldPrice
+                  }}</span>
+                  <span class="offers__list-item-current-price">{{
+                     card.currentPrice
+                  }}</span>
+               </li>
+            </ul>
+            <Button
+               class="offers__list-show-btn"
+               :class="{ 'offers__list-show-btn_active': showAll }"
+               @click="toggleShowAll"
+            >
+               {{ showAll ? "Скрыть" : "Показать все" }}
+            </Button>
          </div>
       </section>
    </section>
 </template>
 <script>
+import VueHorizontal from "vue-horizontal";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
 export default {
+   data() {
+      return {
+         left: 0,
+         originX: 0,
+         originLeft: 0,
+         shouldAddClass: true,
+         showAll: false,
+         cards: [
+            {
+               id: 1,
+               discount: "13",
+               name: "Вытяжка для стружки REALREZ FM 230/ 220 V",
+               images: ["test", "test2", "test3", "test3", "test3"],
+               currentPrice: "18 500 ₽",
+            },
+
+            {
+               id: 1,
+               discount: "13",
+               name: "Пластиковый мешок на вытяжку для стружки REALREZ FM230",
+               images: ["test", "test2", "test3", "test3", "test3"],
+               currentPrice: "18 500 ₽",
+            },
+
+            {
+               id: 1,
+               discount: "13",
+               name: "Пластиковый мешок на вытяжку для стружки REALREZ FM230",
+               images: ["test", "test2", "test3", "test3", "test3"],
+               currentPrice: "18 500 ₽",
+            },
+            {
+               id: 1,
+               discount: "13",
+               name: "Пластиковый мешок на вытяжку для стружки REALREZ FM230",
+               images: ["test", "test2", "test3", "test3", "test3"],
+               currentPrice: "18 500 ₽",
+            },
+            {
+               id: 1,
+               discount: "13",
+               name: "Пластиковый мешок на вытяжку для стружки REALREZ FM230",
+               images: ["test", "test2", "test3", "test3", "test3"],
+               currentPrice: "18 500 ₽",
+            },
+            {
+               id: 1,
+               discount: "13",
+               name: "Пластиковый мешок на вытяжку для стружки REALREZ FM230",
+               images: ["test", "test2", "test3", "test3", "test3"],
+               currentPrice: "18 500 ₽",
+            },
+            {
+               id: 1,
+               discount: "13",
+               name: "Пластиковый мешок на вытяжку для стружки REALREZ FM230",
+               images: ["test", "test2", "test3", "test3", "test3"],
+               currentPrice: "18 500 ₽",
+            },
+            {
+               id: 1,
+               discount: "13",
+               name: "Пластиковый мешок на вытяжку для стружки REALREZ FM230",
+               images: ["test", "test2", "test3", "test3", "test3"],
+               currentPrice: "18 500 ₽",
+            },
+            {
+               id: 1,
+               discount: "13",
+               name: "Пластиковый мешок на вытяжку для стружки REALREZ FM230",
+               images: ["test", "test2", "test3", "test3", "test3"],
+               currentPrice: "18 500 ₽",
+            },
+         ],
+      };
+   },
+
+   computed: {
+      visibleCards() {
+         return this.showAll ? this.cards : this.cards.slice(0, 4);
+      },
+   },
+   beforeUnmount() {
+      this.onMouseUp();
+   },
+
+   methods: {
+      toggleShowAll() {
+         this.showAll = !this.showAll;
+      },
+
+      onScroll({ left }) {
+         this.left = left;
+      },
+      onMouseDown(e) {
+         this.originX = e.pageX;
+         this.originLeft = this.left;
+
+         window.addEventListener("mouseup", this.onMouseUp);
+         window.addEventListener("mousemove", this.onMouseMove);
+      },
+      onMouseUp() {
+         window.removeEventListener("mouseup", this.onMouseUp);
+         window.removeEventListener("mousemove", this.onMouseMove);
+      },
+      onMouseMove(e) {
+         this.$refs.horizontal.scrollToLeft(
+            this.originLeft - (e.pageX - this.originX),
+            "auto"
+         );
+      },
+   },
    setup() {
       const activeTab = ref("description");
       const setActiveTab = (tab) => {
@@ -708,9 +1128,34 @@ export default {
 
          handleLinkDetailClick,
          handleLinkParametrsClick,
+
+         modules: [Pagination],
+         spaceBetween: 50,
       };
 
       //===================================
+   },
+
+   components: {
+      VueHorizontal,
+      Swiper,
+      SwiperSlide,
+   },
+
+   mounted() {
+      // Функция для добавления класса к блоку, если он найден
+      const addClassIfPresent = (containerClass, targetClass) => {
+         const container = document.querySelector(`.${containerClass}`);
+         if (container) {
+            const element = container.querySelector(".v-hl-container");
+            if (element) {
+               element.classList.add(targetClass);
+            }
+         }
+      };
+
+      // Применить функцию для каждого случая
+      addClassIfPresent("offers", "offers__list");
    },
 };
 </script>

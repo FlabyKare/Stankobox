@@ -2747,6 +2747,7 @@ input[type=number] {
 }
 .good-page {
   margin-top: 16px;
+  padding-bottom: 140px;
 }
 
 .good-page__intro {
@@ -3042,6 +3043,9 @@ input[type=number] {
   transition: 0.3s, background-position 0s;
   padding-bottom: 4px;
 }
+.good-page__tabs-list-item:hover {
+  color: #101010;
+}
 .good-page__tabs-list-item.active {
   --c: currentcolor;
   --d: 100%;
@@ -3224,13 +3228,17 @@ input[type=number] {
 .good-page__tabs-delivery-map-preview {
   width: 292px;
 }
+.good-page__tabs-delivery-map-preview * {
+  cursor: pointer;
+}
 .good-page__tabs-delivery-map-preview img {
   width: 100%;
   height: auto;
 }
 .good-page__tabs-delivery-map-preview a {
-  display: block;
   margin: auto;
+  margin-top: 8px;
+  display: block;
   color: #101010;
   text-align: center;
   font-family: "TTNormsMedium", sans-serif;
@@ -3272,4 +3280,61 @@ input[type=number] {
 
 .good-page__tabs-delivery-map-description-phone {
   margin-top: 12px;
+}
+
+.good-page__tabs-payment-wrapper {
+  margin-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 32px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.good-page__tabs-warranty-wrapper-benefits {
+  width: 100%;
+  max-width: 292px;
+}
+.good-page__tabs-warranty-wrapper-benefits .good-page__tabs-delivery-benefits-card {
+  width: 100%;
+}
+
+.good-page .v-hl-container {
+  gap: 32px;
+  overflow-x: auto;
+}
+
+.v-hl-container.equipments__categories {
+  padding-bottom: 24px;
+  padding-top: 12px !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 32px;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-clip-path: unset !important;
+          clip-path: unset !important;
+  overflow-y: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.v-hl-container.equipments__categories::-webkit-scrollbar {
+  border-radius: 10px;
+  background: #f3f2f4;
+  height: 4px;
+}
+.v-hl-container.equipments__categories::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: #e31335;
+  cursor: pointer !important;
+}
+.v-hl-container.equipments__categories::-webkit-scrollbar-button {
+  display: none;
+}
+.v-hl-container.equipments__categories * {
+  cursor: pointer;
 }

@@ -36,10 +36,12 @@
                   :modules="modules"
                   class="mySwiper"
                >
-                  <swiper-slide v-for="image in card.images">
+                  <swiper-slide
+                     v-for="(image, index) in card.images"
+                     :key="index"
+                  >
                      <img
-                        src="~/assets/img/Offers/test2.png"
-                        :key="image"
+                        :src="`/img/Equipments/${index + 1}.png`"
                         alt="Product Image"
                      />
                   </swiper-slide>
@@ -242,4 +244,29 @@ export default {
 };
 </script>
 
-
+<style lang="scss">
+.swiper {
+   width: 100%;
+   height: 112%;
+   * {
+      user-select: none !important;
+      pointer-events: all !important;
+   }
+}
+.swiper-slide {
+   text-align: center;
+   font-size: 18px;
+   background: #fff;
+   // Center slide text vertically
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding-top: 20px;
+}
+.swiper-slide img {
+   display: block;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+</style>
