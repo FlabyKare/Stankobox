@@ -594,8 +594,8 @@
 
       @include scrollbar-styles;
 
-      overflow-y: hidden;
-      overflow-x: auto;
+      overflow-y: hidden !important;
+      overflow-x: auto !important;
       * {
          cursor: pointer;
       }

@@ -3319,8 +3319,8 @@ input[type=number] {
           clip-path: unset !important;
   overflow-y: hidden;
   overflow-x: auto;
-  overflow-y: hidden;
-  overflow-x: auto;
+  overflow-y: hidden !important;
+  overflow-x: auto !important;
 }
 .v-hl-container.equipments__categories::-webkit-scrollbar {
   border-radius: 10px;
