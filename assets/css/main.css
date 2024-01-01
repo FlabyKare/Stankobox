@@ -216,14 +216,14 @@ input[type=number] {
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  src: url("../fonts/TTNorms-Regular.ttf") format("truetype");
+  src: url("~/assets/fonts/TTNorms-Regular.ttf") format("truetype"), url("~/assets/fonts/TTNorms-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "TTNormsMedium";
   font-weight: 500;
   font-style: normal;
   font-display: swap;
-  src: url("../fonts/TTNorms-Medium.ttf") format("truetype"), url("../fonts/TTNorms-Regular.ttf") format("truetype");
+  src: url("~/assets/fonts/TTNorms-Medium.ttf") format("truetype"), url("~/assets/fonts/TTNorms-Medium.ttf") format("truetype");
 }
 @font-face {
   font-family: "Montserrat";
@@ -2974,8 +2974,7 @@ input[type=number] {
   font-weight: 500;
   line-height: 24px; /* 150% */
   letter-spacing: 0.064px;
-  -webkit-text-decoration: strikethrough;
-          text-decoration: strikethrough;
+  text-decoration: line-through;
 }
 
 .good-page__intro-preview-complectation-price-stock {
@@ -3301,9 +3300,15 @@ input[type=number] {
   width: 100%;
 }
 
+.good-page .offers {
+  -webkit-user-select: none !important;
+     -moz-user-select: none !important;
+      -ms-user-select: none !important;
+          user-select: none !important;
+}
 .good-page .v-hl-container {
   gap: 32px;
-  overflow-x: auto;
+  overflow-x: auto !important;
   margin-top: 32px !important;
   padding-top: 0 !important;
   padding-bottom: 8px !important;
@@ -3311,6 +3316,12 @@ input[type=number] {
 }
 .good-page .v-hl-container .swiper {
   height: 116%;
+}
+.good-page .v-hl-container .swiper .swiper-slide {
+  padding-top: 0;
+}
+.good-page .v-hl-container .swiper .swiper-pagination {
+  bottom: 4px;
 }
 .good-page .v-hl-container.equipments__categories {
   padding-bottom: 24px;

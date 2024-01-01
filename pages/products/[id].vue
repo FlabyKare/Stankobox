@@ -15,13 +15,15 @@
             >•</span
          >
          <li class="good-page__link breadcrumbs__link">
-            <NuxtLink>{{ id }}</NuxtLink>
-            <!-- <NuxtLink>{{ productInfo.title }}</NuxtLink> -->
+            <NuxtLink v-if="!productInfo">{{ id }}</NuxtLink>
+            <NuxtLink v-if="productInfo">{{ productInfo.title }}</NuxtLink>
          </li>
       </ul>
 
-      <h3 class="good-page__title page-title">{{ id }}</h3>
-      <!-- <h3 class="good-page__title page-title">{{ productInfo.title }}</h3> -->
+      <h3 class="good-page__title page-title" v-if="!productInfo">{{ id }}</h3>
+      <h3 class="good-page__title page-title" v-if="productInfo">
+         {{ productInfo.title }}
+      </h3>
 
       <section class="good-page__intro">
          <div class="good-page__intro-icons">
@@ -89,7 +91,10 @@
                <h5 class="good-page__intro-preview-description-title">
                   Описание:
                </h5>
-               <p class="good-page__intro-preview-description-text">
+               <p
+                  class="good-page__intro-preview-description-text"
+                  v-if="!productInfo"
+               >
                   Недорогой ленточнопильный станок Cormak c оптимальным
                   диапазоном резки предназначен для профессиональных работ.
                   Отличается производительностью и простотой в использовании.
@@ -98,9 +103,9 @@
                   вес станок Несмотря на небольшие размеры и вес станок Несмотря
                   на небольшие размеры и вес станок
                </p>
-               <!-- <p class="good-page__intro-preview-description-text">
-                  {{ productInfo.announce }}
-               </p> -->
+               <p class="good-page__intro-preview-description-text" v-if="productInfo">
+                  {{ productInfo.description }}
+               </p>
                <NuxtLink
                   class="good-page__intro-preview-description-link good-page__intro-preview-description-link_detail"
                   @click="handleLinkDetailClick(), setActiveTab('description')"
@@ -143,10 +148,21 @@
                      >8%</span
                   >
 
-                  <p class="good-page__intro-preview-complectation-price-value">
+                  <p
+                     class="good-page__intro-preview-complectation-price-value"
+                     v-if="!productInfo"
+                  >
                      162 000 ₽<span>178 000 ₽</span>
-                     <!-- {{ productInfo.price }} ₽ -->
-                     <!-- <span> {{ productInfo.price_before }} ₽</span> -->
+                     >
+                  </p>
+                  <p
+                     class="good-page__intro-preview-complectation-price-value"
+                     v-if="productInfo"
+                  >
+                     {{ productInfo.price }} ₽
+                     <span v-if="productInfo">
+                        {{ productInfo.price_before }} ₽</span
+                     >
                   </p>
 
                   <div
@@ -242,7 +258,7 @@
          >
             <h6 class="good-page__tabs-description-title">О товаре</h6>
 
-            <p class="good-page__tabs-description-text">
+            <p class="good-page__tabs-description-text" v-if="!productInfo">
                Недорогой ленточнопильный станок Cormak c оптимальным диапазоном
                резки предназначен для профессиональных работ. Отличается
                производительностью и простотой в использовании. Несмотря на
@@ -260,9 +276,9 @@
                но и для столярных работ.
             </p>
 
-            <!-- <p class="good-page__tabs-description-text">
+            <p class="good-page__tabs-description-text" v-if="productInfo">
                {{ productInfo.description }}
-            </p> -->
+            </p>
          </div>
 
          <!-- ХАРАКТЕРИСТИКИ -->

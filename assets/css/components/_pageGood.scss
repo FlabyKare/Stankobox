@@ -229,7 +229,7 @@
       font-weight: 500;
       line-height: 24px; /* 150% */
       letter-spacing: 0.064px;
-      text-decoration: strikethrough;
+      text-decoration: line-through;
    }
 }
 .good-page__intro-preview-complectation-price-stock {
@@ -572,9 +572,12 @@
 //! Рекомендации
 
 .good-page {
+   .offers {
+      user-select: none !important;
+   }
    .v-hl-container {
       gap: 32px;
-      overflow-x: auto;
+      overflow-x: auto !important;
 
       margin-top: 32px !important;
       padding-top: 0 !important;
@@ -584,6 +587,13 @@
 
       .swiper {
          height: 116%;
+
+         .swiper-slide {
+            padding-top: 0;
+         }
+         .swiper-pagination {
+            bottom: 4px;
+         }
       }
       &.equipments__categories {
          //   margin-top: 20px !important;
