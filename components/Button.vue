@@ -26,12 +26,9 @@ button {
    border: 1.5px solid $red;
 
    color: #fff;
-   //    background: $red;
    background: transparent;
 
    min-width: fit-content;
-   //    min-height: 40px;
-   //    height: fit-content;
    color: $red;
 
    transition: 0.25s ease-in-out;

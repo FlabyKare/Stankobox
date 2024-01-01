@@ -15,13 +15,13 @@
             >•</span
          >
          <li class="good-page__link breadcrumbs__link">
-            <!-- <NuxtLink>{{ id }}</NuxtLink> -->
-            <NuxtLink>{{ productInfo.title }}</NuxtLink>
+            <NuxtLink>{{ id }}</NuxtLink>
+            <!-- <NuxtLink>{{ productInfo.title }}</NuxtLink> -->
          </li>
       </ul>
 
-      <!-- <h3 class="good-page__title page-title">{{ id }}</h3> -->
-      <h3 class="good-page__title page-title">{{ productInfo.title }}</h3>
+      <h3 class="good-page__title page-title">{{ id }}</h3>
+      <!-- <h3 class="good-page__title page-title">{{ productInfo.title }}</h3> -->
 
       <section class="good-page__intro">
          <div class="good-page__intro-icons">
@@ -83,11 +83,13 @@
          </div>
 
          <div class="good-page__intro-preview">
+            <!-- <GoodPageSlider />  -->
+
             <div class="good-page__intro-preview-description">
                <h5 class="good-page__intro-preview-description-title">
                   Описание:
                </h5>
-               <!-- <p class="good-page__intro-preview-description-text">
+               <p class="good-page__intro-preview-description-text">
                   Недорогой ленточнопильный станок Cormak c оптимальным
                   диапазоном резки предназначен для профессиональных работ.
                   Отличается производительностью и простотой в использовании.
@@ -95,10 +97,10 @@
                   небольшие размеры и вес станок Несмотря на небольшие размеры и
                   вес станок Несмотря на небольшие размеры и вес станок Несмотря
                   на небольшие размеры и вес станок
-               </p> -->
-               <p class="good-page__intro-preview-description-text">
-                  {{ productInfo.announce }}
                </p>
+               <!-- <p class="good-page__intro-preview-description-text">
+                  {{ productInfo.announce }}
+               </p> -->
                <NuxtLink
                   class="good-page__intro-preview-description-link good-page__intro-preview-description-link_detail"
                   @click="handleLinkDetailClick(), setActiveTab('description')"
@@ -142,9 +144,9 @@
                   >
 
                   <p class="good-page__intro-preview-complectation-price-value">
-                     <!-- 162 000 ₽<span>178 000 ₽</span> -->
-                     {{ productInfo.price }} ₽
-                     <span> {{ productInfo.price_before }} ₽</span>
+                     162 000 ₽<span>178 000 ₽</span>
+                     <!-- {{ productInfo.price }} ₽ -->
+                     <!-- <span> {{ productInfo.price_before }} ₽</span> -->
                   </p>
 
                   <div
@@ -240,7 +242,7 @@
          >
             <h6 class="good-page__tabs-description-title">О товаре</h6>
 
-            <!-- <p class="good-page__tabs-description-text">
+            <p class="good-page__tabs-description-text">
                Недорогой ленточнопильный станок Cormak c оптимальным диапазоном
                резки предназначен для профессиональных работ. Отличается
                производительностью и простотой в использовании. Несмотря на
@@ -256,11 +258,11 @@
                преимуществом станка является возможность пиления в вертикальном
                положении, что можно использовать не только для пиления металла,
                но и для столярных работ.
-            </p> -->
-
-            <p class="good-page__tabs-description-text">
-               {{ productInfo.description }}
             </p>
+
+            <!-- <p class="good-page__tabs-description-text">
+               {{ productInfo.description }}
+            </p> -->
          </div>
 
          <!-- ХАРАКТЕРИСТИКИ -->
@@ -1007,6 +1009,51 @@ export default {
          productInfo: null, // Add productInfo to data
       };
    },
+   async created() {
+      try {
+         const response = await axios.get(
+            `http://176.123.168.13:8000/api/products/product/${this.id}`
+         );
+         this.productInfo = response.data;
+      } catch (error) {
+         console.error("Error fetching product info:", error);
+      }
+   },
+   computed: {
+      visibleCards() {
+         return this.showAll ? this.cards : this.cards.slice(0, 4);
+      },
+   },
+   beforeUnmount() {
+      this.onMouseUp();
+   },
+
+   methods: {
+      toggleShowAll() {
+         this.showAll = !this.showAll;
+      },
+
+      onScroll({ left }) {
+         this.left = left;
+      },
+      onMouseDown(e) {
+         this.originX = e.pageX;
+         this.originLeft = this.left;
+
+         window.addEventListener("mouseup", this.onMouseUp);
+         window.addEventListener("mousemove", this.onMouseMove);
+      },
+      onMouseUp() {
+         window.removeEventListener("mouseup", this.onMouseUp);
+         window.removeEventListener("mousemove", this.onMouseMove);
+      },
+      onMouseMove(e) {
+         this.$refs.horizontal.scrollToLeft(
+            this.originLeft - (e.pageX - this.originX),
+            "auto"
+         );
+      },
+   },
    setup() {
       const activeTab = ref("description");
       const setActiveTab = (tab) => {
@@ -1083,51 +1130,6 @@ export default {
       };
 
       //===================================
-   },
-   async created() {
-      try {
-         const response = await axios.get(
-            `http://176.123.168.13:8000/api/products/product/${this.id}`
-         );
-         this.productInfo = response.data;
-      } catch (error) {
-         console.error("Error fetching product info:", error);
-      }
-   },
-   computed: {
-      visibleCards() {
-         return this.showAll ? this.cards : this.cards.slice(0, 4);
-      },
-   },
-   beforeUnmount() {
-      this.onMouseUp();
-   },
-
-   methods: {
-      toggleShowAll() {
-         this.showAll = !this.showAll;
-      },
-
-      onScroll({ left }) {
-         this.left = left;
-      },
-      onMouseDown(e) {
-         this.originX = e.pageX;
-         this.originLeft = this.left;
-
-         window.addEventListener("mouseup", this.onMouseUp);
-         window.addEventListener("mousemove", this.onMouseMove);
-      },
-      onMouseUp() {
-         window.removeEventListener("mouseup", this.onMouseUp);
-         window.removeEventListener("mousemove", this.onMouseMove);
-      },
-      onMouseMove(e) {
-         this.$refs.horizontal.scrollToLeft(
-            this.originLeft - (e.pageX - this.originX),
-            "auto"
-         );
-      },
    },
 
    components: {

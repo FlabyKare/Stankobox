@@ -1,15 +1,9 @@
 <!-- ГЛАВНАЯ СТРАНИЦА С ПРОДУКТАМИ -->
 
 <template>
-    <div>
-
-    </div>
+   <GoodPageSlider />
 </template>
 
-<script setup>
+<script setup></script>
 
-</script>
-
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

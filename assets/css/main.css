@@ -3304,9 +3304,15 @@ input[type=number] {
 .good-page .v-hl-container {
   gap: 32px;
   overflow-x: auto;
+  margin-top: 32px !important;
+  padding-top: 0 !important;
+  padding-bottom: 8px !important;
+  margin-bottom: 0 !important;
 }
-
-.v-hl-container.equipments__categories {
+.good-page .v-hl-container .swiper {
+  height: 116%;
+}
+.good-page .v-hl-container.equipments__categories {
   padding-bottom: 24px;
   padding-top: 12px !important;
   display: -webkit-box;
@@ -3322,19 +3328,25 @@ input[type=number] {
   overflow-y: hidden !important;
   overflow-x: auto !important;
 }
-.v-hl-container.equipments__categories::-webkit-scrollbar {
+.good-page .v-hl-container.equipments__categories::-webkit-scrollbar {
   border-radius: 10px;
   background: #f3f2f4;
   height: 4px;
 }
-.v-hl-container.equipments__categories::-webkit-scrollbar-thumb {
+.good-page .v-hl-container.equipments__categories::-webkit-scrollbar-thumb {
   border-radius: 8px;
   background: #e31335;
   cursor: pointer !important;
 }
-.v-hl-container.equipments__categories::-webkit-scrollbar-button {
+.good-page .v-hl-container.equipments__categories::-webkit-scrollbar-button {
   display: none;
 }
-.v-hl-container.equipments__categories * {
+.good-page .v-hl-container.equipments__categories * {
   cursor: pointer;
+}
+.good-page .v-hl-container .offers__list-item-slider {
+  height: 192px;
+}
+.good-page .v-hl-container .offers__list-item {
+  height: 292px;
 }

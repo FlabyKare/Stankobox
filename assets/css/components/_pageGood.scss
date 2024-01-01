@@ -575,29 +575,39 @@
    .v-hl-container {
       gap: 32px;
       overflow-x: auto;
-   }
-}
-.v-hl-container {
-   // scroll-behavior: inherit !important;
-   // * {
-   //    user-select: none !important;
-   // }
-   &.equipments__categories {
-      //   margin-top: 20px !important;
-      padding-bottom: 24px;
-      padding-top: 12px !important;
 
-      display: flex;
-      gap: 32px;
-      flex-wrap: nowrap;
-      clip-path: unset !important;
+      margin-top: 32px !important;
+      padding-top: 0 !important;
 
-      @include scrollbar-styles;
+      padding-bottom: 8px !important;
+      margin-bottom: 0 !important;
 
-      overflow-y: hidden !important;
-      overflow-x: auto !important;
-      * {
-         cursor: pointer;
+      .swiper {
+         height: 116%;
+      }
+      &.equipments__categories {
+         //   margin-top: 20px !important;
+         padding-bottom: 24px;
+         padding-top: 12px !important;
+
+         display: flex;
+         gap: 32px;
+         flex-wrap: nowrap;
+         clip-path: unset !important;
+
+         @include scrollbar-styles;
+
+         overflow-y: hidden !important;
+         overflow-x: auto !important;
+         * {
+            cursor: pointer;
+         }
+      }
+      .offers__list-item-slider {
+         height: 192px;
+      }
+      .offers__list-item {
+         height: 292px;
       }
    }
 }
