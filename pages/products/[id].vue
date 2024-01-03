@@ -85,7 +85,7 @@
          </div>
 
          <div class="good-page__intro-preview">
-            <!-- <GoodPageSlider />  -->
+            <GoodPageSlider />
 
             <div class="good-page__intro-preview-description">
                <h5 class="good-page__intro-preview-description-title">
@@ -103,7 +103,10 @@
                   вес станок Несмотря на небольшие размеры и вес станок Несмотря
                   на небольшие размеры и вес станок
                </p>
-               <p class="good-page__intro-preview-description-text" v-if="productInfo">
+               <p
+                  class="good-page__intro-preview-description-text"
+                  v-if="productInfo"
+               >
                   {{ productInfo.description }}
                </p>
                <NuxtLink
@@ -153,7 +156,6 @@
                      v-if="!productInfo"
                   >
                      162 000 ₽<span>178 000 ₽</span>
-                     >
                   </p>
                   <p
                      class="good-page__intro-preview-complectation-price-value"
@@ -1028,7 +1030,7 @@ export default {
    async created() {
       try {
          const response = await axios.get(
-            `http://176.123.168.13:8000/api/products/product/${this.id}`
+            `http://stankobox.runova.tech:8000/api/products/product/${this.id}`
          );
          this.productInfo = response.data;
       } catch (error) {

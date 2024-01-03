@@ -66,7 +66,7 @@
 
    flex-wrap: wrap;
 
-   justify-content: end;
+   justify-content: space-between;
 }
 
 .good-page__intro-preview-description {
@@ -619,5 +619,137 @@
       .offers__list-item {
          height: 292px;
       }
+   }
+}
+
+.good-page__intro-preview-slider {
+   width: 100%;
+   max-width: 508px;
+   height: 100%;
+   max-height: 508px;
+
+   display: flex;
+   gap: 32px;
+
+   position: relative;
+
+   align-items: center;
+
+   //    * {
+   //       transition: 0.25s ease-in-out;
+   //    }
+}
+.good-page__intro-preview-slider-miniatures {
+   display: flex;
+   flex-direction: column;
+
+   gap: 32px;
+
+   height: 100%;
+
+   max-height: 508px;
+   //    max-height: 420px;
+
+   overflow-x: hidden;
+
+   overflow-y: auto;
+   position: relative;
+   &::-webkit-scrollbar {
+      display: none;
+   }
+}
+.good-page__intro-preview-slider-miniatures-item {
+   display: block;
+
+   width: 100%;
+   max-width: 76px;
+   min-width: 76px;
+
+   height: 100%;
+   max-height: 76px;
+   min-height: 76px;
+
+   cursor: pointer;
+
+   &.active {
+      border-left: 4px solid #e31335;
+   }
+}
+
+.good-page__intro-preview-slider-miniatures-arrow {
+   background: #fff;
+
+   padding: 8px;
+
+   width: 40px;
+   min-height: 40px;
+
+   border-radius: 100px;
+   background: #fff;
+
+   box-shadow: 0px 0px 1px 0px rgba(104, 111, 123, 0.31),
+      0px 3px 5px 0px rgba(104, 111, 123, 0.2);
+   cursor: pointer;
+   position: sticky;
+   bottom: -3%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+
+   * {
+      transition: 0.25s ease-in-out;
+   }
+   &:hover {
+      svg {
+         path {
+            stroke: #e31335;
+         }
+      }
+   }
+   svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+   }
+}
+.good-page__intro-preview-slider-main {
+   width: 100%;
+   height: 100%;
+
+   max-width: 400px;
+   max-height: 400px;
+}
+
+.good-page__intro-preview-slider-youtube {
+   cursor: pointer;
+
+   text-align: center;
+
+   display: block;
+
+   width: 80px;
+   height: 56px;
+
+   position: absolute;
+   top: 0;
+   right: 0;
+}
+.good-page__intro-preview-slider-youtube-icon {
+}
+.good-page__intro-preview-slider-youtube-text {
+   color: #828282;
+   font-family: $TTNormsMedium;
+   font-size: 12px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 16px; /* 133.333% */
+   letter-spacing: 0.048px;
+}
+
+//! Адаптация Страницы Товара
+
+@media (max-width: 1374.98px) {
+   .good-page__intro-preview {
    }
 }
