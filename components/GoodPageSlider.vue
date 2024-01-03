@@ -84,64 +84,71 @@
          v-if="activeIndex !== null && miniatures.length > 0"
          :src="`http://stankobox.runova.tech:8000/api/products/image/${id}/${miniatures[activeIndex].name}`"
          ref="previewImage"
+         @click="toggler = !toggler"
          alt=""
-         @click="openFancybox"
       />
    </div>
+   <FsLightbox :toggler="toggler" :sources="imageSources" />
 </template>
 
-<script setup>
+<script>
 import axios from "axios";
-import { onMounted } from "vue";
+import FsLightbox from "fslightbox-vue/v3";
 
-const id = ref(null);
-const miniatures = ref([]);
-const activeIndex = ref(null);
+export default {
+   components: { FsLightbox },
+   data() {
+      return {
+         id: null,
+         miniatures: [],
+         activeIndex: null,
+         toggler: false,
+      };
+   },
 
-const selectMiniature = (index) => {
-   miniatures.value.forEach((item) => (item.active = false));
-   miniatures.value[index].active = true;
-   activeIndex.value = index;
-};
+   methods: {
+      async selectMiniature(index) {
+         this.miniatures.forEach((item) => (item.active = false));
+         this.miniatures[index].active = true;
+         this.activeIndex = index;
+      },
+   },
 
-const openFancybox = () => {
-   if (activeIndex.value !== null && miniatures.value.length > 0) {
-      const galleryItems = miniatures.value.map((item) => ({
-         src: `http://stankobox.runova.tech:8000/api/products/image/${id.value}/${item.name}`,
-         type: "image",
-      }));
+   async created() {
+      this.id = this.$route.params.id;
 
-      $fancybox.open(galleryItems, {
-         loop: true,
-         // другие параметры Fancybox по вашему выбору
-      });
-   }
-};
+      try {
+         const response = await axios.get(
+            `http://stankobox.runova.tech:8000/api/products/images/${this.id}`
+         );
+         this.miniatures = response.data;
 
-onMounted(async () => {
-   id.value = $route.params.id;
-
-   try {
-      const response = await axios.get(
-         `http://stankobox.runova.tech:8000/api/products/images/${id.value}`
-      );
-      miniatures.value = response.data;
-
-      // Set active class for the first element after loading images
-      if (miniatures.value.length > 0) {
-         miniatures.value[0].active = true;
-         activeIndex.value = 0;
+         if (this.miniatures.length > 0) {
+            this.miniatures[0].active = true;
+            this.activeIndex = 0;
+         }
+      } catch (error) {
+         console.error("Error fetching miniatures:", error);
       }
-   } catch (error) {
-      console.error("Error fetching miniatures:", error);
-   }
-});
+   },
 
-watch(activeIndex, (newIndex) => {
-   if (newIndex !== null && miniatures.value.length > 0) {
-      $nextTick(() => {
-         $refs.previewImage.src = `http://stankobox.runova.tech:8000/api/products/image/${id.value}/${miniatures.value[newIndex].name}`;
-      });
-   }
-});
+   watch: {
+      activeIndex(newIndex) {
+         if (newIndex !== null && this.miniatures.length > 0) {
+            this.$nextTick(() => {
+               this.$refs.previewImage.src = `http://stankobox.runova.tech:8000/api/products/image/${this.id}/${this.miniatures[newIndex].name}`;
+            });
+         }
+      },
+   },
+
+   computed: {
+      imageSources() {
+         return this.miniatures.map(
+            (item) =>
+               `http://stankobox.runova.tech:8000/api/products/image/${this.id}/${item.name}`
+         );
+      },
+   },
+};
 </script>
