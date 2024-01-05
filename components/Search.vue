@@ -1,5 +1,5 @@
 <template>
-   <form action="#" class="popup" :class="{ active: popupActive }">
+   <!-- <form action="#" class="popup" :class="{ active: popupActive }">
       <div class="popup__wrapper">
          <img
             class="popup__wrapper-close"
@@ -134,7 +134,7 @@
 
          <Button class="popup__wrapper-btn">Отправить</Button>
       </div>
-   </form>
+   </form> -->
    <section class="search container">
       <NuxtLink to="/" class="search__item search__item-logo">
          <!-- <img class="search__item-logo-img" src="~/assets/img/logo.png" /> -->
@@ -202,7 +202,8 @@
          </div>
       </div>
 
-      <Button class="search__button" @click="popupActivating">
+      <!-- <Button class="search__button" @click="popupActivating"> -->
+      <Button class="search__button">
          <!-- <NuxtLink to="/catalog">Подобрать станок</NuxtLink> -->
          <NuxtLink to="#">Подобрать станок</NuxtLink>
       </Button>
@@ -210,16 +211,15 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+// import { ref } from "vue";
 
-const popupActive = ref(false);
+// const popupActive = ref(false);
 
-const timePickerActive = ref(false);
+// const timePickerActive = ref(false);
 
-function popupActivating() {
-   popupActive.value = !popupActive.value;
-}
-
+// function popupActivating() {
+//    popupActive.value = !popupActive.value;
+// }
 </script>
 
 <style lang="scss" scoped>

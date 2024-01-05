@@ -243,7 +243,8 @@
    display: none;
 }
 @media (max-width: 1099.98px) {
-   .menu {
+   .menu,
+   .navigation {
       display: none !important;
    }
    .body_hidden {
@@ -371,7 +372,8 @@
          line-height: 20px; /* 142.857% */
          letter-spacing: 0.056px;
 
-         max-width: 268px;
+         //  max-width: 268px;
+         max-width: fit-content;
 
          @media (max-width: 389.98px) {
             margin-right: 0;

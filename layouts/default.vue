@@ -357,8 +357,7 @@ export default {
       };
    },
    mounted() {
-    //   const html = document.querySelector(".dark");
-    //   html.classList.remove("dark");
+      // Аккордион футер
 
       let accordionItems = document.querySelectorAll(
          ".footer__list-column-item-link"

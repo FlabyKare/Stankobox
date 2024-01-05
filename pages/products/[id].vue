@@ -1,4 +1,140 @@
 <template>
+   <form action="#" class="popup" :class="{ active: popupActive }">
+      <div class="popup__wrapper">
+         <img
+            class="popup__wrapper-close"
+            src="/public/img/icons/close.png"
+            @click="popupActivating"
+            alt=""
+         />
+
+         <p class="popup__wrapper-pretitle">
+            Остались вопросы или заинтересовались товаром?
+         </p>
+         <h4 class="popup__wrapper-title">
+            Заполните форму и наш специалист свяжется с вами!
+         </h4>
+
+         <div class="popup__wrapper-inputs">
+            <div class="popup__wrapper-inputs-item">
+               <input
+                  v-model="nameGoodPage"
+                  type="text"
+                  id="nameGoodPage"
+                  required
+                  :minlength="3"
+                  :maxlength="20"
+               />
+               <label for="nameGoodPage">Имя<span>*</span></label>
+            </div>
+            <div class="popup__wrapper-inputs-item">
+               <input
+                  v-model="phoneGoodPage"
+                  type="tel"
+                  id="phoneGoodPage"
+                  required
+                  v-maska
+                  data-maska="+# (###) ### ##-##"
+               />
+               <label for="phoneGoodPage">Номер телефона<span>*</span></label>
+            </div>
+         </div>
+
+         <div class="popup__wrapper-radios">
+            <div
+               class="popup__wrapper-radios-item"
+               @click="timePickerActive = false"
+            >
+               <svg
+                  v-if="!timePickerActive"
+                  class="popup__wrapper-radios-item-red-btn"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+               >
+                  <circle
+                     cx="10"
+                     cy="10"
+                     r="9.25"
+                     stroke="#E31335"
+                     stroke-width="1.5"
+                  />
+                  <circle cx="10" cy="10" r="4" fill="#E31335" />
+               </svg>
+
+               <svg
+                  v-if="timePickerActive"
+                  class="popup__wrapper-radios-item-gray-btn"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+               >
+                  <circle
+                     cx="10"
+                     cy="10"
+                     r="9.25"
+                     stroke="#A8A8A8"
+                     stroke-width="1.5"
+                  />
+               </svg>
+
+               <p class="popup__wrapper-radios-item-text">В ближайшее время</p>
+            </div>
+
+            <div
+               class="popup__wrapper-radios-item popup__wrapper-radios-item_activator"
+               @click="timePickerActive = true"
+            >
+               <svg
+                  v-if="timePickerActive"
+                  class="popup__wrapper-radios-item-red-btn"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+               >
+                  <circle
+                     cx="10"
+                     cy="10"
+                     r="9.25"
+                     stroke="#E31335"
+                     stroke-width="1.5"
+                  />
+                  <circle cx="10" cy="10" r="4" fill="#E31335" />
+               </svg>
+
+               <svg
+                  v-if="!timePickerActive"
+                  class="popup__wrapper-radios-item-gray-btn"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+               >
+                  <circle
+                     cx="10"
+                     cy="10"
+                     r="9.25"
+                     stroke="#A8A8A8"
+                     stroke-width="1.5"
+                  />
+               </svg>
+
+               <p class="popup__wrapper-radios-item-text">Точное время</p>
+            </div>
+         </div>
+
+         <TimePicker v-if="timePickerActive" />
+
+         <Button class="popup__wrapper-btn">Отправить</Button>
+      </div>
+   </form>
    <section class="good-page container">
       <ul class="good-page__breadcrumbs breadcrumbs">
          <li class="good-page__link breadcrumbs__link">
@@ -10,17 +146,16 @@
          <li class="good-page__link breadcrumbs__link">
             <NuxtLink>Каталог</NuxtLink>
          </li>
-
          <span class="good-page__link-divider breadcrumbs__link-divider"
             >•</span
          >
          <li class="good-page__link breadcrumbs__link">
-            <NuxtLink v-if="!productInfo">{{ id }}</NuxtLink>
+            <NuxtLink v-if="!productInfo">...</NuxtLink>
             <NuxtLink v-if="productInfo">{{ productInfo.title }}</NuxtLink>
          </li>
       </ul>
 
-      <h3 class="good-page__title page-title" v-if="!productInfo">{{ id }}</h3>
+      <h3 class="good-page__title page-title" v-if="!productInfo">...</h3>
       <h3 class="good-page__title page-title" v-if="productInfo">
          {{ productInfo.title }}
       </h3>
@@ -82,10 +217,30 @@
                   stroke-linejoin="round"
                />
             </svg>
+
+            <svg
+               class="good-page__intro-icons-print good-page__intro-icons-print-mobile"
+               @click="downloadAsPDF"
+               xmlns="http://www.w3.org/2000/svg"
+               width="20"
+               height="20"
+               viewBox="0 0 20 20"
+               fill="none"
+            >
+               <path
+                  d="M3.33325 9.99999V16.6667C3.33325 17.1087 3.50885 17.5326 3.82141 17.8452C4.13397 18.1577 4.55789 18.3333 4.99992 18.3333H14.9999C15.4419 18.3333 15.8659 18.1577 16.1784 17.8452C16.491 17.5326 16.6666 17.1087 16.6666 16.6667V9.99999M13.3333 4.99999L9.99992 1.66666M9.99992 1.66666L6.66658 4.99999M9.99992 1.66666V12.5"
+                  stroke="#828282"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+               />
+            </svg>
          </div>
 
          <div class="good-page__intro-preview">
             <GoodPageSlider />
+
+            <!-- Мобильный слайдер -->
 
             <div class="good-page__intro-preview-description">
                <h5 class="good-page__intro-preview-description-title">
@@ -95,13 +250,7 @@
                   class="good-page__intro-preview-description-text"
                   v-if="!productInfo"
                >
-                  Недорогой ленточнопильный станок Cormak c оптимальным
-                  диапазоном резки предназначен для профессиональных работ.
-                  Отличается производительностью и простотой в использовании.
-                  Несмотря на небольшие размеры и вес станок Несмотря на
-                  небольшие размеры и вес станок Несмотря на небольшие размеры и
-                  вес станок Несмотря на небольшие размеры и вес станок Несмотря
-                  на небольшие размеры и вес станок
+                  ...
                </p>
                <p
                   class="good-page__intro-preview-description-text"
@@ -155,7 +304,7 @@
                      class="good-page__intro-preview-complectation-price-value"
                      v-if="!productInfo"
                   >
-                     162 000 ₽<span>178 000 ₽</span>
+                     ...<span></span>
                   </p>
                   <p
                      class="good-page__intro-preview-complectation-price-value"
@@ -166,9 +315,10 @@
                         {{ productInfo.price_before }} ₽</span
                      >
                   </p>
-
+                  <!-- НЕТ В НАЛИЧИИ -->
                   <div
-                     class="good-page__intro-preview-complectation-price-stock active"
+                     class="good-page__intro-preview-complectation-price-stock"
+                     :class="{ active: preorder }"
                   >
                      <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -178,13 +328,20 @@
                         fill="none"
                      >
                         <circle
+                           class="preorder-circle-border"
                            cx="8"
                            cy="8"
                            r="7.25"
                            stroke="#04B769"
                            stroke-width="1.5"
                         />
-                        <circle cx="8" cy="8" r="3" fill="#04B769" />
+                        <circle
+                           class="preorder-circle"
+                           cx="8"
+                           cy="8"
+                           r="3"
+                           fill="#04B769"
+                        />
                      </svg>
 
                      <p
@@ -195,6 +352,8 @@
                   </div>
 
                   <Button
+                     type="button"
+                     @click="popupActivating"
                      class="good-page__intro-preview-complectation-price-btn"
                      >Получить предложение</Button
                   >
@@ -291,8 +450,16 @@
             <h6 class="good-page__tabs-description-title">
                Общие характиристики
             </h6>
-
-            <ul class="good-page__tabs-characteristics-list">
+            <ul class="good-page__tabs-characteristics-list" v-if="productInfo">
+               <li
+                  class="good-page__tabs-characteristics-list-item"
+                  v-for="item in productInfo.attributes"
+               >
+                  {{ item.property.title }}
+                  <span> {{ item.value }}</span>
+               </li>
+            </ul>
+            <!-- <ul class="good-page__tabs-characteristics-list">
                <li class="good-page__tabs-characteristics-list-item">
                   Модель:
                   <span> CORMAK G5013W (BS-128HDR)</span>
@@ -351,7 +518,7 @@
                   Поворотная рама, °:
                   <span>до 60</span>
                </li>
-            </ul>
+            </ul> -->
 
             <h6
                class="good-page__tabs-description-title good-page__tabs-description-title-second"
@@ -828,6 +995,601 @@
          </div>
       </section>
 
+      <section class="good-page__mobile-accordions" v-if="productInfo">
+         <ul class="good-page__mobile-accordions-list">
+            <!-- ОПИСАНИЕ -->
+            <li
+               class="good-page__mobile-accordion-list-item"
+               @click="toggleAccordion(0)"
+            >
+               <div class="good-page__mobile-accordion-list-item-title">
+                  <h3 class="good-page__mobile-accordion-list-item-title-text">
+                     Описание
+                  </h3>
+                  <svgArrowBottom />
+               </div>
+
+               <div class="good-page__mobile-accordion-list-item-content">
+                  <p
+                     class="good-page__mobile-accordion-list-item-content-description"
+                  >
+                     {{ productInfo.description }}
+                  </p>
+               </div>
+            </li>
+
+            <!-- ХАРАКТЕРИСТИКИ -->
+            <li
+               class="good-page__mobile-accordion-list-item"
+               @click="toggleAccordion(1)"
+            >
+               <div class="good-page__mobile-accordion-list-item-title">
+                  <h3 class="good-page__mobile-accordion-list-item-title-text">
+                     Характеристики
+                  </h3>
+
+                  <svgArrowBottom />
+               </div>
+
+               <div class="good-page__mobile-accordion-list-item-content">
+                  <h6 class="good-page__tabs-description-title">
+                     Общие характиристики
+                  </h6>
+
+                  <ul
+                     class="good-page__tabs-characteristics-list"
+                     v-if="productInfo"
+                  >
+                     <li
+                        class="good-page__tabs-characteristics-list-item"
+                        v-for="item in productInfo.attributes"
+                     >
+                        {{ item.property.title }}
+                        <span> {{ item.value }}</span>
+                     </li>
+                  </ul>
+
+                  <h6
+                     class="good-page__tabs-description-title good-page__tabs-description-title-second"
+                  >
+                     Габаритные размеры
+                  </h6>
+
+                  <ul class="good-page__tabs-characteristics-list">
+                     <li class="good-page__tabs-characteristics-list-item">
+                        Длина, мм:
+                        <span> 1 450</span>
+                     </li>
+                     <li class="good-page__tabs-characteristics-list-item">
+                        Высота, мм::
+                        <span>1 020</span>
+                     </li>
+
+                     <li class="good-page__tabs-characteristics-list-item">
+                        Ширина, мм:
+                        <span>720</span>
+                     </li>
+                     <li class="good-page__tabs-characteristics-list-item">
+                        Вес нетто, кг:
+                        <span>220</span>
+                     </li>
+
+                     <li class="good-page__tabs-characteristics-list-item">
+                        Вес брутто, кг:
+                        <span>275</span>
+                     </li>
+                  </ul>
+               </div>
+            </li>
+
+            <!-- ДОСТАВКА -->
+            <li
+               class="good-page__mobile-accordion-list-item"
+               @click="toggleAccordion(2)"
+            >
+               <div class="good-page__mobile-accordion-list-item-title">
+                  <h3 class="good-page__mobile-accordion-list-item-title-text">
+                     Доставка
+                  </h3>
+
+                  <svgArrowBottom />
+               </div>
+
+               <div class="good-page__mobile-accordion-list-item-content">
+                  <div class="good-page__tabs-delivery-description">
+                     <h6 class="good-page__tabs-description-title">
+                        Доставка транспортной компанией по России и СНГ
+                     </h6>
+
+                     <p class="good-page__tabs-description-text">
+                        Компания «Станкобокс» осуществляет доставку оборудования
+                        сборными грузами привлеченным транспортом, либо
+                        индивидуальным, выделенным под заказ клиента,
+                        транспортом. Специалисты компании помогут вам произвести
+                        грузоперевозки в любую точку России или за границу – в
+                        Беларусь, Казахстан, Киргизию, Армению.
+                     </p>
+                     <p class="good-page__tabs-description-text">
+                        Если вы не планируете осуществлять самовывоз
+                        оборудования, мы сделаем доставку груза до адреса
+                        удобной для Вас транспортной компании.
+                     </p>
+                     <p class="good-page__tabs-description-text">
+                        Доставка оборудования в пределах города Санкт-Петербурга
+                        осуществляется в течение следующего рабочего дня после
+                        оплаты, в заранее согласованное с заказчиком время.<br />
+                        Для доставки особых грузов и перевозок по нестандартным
+                        маршрутам мы разрабатываем индивидуальные логистические
+                        схемы.
+                     </p>
+                     <p class="good-page__tabs-description-text">
+                        Мы сотрудничаем с такими транспортными компаниями как
+                        Деловые линии, Байкал Сервис, Энергия, ПЭК,
+                        ЖелДорЭкспедиция, а так же с другими транспортными
+                        компаниями по требованию заказчика.
+                     </p>
+                     <p class="good-page__tabs-description-text">
+                        В случае необходимости разгрузку груза производят
+                        водители-экспедиторы, специально выделенные грузчики,
+                        приезжающие по адресу получателя груза в том числе с
+                        применением подъёмно-транспортной техники. Согласование
+                        работ происходит по телефону с получателем груза.
+                     </p>
+                  </div>
+
+                  <div class="good-page__tabs-delivery-benefits">
+                     <div class="good-page__tabs-delivery-benefits-card">
+                        <h4
+                           class="good-page__tabs-delivery-benefits-card-title"
+                        >
+                           Оборудование
+                        </h4>
+
+                        <p class="good-page__tabs-delivery-benefits-card-item">
+                           <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                           >
+                              <path
+                                 d="M12 6V12L16 14M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+                                 stroke="#E31335"
+                                 stroke-width="1.5"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                              />
+                           </svg>
+                           Доставка от 1 дня
+                        </p>
+                        <p class="good-page__tabs-delivery-benefits-card-item">
+                           <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                           >
+                              <path
+                                 d="M4 6V12C4 12 4 15 11 15C18 15 18 12 18 12V6"
+                                 stroke="#E31335"
+                                 stroke-width="1.5"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                              />
+                              <path
+                                 d="M11 21C4 21 4 18 4 18V12M18 22H21M11 3C18 3 18 6 18 6C18 6 18 9 11 9C4 9 4 6 4 6C4 6 4 3 11 3ZM19.5 19.429H21.833V16H17.167V19.429H19.5Z"
+                                 stroke="#E31335"
+                                 stroke-width="1.5"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                              />
+                           </svg>
+                           от 20 000 ₽
+                        </p>
+                     </div>
+
+                     <div class="good-page__tabs-delivery-benefits-card">
+                        <h4
+                           class="good-page__tabs-delivery-benefits-card-title"
+                        >
+                           Доставка в СПб
+                        </h4>
+
+                        <p class="good-page__tabs-delivery-benefits-card-item">
+                           <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                           >
+                              <path
+                                 d="M12 6V12L16 14M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+                                 stroke="#E31335"
+                                 stroke-width="1.5"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                              />
+                           </svg>
+                           Доставка от 1 дня
+                        </p>
+                        <p class="good-page__tabs-delivery-benefits-card-item">
+                           <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                           >
+                              <path
+                                 d="M4 6V12C4 12 4 15 11 15C18 15 18 12 18 12V6"
+                                 stroke="#E31335"
+                                 stroke-width="1.5"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                              />
+                              <path
+                                 d="M11 21C4 21 4 18 4 18V12M18 22H21M11 3C18 3 18 6 18 6C18 6 18 9 11 9C4 9 4 6 4 6C4 6 4 3 11 3ZM19.5 19.429H21.833V16H17.167V19.429H19.5Z"
+                                 stroke="#E31335"
+                                 stroke-width="1.5"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                              />
+                           </svg>
+                           от 290 ₽
+                        </p>
+                     </div>
+
+                     <div class="good-page__tabs-delivery-benefits-card">
+                        <h4
+                           class="good-page__tabs-delivery-benefits-card-title"
+                        >
+                           Доставка в СПб
+                        </h4>
+
+                        <p class="good-page__tabs-delivery-benefits-card-item">
+                           <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                           >
+                              <path
+                                 d="M12 6V12L16 14M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+                                 stroke="#E31335"
+                                 stroke-width="1.5"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                              />
+                           </svg>
+                           На след. день после оплаты
+                        </p>
+                        <p class="good-page__tabs-delivery-benefits-card-item">
+                           <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                           >
+                              <path
+                                 d="M4 6V12C4 12 4 15 11 15C18 15 18 12 18 12V6"
+                                 stroke="#E31335"
+                                 stroke-width="1.5"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                              />
+                              <path
+                                 d="M11 21C4 21 4 18 4 18V12M18 22H21M11 3C18 3 18 6 18 6C18 6 18 9 11 9C4 9 4 6 4 6C4 6 4 3 11 3ZM19.5 19.429H21.833V16H17.167V19.429H19.5Z"
+                                 stroke="#E31335"
+                                 stroke-width="1.5"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                              />
+                           </svg>
+                           бесплатно
+                        </p>
+                     </div>
+                  </div>
+
+                  <div
+                     class="good-page__tabs-delivery-map good-page__tabs-delivery good-page__tabs-content"
+                  >
+                     <div class="good-page__tabs-delivery-map-description">
+                        <h6
+                           class="good-page__tabs-delivery-map-description-title good-page__tabs-description-title"
+                        >
+                           Самовывоз оборудования в Санкт-Петербурге
+                        </h6>
+
+                        <p
+                           class="good-page__tabs-delivery-map-description-subtitle"
+                        >
+                           Адрес склада:
+                           <span
+                              >191119, Санкт-Петербург, ул. Черняховского, дом
+                              10,лит. Д, пом.3-Н</span
+                           >
+                        </p>
+                        <p
+                           class="good-page__tabs-delivery-map-description-subtitle"
+                        >
+                           График работы:
+                        </p>
+                        <p
+                           class="good-page__tabs-delivery-map-description-times"
+                        >
+                           С понедельника по пятницу: <span>09:00 – 18:00</span>
+                        </p>
+                        <p
+                           class="good-page__tabs-delivery-map-description-times"
+                        >
+                           Суббота – воскресенье: <span>Выходной</span>
+                        </p>
+                        <p
+                           class="good-page__tabs-delivery-map-description-subtitle"
+                           style="margin-top: 12px"
+                        >
+                           Телефон:
+                        </p>
+
+                        <p
+                           class="good-page__tabs-delivery-map-description-phone"
+                           style="margin-top: 0px"
+                        >
+                           8 (812) 575-50-23
+                        </p>
+                     </div>
+
+                     <div class="good-page__tabs-delivery-map-preview">
+                        <img
+                           src="/img/Good-page/map.png"
+                           alt="Расположение на карте"
+                        />
+
+                        <NuxtLink>Показать на карте</NuxtLink>
+                     </div>
+                  </div>
+               </div>
+            </li>
+
+            <!-- ОПЛАТА И ЛИЗИНГ  -->
+            <li
+               class="good-page__mobile-accordion-list-item"
+               @click="toggleAccordion(3)"
+            >
+               <div class="good-page__mobile-accordion-list-item-title">
+                  <h3 class="good-page__mobile-accordion-list-item-title-text">
+                     Оплата и лизинг
+                  </h3>
+
+                  <svgArrowBottom />
+               </div>
+
+               <div class="good-page__mobile-accordion-list-item-content">
+                  <h6 class="good-page__tabs-description-title">Оплата</h6>
+
+                  <p class="good-page__tabs-description-text">
+                     Оплатить свой заказ Вы можете банковским переводом денег
+                     между расчетными счетами организаций на основании
+                     выставленного счета или по договору. <br />
+                     Сроки, условия и детали оплаты оговариваются при оформлении
+                     заказа с менеджерами отдела продаж.
+                  </p>
+
+                  <div class="good-page__tabs-payment-wrapper">
+                     <div
+                        class="good-page__tabs-payment-wrapper-description good-page__tabs-delivery-description"
+                     >
+                        <h6 class="good-page__tabs-description-title">
+                           Лизинг
+                        </h6>
+
+                        <p class="good-page__tabs-description-text">
+                           Наше оборудование можно приобрести в лизинг. Мы
+                           работаем с различными лизинговыми компаниями и
+                           зарекомендовали себя как надежного поставщика и
+                           партнера.
+                        </p>
+                        <p class="good-page__tabs-description-text">
+                           Мы сотрудничаем с такими лизинговыми компаниями:
+                        </p>
+                        <p class="good-page__tabs-description-text">
+                           "Интерлизинг" <br />
+                           "Балтийский лизинг" <br />
+                           "Роделен" <br />
+                           "Уралпромлизинг", <br />
+                           "Национальная Лизинговая Компания», <br />
+                           "УралБизнесЛизинг" и др.
+                        </p>
+                        <p class="good-page__tabs-description-text">
+                           Также Вы можете обратиться в свою лизинговую
+                           компанию. Для того чтобы оформить сделку, необходимо
+                           у нас запросить коммерческое предложение, прислав
+                           запрос с реквизитами.
+                        </p>
+                     </div>
+
+                     <div
+                        class="good-page__tabs-payment-wrapper-benefits good-page__tabs-delivery-benefits"
+                     >
+                        <div class="good-page__tabs-delivery-benefits-card">
+                           <h4
+                              class="good-page__tabs-delivery-benefits-card-title"
+                           >
+                              Срок лизинга
+                           </h4>
+
+                           <p
+                              class="good-page__tabs-delivery-benefits-card-item"
+                           >
+                              <svg
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                              >
+                                 <path
+                                    d="M12 6V12L16 14M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+                                    stroke="#E31335"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                 />
+                              </svg>
+                              от 1 года до 3х лет
+                           </p>
+                        </div>
+
+                        <div class="good-page__tabs-delivery-benefits-card">
+                           <h4
+                              class="good-page__tabs-delivery-benefits-card-title"
+                           >
+                              Размер первого взноса
+                           </h4>
+
+                           <p
+                              class="good-page__tabs-delivery-benefits-card-item"
+                           >
+                              <svg
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                              >
+                                 <path
+                                    d="M4 6V12C4 12 4 15 11 15C18 15 18 12 18 12V6"
+                                    stroke="#E31335"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                 />
+                                 <path
+                                    d="M11 21C4 21 4 18 4 18V12M18 22H21M11 3C18 3 18 6 18 6C18 6 18 9 11 9C4 9 4 6 4 6C4 6 4 3 11 3ZM19.5 19.429H21.833V16H17.167V19.429H19.5Z"
+                                    stroke="#E31335"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                 />
+                              </svg>
+                              от 5% стоимости оборудования
+                           </p>
+                        </div>
+
+                        <div class="good-page__tabs-delivery-benefits-card">
+                           <h4
+                              class="good-page__tabs-delivery-benefits-card-title"
+                           >
+                              Выкупной платеж
+                           </h4>
+
+                           <p
+                              class="good-page__tabs-delivery-benefits-card-item"
+                           >
+                              <svg
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                              >
+                                 <path
+                                    d="M19 5L5 19M9 6.5C9 7.88071 7.88071 9 6.5 9C5.11929 9 4 7.88071 4 6.5C4 5.11929 5.11929 4 6.5 4C7.88071 4 9 5.11929 9 6.5ZM20 17.5C20 18.8807 18.8807 20 17.5 20C16.1193 20 15 18.8807 15 17.5C15 16.1193 16.1193 15 17.5 15C18.8807 15 20 16.1193 20 17.5Z"
+                                    stroke="#E31335"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                 />
+                              </svg>
+                              от 3% до 20%
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </li>
+
+            <!-- ГАРАНТИИ  -->
+            <li
+               class="good-page__mobile-accordion-list-item"
+               @click="toggleAccordion(4)"
+            >
+               <div class="good-page__mobile-accordion-list-item-title">
+                  <h3 class="good-page__mobile-accordion-list-item-title-text">
+                     Гарантии
+                  </h3>
+
+                  <svgArrowBottom />
+               </div>
+
+               <div class="good-page__mobile-accordion-list-item-content">
+                  <div
+                     class="good-page__tabs-warranty-wrapper-description good-page__tabs-delivery-description"
+                  >
+                     <h6 class="good-page__tabs-description-title">
+                        Гарантийное обслуживание
+                     </h6>
+
+                     <p class="good-page__tabs-description-text">
+                        На все оборудование компания "Станкобокс" дает гарантию
+                        12 месяцев с даты покупки.
+                     </p>
+                     <p class="good-page__tabs-description-text">
+                        По гарантийному и после гарантийному обслуживанию
+                        обращайтесь по телефону:
+                     </p>
+                     <p class="good-page__tabs-description-text">
+                        +7 921-795-75-70 <br />
+                        +7 909-545-88-81 <br />
+                        +7 912-568-55-12 <br />
+                     </p>
+                     <p class="good-page__tabs-description-text">
+                        Также вы можете отправить заполненный бланк рекламации
+                        нэ лектронную почту: service@stankobox.ru
+                     </p>
+                  </div>
+
+                  <div
+                     class="good-page__tabs-warranty-wrapper-benefits good-page__tabs-delivery-benefits"
+                  >
+                     <div class="good-page__tabs-delivery-benefits-card">
+                        <h4
+                           class="good-page__tabs-delivery-benefits-card-title"
+                        >
+                           Рекламация
+                        </h4>
+
+                        <p class="good-page__tabs-delivery-benefits-card-item">
+                           <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="22"
+                              height="22"
+                              viewBox="0 0 22 22"
+                              fill="none"
+                           >
+                              <path
+                                 d="M8 16H14M11 5V12M11 12L14.5 8.5M11 12L7.5 8.5M11 21C16.523 21 21 16.523 21 11C21 5.477 16.523 1 11 1C5.477 1 1 5.477 1 11C1 16.523 5.477 21 11 21Z"
+                                 stroke="#E31335"
+                                 stroke-width="1.5"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                              />
+                           </svg>
+                           Скачать бланк рекламации
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </li>
+         </ul>
+      </section>
+
+      <!-- Блок рекомендации -->
       <section
          @mousedown.left="onMouseDown"
          v-if="cards.length"
@@ -884,62 +1646,12 @@
                >
             </div>
          </VueHorizontal>
-
-         <div class="offers__list_mobile">
-            <ul class="offers__list">
-               <li
-                  v-for="(card, index) in visibleCards"
-                  :key="card.id"
-                  class="offers__list-item"
-               >
-                  <span class="offers__list-item-discount"
-                     >-{{ card.discount }}%</span
-                  >
-                  <div class="offers__list-item-slider">
-                     <swiper
-                        :pagination="{ dynamicBullets: true }"
-                        :modules="modules"
-                        class="mySwiper"
-                     >
-                        <swiper-slide
-                           v-for="(image, index) in card.images"
-                           :key="index"
-                        >
-                           <img
-                              :src="`/img/Good-page/Recomendations/${
-                                 index + 1
-                              }.png`"
-                              alt="Product Image"
-                           />
-                        </swiper-slide>
-                     </swiper>
-                  </div>
-                  <NuxtLink
-                     :to="`https://google.com/${card.id}`"
-                     class="offers__list-item-title little-defolt-title"
-                  >
-                     {{ card.name }}
-                  </NuxtLink>
-                  <span class="offers__list-item-old-price">{{
-                     card.oldPrice
-                  }}</span>
-                  <span class="offers__list-item-current-price">{{
-                     card.currentPrice
-                  }}</span>
-               </li>
-            </ul>
-            <Button
-               class="offers__list-show-btn"
-               :class="{ 'offers__list-show-btn_active': showAll }"
-               @click="toggleShowAll"
-            >
-               {{ showAll ? "Скрыть" : "Показать все" }}
-            </Button>
-         </div>
       </section>
    </section>
 </template>
 <script>
+import { ref, onMounted } from "vue";
+
 import VueHorizontal from "vue-horizontal";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
@@ -954,8 +1666,10 @@ export default {
          left: 0,
          originX: 0,
          originLeft: 0,
-         shouldAddClass: true,
-         showAll: false,
+         activeAccordionIndex: null,
+         preorder: null,
+         //  shouldAddClass: true,
+         //  showAll: false,
          cards: [
             {
                id: 1,
@@ -1032,25 +1746,46 @@ export default {
          const response = await axios.get(
             `http://stankobox.runova.tech:8000/api/products/product/${this.id}`
          );
+         //  preorder = productInfo.preorder;
+
          this.productInfo = response.data;
+         this.preorder = this.productInfo.preorder;
+         //  console.log("yes");
+
+         //  console.log(this.preorder);
       } catch (error) {
          console.error("Error fetching product info:", error);
       }
    },
-   computed: {
-      visibleCards() {
-         return this.showAll ? this.cards : this.cards.slice(0, 4);
-      },
-   },
+
    beforeUnmount() {
       this.onMouseUp();
    },
 
    methods: {
-      toggleShowAll() {
-         this.showAll = !this.showAll;
+      downloadAsPDF() {
+         window.print(); // Это вызовет диалоговое окно печати браузера с опцией сохранения в PDF
       },
-
+      toggleAccordion(index) {
+         // Remove 'active' class from all elements
+         const accordionItems = document.querySelectorAll(
+            ".good-page__mobile-accordion-list-item"
+         );
+         accordionItems.forEach((item, i) => {
+            if (i === index) {
+               // Toggle 'active' class on the clicked element
+               item.classList.toggle("active");
+               if (item.classList.contains("active")) {
+                  this.activeAccordionIndex = index;
+               } else {
+                  this.activeAccordionIndex = null;
+               }
+            } else {
+               // Remove 'active' class from other elements
+               item.classList.remove("active");
+            }
+         });
+      },
       onScroll({ left }) {
          this.left = left;
       },
@@ -1131,7 +1866,24 @@ export default {
       const printPage = () => {
          window.print();
       };
+      const popupActive = ref(false);
 
+      const timePickerActive = ref(false);
+      let body;
+
+      onMounted(() => {
+         body = document.body;
+      });
+
+      onBeforeUnmount(() => {
+         // Вызывайте ваш метод перед удалением компонента
+         onMouseUp();
+      });
+
+      function popupActivating() {
+         popupActive.value = !popupActive.value;
+         body?.classList.toggle("bodyHiddenPopup");
+      }
       return {
          id,
          articulCopiedMsg,
@@ -1145,6 +1897,10 @@ export default {
 
          modules: [Pagination],
          spaceBetween: 50,
+
+         popupActive,
+         timePickerActive,
+         popupActivating,
       };
 
       //===================================
@@ -1173,5 +1929,4 @@ export default {
    },
 };
 </script>
-
 <style lang="scss"></style>

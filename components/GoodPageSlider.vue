@@ -1,6 +1,9 @@
 <template>
    <div class="good-page__intro-preview-slider">
-      <NuxtLink class="good-page__intro-preview-slider-youtube">
+      <NuxtLink
+         class="good-page__intro-preview-slider-youtube"
+         v-if="activeIndex !== null && miniatures.length > 0"
+      >
          <svg
             class="good-page__intro-preview-slider-youtube-icon"
             width="35"
@@ -59,7 +62,11 @@
             alt=""
          />
 
-         <div class="good-page__intro-preview-slider-miniatures-arrow">
+         <div
+            class="good-page__intro-preview-slider-miniatures-arrow"
+            @click="scrollMiniatures"
+            v-if="activeIndex !== null && miniatures.length > 5"
+         >
             <svg
                xmlns="http://www.w3.org/2000/svg"
                width="14"
@@ -88,15 +95,53 @@
          alt=""
       />
    </div>
-   <FsLightbox :toggler="toggler" :sources="imageSources" />
+   <FsLightbox
+      class="good-page__intro-fancybox"
+      :toggler="toggler"
+      :sources="imageSources"
+   />
+
+   <div class="good-page_mobile-slider">
+      <swiper
+         :pagination="{
+            dynamicBullets: true,
+         }"
+         :modules="modules"
+         class="mySwiper"
+         :loop="true"
+      >
+         <swiper-slide
+            v-for="(item, index) in miniatures"
+            :key="item.product_id"
+         >
+            <img
+               :src="`http://stankobox.runova.tech:8000/api/products/image/${id}/${item.name}`"
+               alt="Product Image"
+            />
+         </swiper-slide>
+      </swiper>
+   </div>
 </template>
 
 <script>
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from "swiper/vue";
+
+// Import Swiper styles
+import "swiper/css";
+
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
+
 import axios from "axios";
 import FsLightbox from "fslightbox-vue/v3";
 
 export default {
-   components: { FsLightbox },
+   components: {
+      FsLightbox,
+      Swiper,
+      SwiperSlide,
+   },
    data() {
       return {
          id: null,
@@ -105,12 +150,25 @@ export default {
          toggler: false,
       };
    },
-
+   setup() {
+      return {
+         modules: [Pagination],
+         loop: [true],
+      };
+   },
    methods: {
       async selectMiniature(index) {
          this.miniatures.forEach((item) => (item.active = false));
          this.miniatures[index].active = true;
          this.activeIndex = index;
+      },
+      scrollMiniatures() {
+         const miniaturesContainer = document.querySelector(
+            ".good-page__intro-preview-slider-miniatures"
+         );
+         if (miniaturesContainer) {
+            miniaturesContainer.scrollBy(0, 184);
+         }
       },
    },
 

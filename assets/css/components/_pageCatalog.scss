@@ -102,6 +102,8 @@
    gap: 8px;
 
    align-items: center;
+
+   max-width: 100%;
    * {
       color: #a8a8a8 !important;
 
@@ -115,7 +117,15 @@
       line-height: 20px; /* 142.857% */
       letter-spacing: 0.056px;
       color: #a8a8a8 !important;
+      @media (max-width: 991.98px) {
+         font-size: 12px;
+         line-height: 16px; /* 133.333% */
+         letter-spacing: 0.048px;
 
+         white-space: nowrap;
+         text-overflow: ellipsis;
+         overflow: hidden;
+      }
       &:first-letter {
          text-transform: uppercase;
       }
