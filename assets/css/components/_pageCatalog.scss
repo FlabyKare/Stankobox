@@ -144,6 +144,31 @@
          font-weight: 500;
       }
    }
+   .breadcrumbs-mobile-dots {
+      max-width: 24px;
+      max-height: 8px;
+   }
+   @media (min-width: 576px) {
+      .breadcrumbs-mobile-dots,
+      .breadcrumbs-arrow-divider {
+         display: none !important;
+      }
+   }
+   @media (max-width: 576px) {
+      li:not(:last-child),
+      span {
+         display: none;
+      }
+      .breadcrumbs-mobile-dots,
+      .breadcrumbs-arrow-divider {
+         display: inline-block;
+      }
+      //   li:last-child::before {
+      //      content: "...";
+      //      display: inline-block;
+      //      margin-right: 4px; /* добавьте необходимый отступ, если нужно */
+      //   }
+   }
 }
 
 @media (max-width: 575.98px) {

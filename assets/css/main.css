@@ -219,6 +219,13 @@ input[type=number] {
   src: url("~/assets/fonts/TTNorms-Regular.ttf") format("truetype"), url("~/assets/fonts/TTNorms-Regular.ttf") format("truetype");
 }
 @font-face {
+  font-family: "TTNormsPro";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("~/assets/fonts/TTNormsPro-Regular.ttf") format("truetype"), url("~/assets/fonts/TTNormsPro-Regular.ttf") format("truetype");
+}
+@font-face {
   font-family: "TTNormsMedium";
   font-weight: 500;
   font-style: normal;
@@ -1320,7 +1327,11 @@ input[type=number] {
 @media (max-width: 389.98px) {
   .menu-mobile__container-goods .menu-mobile__container-goods-list-item .menu-mobile__container-goods-links-text {
     margin-right: 0;
-    margin-left: auto;
+  }
+}
+@media (max-width: 575.98px) {
+  .menu-mobile__container-goods .menu-mobile__container-goods-list-item .menu-mobile__container-goods-links-text {
+    margin-left: 0;
   }
 }
 
@@ -2757,6 +2768,26 @@ input[type=number] {
   color: #101010 !important;
   font-weight: 500;
 }
+.breadcrumbs .breadcrumbs-mobile-dots {
+  max-width: 24px;
+  max-height: 8px;
+}
+@media (min-width: 576px) {
+  .breadcrumbs .breadcrumbs-mobile-dots,
+  .breadcrumbs .breadcrumbs-arrow-divider {
+    display: none !important;
+  }
+}
+@media (max-width: 576px) {
+  .breadcrumbs li:not(:last-child),
+  .breadcrumbs span {
+    display: none;
+  }
+  .breadcrumbs .breadcrumbs-mobile-dots,
+  .breadcrumbs .breadcrumbs-arrow-divider {
+    display: inline-block;
+  }
+}
 
 @media (max-width: 575.98px) {
   .breadcrumbs {
@@ -2893,6 +2924,17 @@ input[type=number] {
   display: inline-block;
 }
 
+.good-page__intro-preview-description-parametrs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 12px;
+  gap: 8px;
+}
 .good-page__intro-preview-description-parametrs p {
   overflow: hidden;
   color: #828282;
@@ -2911,7 +2953,16 @@ input[type=number] {
 }
 .good-page__intro-preview-description-parametrs p span:first-of-type {
   float: left;
-  margin-right: 4px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  max-width: 319px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 20px;
 }
 .good-page__intro-preview-description-parametrs p span:last-of-type {
   float: right;
@@ -2932,6 +2983,101 @@ input[type=number] {
 .good-page__intro-preview-complectation {
   width: 100%;
   max-width: 292px;
+}
+
+.good-page__intro-preview-complectation-equipments-item-title {
+  color: #101010;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 140% */
+}
+
+.good-page__intro-preview-complectation-equipments-item-wrapper {
+  margin-top: 16px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #101010;
+  text-align: center;
+  font-family: "TTNormsMedium", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: 0.064px;
+}
+.good-page__intro-preview-complectation-equipments-item-wrapper.active .good-page__intro-preview-complectation-equipments-item-wrapper-active-svg {
+  border-color: #fff !important;
+}
+.good-page__intro-preview-complectation-equipments-item-wrapper.active .good-page__intro-preview-complectation-equipments-item-wrapper-active-svg rect {
+  fill: #04b769;
+}
+
+.good-page__intro-preview-complectation-equipments-item-wrapper-active-svg {
+  border: 1.5px solid #d5d5d5;
+  border-radius: 50%;
+}
+
+.good-page__intro-preview-complectation-equipments-item-wrapper-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+}
+
+.good-page__intro-preview-complectation-equipments-item-wrapper-title-desciption-activating {
+  -webkit-transition: 0.35s ease-in-out;
+  transition: 0.35s ease-in-out;
+}
+.good-page__intro-preview-complectation-equipments-item-wrapper-title-desciption-activating.active {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.good-page__intro-preview-complectation-equipments-item-wrapper-description {
+  padding-left: 20px;
+  display: block;
+  width: 100%;
+  height: 0px;
+  -webkit-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+  opacity: 0;
+  overflow: hidden;
+}
+.good-page__intro-preview-complectation-equipments-item-wrapper-description.active {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  opacity: 1;
+  overflow: inherit;
+}
+
+.good-page__intro-preview-complectation-equipments-item-wrapper-description-item {
+  color: #000;
+  text-align: left;
+  -webkit-font-feature-settings: "clig" off, "liga" off;
+          font-feature-settings: "clig" off, "liga" off;
+  font-family: "TTNormsPro", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  list-style: disc;
+  margin-left: 20px;
 }
 
 .good-page__intro-preview-complectation-price {
@@ -3505,6 +3651,9 @@ input[type=number] {
 }
 
 @media (max-width: 1374.98px) {
+  .good-page .offers {
+    padding: 0;
+  }
   .good-page__intro-preview-slider {
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
@@ -3543,15 +3692,18 @@ input[type=number] {
 @media (min-width: 992px) {
   .good-page_mobile-slider,
   .good-page__mobile-accordions,
-  .good-page__intro-icons-print-mobile {
+  .good-page__intro-icons-print-mobile,
+  .good-page__intro-preview-complectation-price-btn-mobile {
     display: none;
   }
 }
 @media (max-width: 991.98px) {
-  .good-page__intro-icons-print {
+  .good-page__intro-icons-print,
+  .good-page__intro-preview-complectation-price-btn {
     display: none;
   }
-  .good-page__intro-icons-print-mobile {
+  .good-page__intro-icons-print-mobile,
+  .good-page__intro-preview-complectation-price-btn-mobile {
     display: block;
   }
   .good-page_mobile-slider {

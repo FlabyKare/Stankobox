@@ -128,6 +128,11 @@
 }
 
 .good-page__intro-preview-description-parametrs {
+   display: flex;
+   flex-direction: column;
+
+   margin-top: 12px;
+   gap: 8px;
    p {
       overflow: hidden;
 
@@ -147,7 +152,16 @@
    }
    p span:first-of-type {
       float: left;
-      margin-right: 4px;
+      //   margin-right: 4px;
+
+      width: fit-content;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      max-width: 319px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      height: 20px;
    }
    p span:last-of-type {
       float: right;
@@ -175,6 +189,92 @@
    width: 100%;
    max-width: 292px;
 }
+
+//! Карточка комплектации
+.good-page__intro-preview-complectation-equipments-item-title {
+   color: #101010;
+   font-family: $Montserrat;
+   font-size: 20px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 28px; /* 140% */
+}
+.good-page__intro-preview-complectation-equipments-item-wrapper {
+   margin-top: 16px;
+   flex-wrap: wrap;
+   display: flex;
+
+   gap: 8px;
+   align-items: center;
+
+   color: #101010;
+   text-align: center;
+   font-family: $TTNormsMedium;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 24px; /* 150% */
+   letter-spacing: 0.064px;
+
+   &.active {
+      .good-page__intro-preview-complectation-equipments-item-wrapper-active-svg {
+         border-color: #fff !important;
+         rect {
+            // stroke: #04B769;
+            fill: #04b769;
+         }
+      }
+   }
+}
+.good-page__intro-preview-complectation-equipments-item-wrapper-active-svg {
+   border: 1.5px solid #d5d5d5;
+
+   border-radius: 50%;
+}
+.good-page__intro-preview-complectation-equipments-item-wrapper-title {
+   display: flex;
+   align-items: center;
+
+   gap: 8px;
+}
+.good-page__intro-preview-complectation-equipments-item-wrapper-title-desciption-activating {
+   transition: 0.35s ease-in-out;
+   &.active {
+      transform: rotate(180deg);
+   }
+}
+.good-page__intro-preview-complectation-equipments-item-wrapper-description {
+   padding-left: 20px;
+   display: block;
+   width: 100%;
+   height: 0px;
+   transition: 0.25s ease-in-out;
+   opacity: 0;
+   overflow: hidden;
+
+   &.active {
+      height: fit-content;
+
+      opacity: 1;
+      overflow: inherit;
+   }
+}
+.good-page__intro-preview-complectation-equipments-item-wrapper-description-item {
+   color: #000;
+   text-align: left;
+   font-feature-settings: "clig" off, "liga" off;
+   font-family: $TTNormsPro;
+   font-size: 14px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 20px; /* 142.857% */
+
+   hyphens: auto;
+   list-style: disc;
+   margin-left: 20px;
+}
+
+//! Карточка цены
 .good-page__intro-preview-complectation-price {
    padding: 20px 20px 28px 20px;
 
@@ -772,6 +872,11 @@
 //! Адаптация Страницы Товара
 
 @media (max-width: 1374.98px) {
+   .good-page {
+      .offers {
+         padding: 0;
+      }
+   }
    .good-page__intro-preview {
    }
    .good-page__intro-preview-slider {
@@ -812,15 +917,18 @@
 @media (min-width: 992px) {
    .good-page_mobile-slider,
    .good-page__mobile-accordions,
-   .good-page__intro-icons-print-mobile {
+   .good-page__intro-icons-print-mobile,
+   .good-page__intro-preview-complectation-price-btn-mobile {
       display: none;
    }
 }
 @media (max-width: 991.98px) {
-   .good-page__intro-icons-print {
+   .good-page__intro-icons-print,
+   .good-page__intro-preview-complectation-price-btn {
       display: none;
    }
-   .good-page__intro-icons-print-mobile {
+   .good-page__intro-icons-print-mobile,
+   .good-page__intro-preview-complectation-price-btn-mobile {
       display: block;
    }
    .good-page_mobile-slider {
@@ -958,8 +1066,6 @@
          }
       }
    }
-}
-@media (max-width: 767.98px) {
 }
 
 //! Мобильная версия - АККОРДИОНЫ

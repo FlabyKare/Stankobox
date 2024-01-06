@@ -7,7 +7,14 @@
    src: url("~/assets/fonts/TTNorms-Regular.ttf") format("truetype"),
       url("~/assets/fonts/TTNorms-Regular.ttf") format("truetype");
 }
-
+@font-face {
+   font-family: "TTNormsPro";
+   font-weight: 400;
+   font-style: normal;
+   font-display: swap;
+   src: url("~/assets/fonts/TTNormsPro-Regular.ttf") format("truetype"),
+      url("~/assets/fonts/TTNormsPro-Regular.ttf") format("truetype");
+}
 @font-face {
    font-family: "TTNormsMedium";
    font-weight: 500;
@@ -43,6 +50,7 @@
       format("truetype");
 }
 $TTNorms: "TTNorms", sans-serif;
+$TTNormsPro: "TTNormsPro", sans-serif;
 $TTNormsMedium: "TTNormsMedium", sans-serif;
 $Montserrat: "Montserrat", sans-serif;
 $NunitoSans: "Nunito Sans", sans-serif;
