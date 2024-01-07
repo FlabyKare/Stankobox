@@ -371,7 +371,7 @@
                         </p>
 
                         <ul
-                           class="good-page__intro-preview-complectation-equipments-item-wrapper-description"
+                           class="good-page__intro-preview-complectation-equipments-item-wrapper-description good-page__intro-preview-complectation-equipments-item-wrapper-description-base"
                            :class="{ active: descriptionActive }"
                         >
                            <li
@@ -536,7 +536,9 @@
                   </div>
                </div>
 
-               <div class="good-page__intro-preview-complectation-price">
+               <div
+                  class="good-page__intro-preview-complectation-price good-page__intro-preview-complectation-price-column"
+               >
                   <!-- <span
                      class="good-page__intro-preview-complectation-price-sale"
                      v-if="!badge"
