@@ -56,7 +56,7 @@
             class="good-page__intro-preview-slider-miniatures-item"
             v-for="(item, index) in miniatures"
             :key="item.product_id"
-            :src="`http://stankobox.runova.tech:8000/api/products/image/${id}/${item.name}`"
+            :src="`https://stankobox.runova.tech:8000/api/products/image/${id}/${item.name}`"
             @click="selectMiniature(index)"
             :class="{ active: item.active }"
             alt=""
@@ -89,7 +89,7 @@
       <img
          class="good-page__intro-preview-slider-main"
          v-if="activeIndex !== null && miniatures.length > 0"
-         :src="`http://stankobox.runova.tech:8000/api/products/image/${id}/${miniatures[activeIndex].name}`"
+         :src="`https://stankobox.runova.tech:8000/api/products/image/${id}/${miniatures[activeIndex].name}`"
          ref="previewImage"
          @click="toggler = !toggler"
          alt=""
@@ -163,7 +163,7 @@
             :key="item.product_id"
          >
             <img
-               :src="`http://stankobox.runova.tech:8000/api/products/image/${id}/${item.name}`"
+               :src="`https://stankobox.runova.tech:8000/api/products/image/${id}/${item.name}`"
                alt="Product Image"
             />
          </swiper-slide>
@@ -225,7 +225,7 @@ export default {
 
       try {
          const response = await axios.get(
-            `http://stankobox.runova.tech:8000/api/products/images/${this.id}`
+            `https://stankobox.runova.tech:8000/api/products/images/${this.id}`
          );
          this.miniatures = response.data;
 
@@ -242,7 +242,7 @@ export default {
       activeIndex(newIndex) {
          if (newIndex !== null && this.miniatures.length > 0) {
             this.$nextTick(() => {
-               this.$refs.previewImage.src = `http://stankobox.runova.tech:8000/api/products/image/${this.id}/${this.miniatures[newIndex].name}`;
+               this.$refs.previewImage.src = `https://stankobox.runova.tech:8000/api/products/image/${this.id}/${this.miniatures[newIndex].name}`;
             });
          }
       },
@@ -252,7 +252,7 @@ export default {
       imageSources() {
          return this.miniatures.map(
             (item) =>
-               `http://stankobox.runova.tech:8000/api/products/image/${this.id}/${item.name}`
+               `https://stankobox.runova.tech:8000/api/products/image/${this.id}/${item.name}`
          );
       },
    },

@@ -2024,11 +2024,11 @@ export default {
    async created() {
       try {
          const response = await axios.get(
-            `http://stankobox.runova.tech:8000/api/products/product/${this.id}`
+            `https://stankobox.runova.tech:8000/api/products/product/${this.id}`
          );
 
          const response2 = await axios.get(
-            `http://stankobox.runova.tech:8000/api/badges/product/${this.id}`
+            `https://stankobox.runova.tech:8000/api/badges/product/${this.id}`
          );
 
          this.productInfo = response.data;
