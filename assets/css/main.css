@@ -3080,6 +3080,50 @@ input[type=number] {
   margin-left: 20px;
 }
 
+.good-page__intro-preview-complectation-equipments-item-wrapper-advanced .good-page__intro-preview-complectation-equipments-item-wrapper-description-item {
+  list-style: none;
+  margin-left: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.good-page__intro-preview-complectation-equipments-item-wrapper-advanced .good-page__intro-preview-complectation-equipments-item-wrapper-active-svg-square {
+  border-radius: 12%;
+}
+
+.good-page .good-page__intro .good-page__intro-preview .good-page__intro-preview-complectation-equipments-item-wrapper-description-item-advanced .good-page__intro-preview-complectation-equipments-item-wrapper-active-svg {
+  min-width: 20px;
+  min-height: 20px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  border-color: #d5d5d5 !important;
+}
+.good-page .good-page__intro .good-page__intro-preview .good-page__intro-preview-complectation-equipments-item-wrapper-description-item-advanced .good-page__intro-preview-complectation-equipments-item-wrapper-active-svg rect {
+  fill: #fff !important;
+}
+.good-page .good-page__intro .good-page__intro-preview .good-page__intro-preview-complectation-equipments-item-wrapper-description-item-advanced.active .good-page__intro-preview-complectation-equipments-item-wrapper-active-svg {
+  border-color: transparent !important;
+}
+.good-page .good-page__intro .good-page__intro-preview .good-page__intro-preview-complectation-equipments-item-wrapper-description-item-advanced.active .good-page__intro-preview-complectation-equipments-item-wrapper-active-svg rect {
+  fill: #04b769 !important;
+}
+
+.good-page__intro-preview-complectation-equipments-item-wrapper-description-item-title {
+  color: #000;
+  font-family: "TTNormsMedium", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: 0.056px;
+  text-align: left;
+}
+
 .good-page__intro-preview-complectation-price {
   padding: 20px 20px 28px 20px;
   border-radius: 12px;
@@ -3187,6 +3231,19 @@ input[type=number] {
 .good-page__intro-preview-complectation-price-btn:hover {
   background: transparent !important;
   color: #e31335 !important;
+}
+
+.good-page__intro-preview-complectation-equipments-item-wrapper-description-constructor-link {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+}
+.good-page__intro-preview-complectation-equipments-item-wrapper-description-constructor-link button {
+  width: 100%;
+}
+.good-page__intro-preview-complectation-equipments-item-wrapper-description-constructor-link button:hover {
+  background: #e31335;
+  color: #fff !important;
 }
 
 .good-page__tabs {
@@ -3832,6 +3889,19 @@ input[type=number] {
   .good-page .offers .offers__list .offers__list-item .offers__list-item-current-price {
     font-size: 16px;
     line-height: 20px; /* 125% */
+  }
+  .good-page__intro-preview {
+    margin-top: 24px;
+  }
+  .good-page_mobile-slider {
+    position: relative;
+  }
+  .good-page_mobile-slider .good-page__intro-preview-slider-youtube {
+    left: 0;
+    right: auto;
+    z-index: 2;
+    width: 36px;
+    height: 24px;
   }
 }
 .good-page__mobile-accordions {

@@ -143,7 +143,7 @@
             alt=""
          />
          <svg
-         class="good-page__breadcrumbs-arrow-divider breadcrumbs-arrow-divider"
+            class="good-page__breadcrumbs-arrow-divider breadcrumbs-arrow-divider"
             xmlns="http://www.w3.org/2000/svg"
             width="4"
             height="8"
@@ -398,7 +398,7 @@
 
                      <!-- Расширенная -->
                      <div
-                        class="good-page__intro-preview-complectation-equipments-item-wrapper"
+                        class="good-page__intro-preview-complectation-equipments-item-wrapper good-page__intro-preview-complectation-equipments-item-wrapper-advanced"
                         :class="{ active: baseEquipment === false }"
                      >
                         <svg
@@ -447,25 +447,91 @@
                            class="good-page__intro-preview-complectation-equipments-item-wrapper-description"
                            :class="{ active: advancedDescriptionActive }"
                         >
-                           <li
-                              class="good-page__intro-preview-complectation-equipments-item-wrapper-description-item"
+                           <!-- БАЗОВЫЕ -->
+                           <h6
+                              class="good-page__intro-preview-complectation-equipments-item-wrapper-description-item-title"
+                              style="margin-top: 8px; margin-bottom: 12px"
                            >
-                              Стойка ЧПУ: GSK928DTL
-                           </li>
+                              Стойка ЧПУ:
+                           </h6>
 
                            <li
-                              class="good-page__intro-preview-complectation-equipments-item-wrapper-description-item"
+                              class="good-page__intro-preview-complectation-equipments-item-wrapper-description-item good-page__intro-preview-complectation-equipments-item-wrapper-description-item-advanced"
+                              v-for="(item, index) in options"
                            >
-                              Цельнолитая усиленная рёбрами жёсткости,
-                              устойчивая к механическим вибрациям чугунная
-                              станина
+                              <svg
+                                 class="good-page__intro-preview-complectation-equipments-item-wrapper-active-svg"
+                                 width="20"
+                                 height="20"
+                                 viewBox="0 0 20 20"
+                                 fill="none"
+                                 xmlns="http://www.w3.org/2000/svg"
+                              >
+                                 <rect
+                                    width="20"
+                                    height="20"
+                                    rx="14"
+                                    fill="none"
+                                 />
+                                 <path
+                                    d="M14.9706 6.45202C14.9018 6.38259 14.8198 6.32748 14.7296 6.28988C14.6393 6.25227 14.5425 6.23291 14.4447 6.23291C14.3469 6.23291 14.2501 6.25227 14.1598 6.28988C14.0696 6.32748 13.9876 6.38259 13.9188 6.45202L8.40025 11.9779L6.08173 9.65202C6.01024 9.58295 5.92584 9.52865 5.83335 9.4922C5.74086 9.45575 5.64211 9.43788 5.54271 9.4396C5.44332 9.44132 5.34524 9.4626 5.25407 9.50222C5.1629 9.54185 5.08043 9.59904 5.01136 9.67054C4.9423 9.74204 4.88799 9.82644 4.85154 9.91892C4.8151 10.0114 4.79722 10.1102 4.79894 10.2096C4.80066 10.309 4.82194 10.407 4.86157 10.4982C4.90119 10.5894 4.95838 10.6718 5.02988 10.7409L7.87433 13.5854C7.94319 13.6548 8.02511 13.7099 8.11538 13.7475C8.20565 13.7851 8.30247 13.8045 8.40025 13.8045C8.49804 13.8045 8.59486 13.7851 8.68512 13.7475C8.77539 13.7099 8.85732 13.6548 8.92618 13.5854L14.9706 7.54091C15.0458 7.47154 15.1058 7.38736 15.1469 7.29365C15.1879 7.19995 15.2091 7.09876 15.2091 6.99646C15.2091 6.89417 15.1879 6.79298 15.1469 6.69927C15.1058 6.60557 15.0458 6.52138 14.9706 6.45202Z"
+                                    fill="white"
+                                 />
+                              </svg>
+                              <span
+                                 class="good-page__intro-preview-complectation-equipments-item-wrapper-description-item-value"
+                                 >{{ item.value }}</span
+                              >
                            </li>
+                           <!--==============================-->
+
+                           <!-- ДОПОЛНИТЕЛЬНО -->
+                           <h6
+                              class="good-page__intro-preview-complectation-equipments-item-wrapper-description-item-title"
+                              style="margin-top: 16px; margin-bottom: 12px"
+                           >
+                              Дополнительно:
+                           </h6>
 
                            <li
-                              class="good-page__intro-preview-complectation-equipments-item-wrapper-description-item"
+                              class="good-page__intro-preview-complectation-equipments-item-wrapper-description-item good-page__intro-preview-complectation-equipments-item-wrapper-description-item-advanced"
+                              v-for="(item, index) in optionsAdvanced"
                            >
-                              Ручной токарный 3-х кулачковый патрон 160 мм
+                              <svg
+                                 class="good-page__intro-preview-complectation-equipments-item-wrapper-active-svg good-page__intro-preview-complectation-equipments-item-wrapper-active-svg-square"
+                                 width="20"
+                                 height="20"
+                                 viewBox="0 0 20 20"
+                                 fill="none"
+                                 xmlns="http://www.w3.org/2000/svg"
+                              >
+                                 <rect
+                                    width="20"
+                                    height="20"
+                                    rx="0"
+                                    fill="none"
+                                 />
+                                 <path
+                                    d="M14.9706 6.45202C14.9018 6.38259 14.8198 6.32748 14.7296 6.28988C14.6393 6.25227 14.5425 6.23291 14.4447 6.23291C14.3469 6.23291 14.2501 6.25227 14.1598 6.28988C14.0696 6.32748 13.9876 6.38259 13.9188 6.45202L8.40025 11.9779L6.08173 9.65202C6.01024 9.58295 5.92584 9.52865 5.83335 9.4922C5.74086 9.45575 5.64211 9.43788 5.54271 9.4396C5.44332 9.44132 5.34524 9.4626 5.25407 9.50222C5.1629 9.54185 5.08043 9.59904 5.01136 9.67054C4.9423 9.74204 4.88799 9.82644 4.85154 9.91892C4.8151 10.0114 4.79722 10.1102 4.79894 10.2096C4.80066 10.309 4.82194 10.407 4.86157 10.4982C4.90119 10.5894 4.95838 10.6718 5.02988 10.7409L7.87433 13.5854C7.94319 13.6548 8.02511 13.7099 8.11538 13.7475C8.20565 13.7851 8.30247 13.8045 8.40025 13.8045C8.49804 13.8045 8.59486 13.7851 8.68512 13.7475C8.77539 13.7099 8.85732 13.6548 8.92618 13.5854L14.9706 7.54091C15.0458 7.47154 15.1058 7.38736 15.1469 7.29365C15.1879 7.19995 15.2091 7.09876 15.2091 6.99646C15.2091 6.89417 15.1879 6.79298 15.1469 6.69927C15.1058 6.60557 15.0458 6.52138 14.9706 6.45202Z"
+                                    fill="white"
+                                 />
+                              </svg>
+                              <span
+                                 class="good-page__intro-preview-complectation-equipments-item-wrapper-description-item-value"
+                                 >{{ item.value }}</span
+                              >
                            </li>
+                           <!--==============================-->
+
+                           <NuxtLink
+                              class="good-page__intro-preview-complectation-equipments-item-wrapper-description-constructor-link"
+                              to="#"
+                           >
+                              <Button
+                                 class="good-page__intro-preview-complectation-equipments-item-wrapper-description-constructor-button"
+                                 >Открыть конструктор</Button
+                              >
+                           </NuxtLink>
                         </ul>
                      </div>
                   </div>
@@ -1941,7 +2007,18 @@ export default {
          ],
 
          productInfo: null, // Add productInfo to data
-         badge: null, // Add productInfo to data
+         badge: null,
+
+         options: [
+            { value: "FANUC (на англ. языке)" },
+            { value: "Siemens 808D (на рус. языке)" },
+            { value: "Siemens 808D (на англ. языке)" },
+         ],
+
+         optionsAdvanced: [
+            { value: "Гидравлический патрон 160 мм" },
+            { value: "Устройство для автоматической подачи прутка" },
+         ],
       };
    },
    async created() {
@@ -1956,18 +2033,17 @@ export default {
 
          this.productInfo = response.data;
          this.preorder = this.productInfo.preorder;
-         console.log("Product Preorder:", this.preorder);
+         //  console.log("Product Preorder:", this.preorder);
 
          this.badge = response2.data.badges;
          const firstBadge = this.badge[0];
 
          if (firstBadge && firstBadge.value) {
             const badgeValue = firstBadge.value;
-
             this.badge = badgeValue;
-            console.log("Badge Value:", badgeValue);
+            // console.log("Badge Value:", badgeValue);
 
-            console.log("Badges:", this.badge);
+            // console.log("Badges:", this.badge);
          } else {
             // Если массив бейджей пуст, присваиваем this.badge значение false
             this.badge = false;
@@ -1983,6 +2059,9 @@ export default {
    },
 
    methods: {
+      //Выбор пункта внутри расширенной комплектации
+
+      // Выбор комплектации
       advancedDescriptionActivating() {
          this.advancedDescriptionActive = !this.advancedDescriptionActive;
       },
@@ -2146,6 +2225,20 @@ export default {
    },
 
    mounted() {
+      // Функция для добавления класса active к блоку с классом good-page__intro-preview-complectation-equipments-item-wrapper-description-item-advanced, если он найден
+
+      // Функция для добавления класса active к блоку с классом good-page__intro-preview-complectation-equipments-item-wrapper-description-item-advanced, если он найден
+
+      const itemsAdvanced = document.querySelectorAll(
+         ".good-page__intro-preview-complectation-equipments-item-wrapper-description-item-advanced"
+      );
+
+      itemsAdvanced.forEach((item) => {
+         item.addEventListener("click", () => {
+            item.classList.toggle("active");
+         });
+      });
+
       // Функция для добавления класса к блоку, если он найден
       const addClassIfPresent = (containerClass, targetClass) => {
          const container = document.querySelector(`.${containerClass}`);
