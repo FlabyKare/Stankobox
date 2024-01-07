@@ -525,7 +525,6 @@
 
                            <NuxtLink
                               class="good-page__intro-preview-complectation-equipments-item-wrapper-description-constructor-link"
-                              to="#"
                            >
                               <Button
                                  class="good-page__intro-preview-complectation-equipments-item-wrapper-description-constructor-button"
@@ -2024,11 +2023,11 @@ export default {
    async created() {
       try {
          const response = await axios.get(
-            `https://stankobox.runova.tech:8000/api/products/product/${this.id}`
+            `https://stankobox.runova.tech/api/products/product/${this.id}`
          );
 
          const response2 = await axios.get(
-            `https://stankobox.runova.tech:8000/api/badges/product/${this.id}`
+            `https://stankobox.runova.tech/api/badges/product/${this.id}`
          );
 
          this.productInfo = response.data;
