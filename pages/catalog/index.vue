@@ -26,7 +26,7 @@
             >
                <img
                   class="catalog__categories-item-img equipments__categories-item-img"
-                  :src="`http://176.123.168.13:8000/api/categories/cover/${category.id}`"
+                  :src="`https://stankobox.runova.tech/api/categories/cover/${category.id}`"
                   alt=""
                />
             </div>
@@ -44,7 +44,7 @@
 import axios from "axios";
 
 const { data: categoriesInfo } = await axios.get(
-   "http://176.123.168.13:8000/api/categories/"
+   "https://stankobox.runova.tech/api/categories/"
 );
 </script>
 <style lang="scss" scoped>

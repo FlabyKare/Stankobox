@@ -13,7 +13,7 @@
 
       <slot />
    </main>
-   <footer class="footer">
+   <footer id="footer" class="footer">
       <section class="footer__list-container container">
          <NuxtLink to="/" class="footer__logo">
             <svg

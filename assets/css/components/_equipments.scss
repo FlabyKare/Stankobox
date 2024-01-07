@@ -142,3 +142,17 @@
    }
 }
 
+.equipments {
+   user-select: none !important;
+   cursor: pointer !important;
+   .equipments__categories-item,
+   .equipments__categories-item * {
+      user-select: none !important;
+      cursor: pointer !important;
+      pointer-events: auto !important;
+
+      .equipments__categories-item-text {
+         display: block;
+      }
+   }
+}

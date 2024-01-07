@@ -1,5 +1,5 @@
 <template>
-   <section @mousedown.left="onMouseDown" class="partners container">
+   <section @mousedown.left="onMouseDown" id="brands" class="partners container">
       <h2 class="partners__title little-defolt-title">Наши партнеры</h2>
 
       <VueHorizontal

@@ -2,7 +2,7 @@
    <section @mousedown.left="onMouseDown" class="equipments container">
       <h2 class="equipments__title defolt-title">Основное оборудование</h2>
 
-      <VueHorizontal
+      <!-- <VueHorizontal
          ref="horizontal"
          class="horizontal"
          snap="none"
@@ -23,108 +23,42 @@
             </div>
             <p class="equipments__categories-item-text">{{ item.text }}</p>
          </div>
+      </VueHorizontal> -->
 
-         <!-- <div class="equipments__categories-item">
+      <VueHorizontal
+         v-if="miniatures"
+         ref="horizontal"
+         class="horizontal"
+         snap="none"
+         :button="false"
+         @scroll="onScroll"
+      >
+         <div
+            v-for="(category, index) in miniatures.categories"
+            :key="index"
+            class="equipments__categories-item"
+         >
             <div class="equipments__categories-item-img-wrapper">
                <img
                   class="equipments__categories-item-img"
-                  src="~/assets/img/Equipments/1.png"
+                  :src="`https://stankobox.runova.tech/api/categories/cover/${category.id}`"
                   alt=""
                />
             </div>
-
-            <p class="equipments__categories-item-text">Станки по металлу</p>
+            <NuxtLink
+               :to="`/catalog/${category.id}`"
+               class="equipments__categories-item-text"
+               >{{ category.name }}</NuxtLink
+            >
          </div>
-
-         <div class="equipments__categories-item">
-            <div class="equipments__categories-item-img-wrapper">
-               <img
-                  class="equipments__categories-item-img"
-                  src="~/assets/img/Equipments/2.png"
-                  alt=""
-               />
-            </div>
-
-            <p class="equipments__categories-item-text">
-               Станки по металлу с ЧПУ
-            </p>
-         </div>
-
-         <div class="equipments__categories-item">
-            <div class="equipments__categories-item-img-wrapper">
-               <img
-                  class="equipments__categories-item-img"
-                  src="~/assets/img/Equipments/3.png"
-                  alt=""
-               />
-            </div>
-
-            <p class="equipments__categories-item-text">
-               Ленточнопильные станки
-            </p>
-         </div>
-
-         <div class="equipments__categories-item">
-            <div class="equipments__categories-item-img-wrapper">
-               <img
-                  class="equipments__categories-item-img"
-                  src="~/assets/img/Equipments/4.png"
-                  alt=""
-               />
-            </div>
-
-            <p class="equipments__categories-item-text">
-               Электроэрозионные станки
-            </p>
-         </div>
-
-         <div class="equipments__categories-item">
-            <div class="equipments__categories-item-img-wrapper">
-               <img
-                  class="equipments__categories-item-img"
-                  src="~/assets/img/Equipments/4.png"
-                  alt=""
-               />
-            </div>
-
-            <p class="equipments__categories-item-text">
-               Электроэрозионные станки
-            </p>
-         </div>
-
-         <div class="equipments__categories-item">
-            <div class="equipments__categories-item-img-wrapper">
-               <img
-                  class="equipments__categories-item-img"
-                  src="~/assets/img/Equipments/4.png"
-                  alt=""
-               />
-            </div>
-
-            <p class="equipments__categories-item-text">
-               Электроэрозионные станки
-            </p>
-         </div>
-
-         <div class="equipments__categories-item">
-            <div class="equipments__categories-item-img-wrapper">
-               <img
-                  class="equipments__categories-item-img"
-                  src="~/assets/img/Equipments/4.png"
-                  alt=""
-               />
-            </div>
-
-            <p class="equipments__categories-item-text">
-               Электроэрозионные станки
-            </p>
-         </div> -->
       </VueHorizontal>
    </section>
 </template>
 
 <script>
 import VueHorizontal from "vue-horizontal";
+import axios from "axios";
+
 export default {
    data() {
       return {
@@ -144,7 +78,26 @@ export default {
 
             // Добавьте необходимое количество объектов для каждой категории
          ],
+
+         miniatures: [],
+         activeIndex: null,
       };
+   },
+
+   async created() {
+      try {
+         const response = await axios.get(
+            `https://stankobox.runova.tech/api/categories/`
+         );
+         this.miniatures = response.data;
+
+         if (this.miniatures.length > 0) {
+            this.miniatures[0].active = true;
+            this.activeIndex = 0;
+         }
+      } catch (error) {
+         console.error("Error fetching miniatures:", error);
+      }
    },
    beforeUnmount() {
       this.onMouseUp();
