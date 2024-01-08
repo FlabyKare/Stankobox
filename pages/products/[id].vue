@@ -1261,32 +1261,47 @@
       <section class="good-page__mobile-accordions" v-if="productInfo">
          <ul class="good-page__mobile-accordions-list">
             <!-- ОПИСАНИЕ -->
-            <li
-               class="good-page__mobile-accordion-list-item"
-               @click="toggleAccordion(0)"
-            >
-               <div class="good-page__mobile-accordion-list-item-title">
+            <li class="good-page__mobile-accordion-list-item">
+               <div
+                  class="good-page__mobile-accordion-list-item-title"
+                  @click="toggleAccordion(0)"
+               >
                   <h3 class="good-page__mobile-accordion-list-item-title-text">
                      Описание
                   </h3>
                   <svgArrowBottom />
                </div>
 
-               <div class="good-page__mobile-accordion-list-item-content">
+               <div
+                  class="good-page__mobile-accordion-list-item-content"
+                  :class="{ active: accordionDescriptionIsActive }"
+               >
                   <p
                      class="good-page__mobile-accordion-list-item-content-description"
                   >
                      {{ productInfo.description }}
                   </p>
+
+                  <NuxtLink
+                     class="good-page__intro-preview-description-link"
+                     @click="readMore"
+                     >Скрыть</NuxtLink
+                  >
+
+                  <NuxtLink
+                     class="good-page__intro-preview-description-link good-page__intro-preview-description-link-hidden"
+                     @click="readMore"
+                     >Читать полностью
+                  </NuxtLink>
                </div>
             </li>
 
             <!-- ХАРАКТЕРИСТИКИ -->
-            <li
-               class="good-page__mobile-accordion-list-item"
-               @click="toggleAccordion(1)"
-            >
-               <div class="good-page__mobile-accordion-list-item-title">
+            <li class="good-page__mobile-accordion-list-item">
+               <div
+                  class="good-page__mobile-accordion-list-item-title"
+                  @click="toggleAccordion(1)"
+               >
                   <h3 class="good-page__mobile-accordion-list-item-title-text">
                      Характеристики
                   </h3>
@@ -1307,7 +1322,8 @@
                         class="good-page__tabs-characteristics-list-item"
                         v-for="item in productInfo.attributes"
                      >
-                        {{ item.property.title }}
+                        <span> {{ item.property.title }}</span>
+
                         <span> {{ item.value }}</span>
                      </li>
                   </ul>
@@ -1346,11 +1362,11 @@
             </li>
 
             <!-- ДОСТАВКА -->
-            <li
-               class="good-page__mobile-accordion-list-item"
-               @click="toggleAccordion(2)"
-            >
-               <div class="good-page__mobile-accordion-list-item-title">
+            <li class="good-page__mobile-accordion-list-item">
+               <div
+                  class="good-page__mobile-accordion-list-item-title"
+                  @click="toggleAccordion(2)"
+               >
                   <h3 class="good-page__mobile-accordion-list-item-title-text">
                      Доставка
                   </h3>
@@ -1620,11 +1636,11 @@
             </li>
 
             <!-- ОПЛАТА И ЛИЗИНГ  -->
-            <li
-               class="good-page__mobile-accordion-list-item"
-               @click="toggleAccordion(3)"
-            >
-               <div class="good-page__mobile-accordion-list-item-title">
+            <li class="good-page__mobile-accordion-list-item">
+               <div
+                  class="good-page__mobile-accordion-list-item-title"
+                  @click="toggleAccordion(3)"
+               >
                   <h3 class="good-page__mobile-accordion-list-item-title-text">
                      Оплата и лизинг
                   </h3>
@@ -1778,11 +1794,11 @@
             </li>
 
             <!-- ГАРАНТИИ  -->
-            <li
-               class="good-page__mobile-accordion-list-item"
-               @click="toggleAccordion(4)"
-            >
-               <div class="good-page__mobile-accordion-list-item-title">
+            <li class="good-page__mobile-accordion-list-item">
+               <div
+                  class="good-page__mobile-accordion-list-item-title"
+                  @click="toggleAccordion(4)"
+               >
                   <h3 class="good-page__mobile-accordion-list-item-title-text">
                      Гарантии
                   </h3>
@@ -1936,7 +1952,7 @@ export default {
          preorder: null,
          baseEquipment: false,
          descriptionActive: false,
-
+         accordionDescriptionIsActive: true,
          advancedDescriptionActive: false,
 
          cards: [
@@ -2060,7 +2076,9 @@ export default {
    },
 
    methods: {
-      //Выбор пункта внутри расширенной комплектации
+      readMore() {
+         this.accordionDescriptionIsActive = !this.accordionDescriptionIsActive;
+      },
 
       // Выбор комплектации
       advancedDescriptionActivating() {
